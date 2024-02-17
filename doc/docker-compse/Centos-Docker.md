@@ -9,7 +9,7 @@ Docker CE 即社区免费版，Docker EE 即企业版，强调安全，但需付
 移除旧的版本：
 
 ```shell
-$ sudo yum remove docker \
+sudo yum remove docker \
                   docker-client \
                   docker-client-latest \
                   docker-common \
