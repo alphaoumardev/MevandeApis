@@ -1,6 +1,6 @@
 package com.mall4j.cloud.order.listener;
 
-import com.mall4j.cloud.common.exception.mevandeException;
+import com.mall4j.cloud.common.exception.MevandeException;
 import com.mall4j.cloud.common.order.bo.PayNotifyBO;
 import com.mall4j.cloud.common.response.ResponseEnum;
 import com.mall4j.cloud.common.rocketmq.config.RocketMqConstant;
@@ -40,7 +40,7 @@ public class OrderNotifyConsumer implements RocketMQListener<PayNotifyBO> {
         // 发送消息，订单支付成功 通知库存扣减
         SendStatus sendStockStatus = orderNotifyStockTemplate.syncSend(RocketMqConstant.ORDER_NOTIFY_STOCK_TOPIC, new GenericMessage<>(message)).getSendStatus();
         if (!Objects.equals(sendStockStatus,SendStatus.SEND_OK)) {
-            throw new mevandeException(ResponseEnum.EXCEPTION);
+            throw new MevandeException(ResponseEnum.EXCEPTION);
         }
     }
 }

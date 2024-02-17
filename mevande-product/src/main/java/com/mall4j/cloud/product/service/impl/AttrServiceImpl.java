@@ -7,7 +7,7 @@ import com.mall4j.cloud.common.database.dto.PageDTO;
 import com.mall4j.cloud.common.database.util.PageAdapter;
 import com.mall4j.cloud.common.database.util.PageUtil;
 import com.mall4j.cloud.common.database.vo.PageVO;
-import com.mall4j.cloud.common.exception.mevandeException;
+import com.mall4j.cloud.common.exception.MevandeException;
 import com.mall4j.cloud.common.security.AuthUserContext;
 import com.mall4j.cloud.product.constant.AttrType;
 import com.mall4j.cloud.product.dto.AttrDTO;
@@ -58,7 +58,7 @@ public class AttrServiceImpl implements AttrService {
     public AttrVO getByAttrId(Long attrId) {
         AttrVO attrVO = attrMapper.getByAttrId(attrId);
         if (Objects.isNull(attrVO)) {
-            throw new mevandeException("属性不存在或已删除");
+            throw new MevandeException("属性不存在或已删除");
         }
         if (Objects.equals(attrVO.getAttrType(), AttrType.BASIC.value())) {
             attrVO.setCategories(attrCategoryService.listByAttrId(attrId));
@@ -107,7 +107,7 @@ public class AttrServiceImpl implements AttrService {
     public void deleteById(Long attrId) {
         AttrVO dbAttr = getByAttrId(attrId);
         if (Objects.isNull(dbAttr)) {
-            throw new mevandeException("该属性已删除或不存在");
+            throw new MevandeException("该属性已删除或不存在");
         }
         if (Objects.equals(dbAttr.getAttrType(), AttrType.BASIC.value())) {
             List<Long> categoryIds = dbAttr.getCategories().stream().map(CategoryVO::getCategoryId).collect(Collectors.toList());
@@ -126,7 +126,7 @@ public class AttrServiceImpl implements AttrService {
     public List<Long> getAttrOfCategoryIdByAttrId(Long attrId) {
         AttrVO attr = attrMapper.getByAttrId(attrId);
         if (Objects.isNull(attr)) {
-            throw new mevandeException("属性不存在");
+            throw new MevandeException("属性不存在");
         }
         if (CollUtil.isEmpty(attr.getCategories())) {
             return new ArrayList<>();

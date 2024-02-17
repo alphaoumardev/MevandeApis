@@ -5,7 +5,7 @@ import cn.hutool.core.util.StrUtil;
 import com.mall4j.cloud.api.product.vo.BrandVO;
 import com.mall4j.cloud.common.database.dto.PageDTO;
 import com.mall4j.cloud.common.database.vo.PageVO;
-import com.mall4j.cloud.common.exception.mevandeException;
+import com.mall4j.cloud.common.exception.MevandeException;
 import com.mall4j.cloud.common.response.ServerResponseEntity;
 import com.mall4j.cloud.product.dto.BrandDTO;
 import com.mall4j.cloud.product.model.Brand;
@@ -63,9 +63,9 @@ public class BrandController {
     @Operation(summary = "保存品牌信息" , description = "保存品牌信息")
     public ServerResponseEntity<Void> save(@Valid @RequestBody BrandDTO brandDTO) {
         if (CollUtil.isEmpty(brandDTO.getCategoryIds())) {
-            throw new mevandeException("分类不能为空");
+            throw new MevandeException("分类不能为空");
         }if (StrUtil.isEmpty(brandDTO.getName())) {
-            throw new mevandeException("品牌名称不能为空");
+            throw new MevandeException("品牌名称不能为空");
         }
         Brand brand = BeanUtil.map(brandDTO, Brand.class);
         brandService.save(brand, brandDTO.getCategoryIds());
@@ -77,7 +77,7 @@ public class BrandController {
     @Operation(summary = "更新品牌信息" , description = "更新品牌信息")
     public ServerResponseEntity<Void> update(@Valid @RequestBody BrandDTO brandDTO) {
         if (CollUtil.isEmpty(brandDTO.getCategoryIds())) {
-            throw new mevandeException("分类不能为空");
+            throw new MevandeException("分类不能为空");
         }
         Brand brand = BeanUtil.map(brandDTO, Brand.class);
         brandService.update(brand, brandDTO.getCategoryIds());
@@ -100,10 +100,10 @@ public class BrandController {
     @Operation(summary = "更新品牌状态（启用或禁用）" , description = "更新品牌状态（启用或禁用）")
     public ServerResponseEntity<Void> updateBrandStatus(@RequestBody BrandDTO brandDTO) {
 	    if (Objects.isNull(brandDTO.getStatus())) {
-	        throw new mevandeException("状态不能为空");
+	        throw new MevandeException("状态不能为空");
         }
         if (Objects.isNull(brandDTO.getBrandId())) {
-            throw new mevandeException("品牌id不能为空");
+            throw new MevandeException("品牌id不能为空");
         }
         brandService.updateBrandStatus(brandDTO);
         return ServerResponseEntity.success();

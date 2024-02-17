@@ -1,7 +1,7 @@
 package com.mall4j.cloud.rbac.controller;
 
 import com.mall4j.cloud.api.auth.bo.UserInfoInTokenBO;
-import com.mall4j.cloud.common.exception.mevandeException;
+import com.mall4j.cloud.common.exception.MevandeException;
 import com.mall4j.cloud.common.response.ServerResponseEntity;
 import com.mall4j.cloud.common.security.AuthUserContext;
 import com.mall4j.cloud.common.util.BooleanUtil;
@@ -90,7 +90,7 @@ public class MenuController {
 	private Menu checkAndGenerate(@RequestBody @Valid MenuDTO menuDTO) {
 		UserInfoInTokenBO userInfoInTokenBO = AuthUserContext.get();
 		if(!Objects.equals(userInfoInTokenBO.getTenantId(),0L)){
-			throw new mevandeException("无权限操作！");
+			throw new MevandeException("无权限操作！");
 		}
 		Menu menu = BeanUtil.map(menuDTO, Menu.class);
 		menu.setBizType(menuDTO.getSysType());
@@ -113,7 +113,7 @@ public class MenuController {
 	public ServerResponseEntity<Void> delete(@RequestParam("menuId") Long menuId,@RequestParam("sysType") Integer sysType) {
 		UserInfoInTokenBO userInfoInTokenBO = AuthUserContext.get();
 		if(!Objects.equals(userInfoInTokenBO.getTenantId(),0L)){
-			throw new mevandeException("无权限操作！");
+			throw new MevandeException("无权限操作！");
 		}
 		sysType = Objects.isNull(sysType) ? userInfoInTokenBO.getSysType():sysType;
 		menuService.deleteById(menuId,sysType);

@@ -3,7 +3,7 @@ package com.mall4j.cloud.product.controller.admin;
 import com.mall4j.cloud.api.product.constant.CategoryLevel;
 import com.mall4j.cloud.api.product.vo.CategoryVO;
 import com.mall4j.cloud.common.constant.Constant;
-import com.mall4j.cloud.common.exception.mevandeException;
+import com.mall4j.cloud.common.exception.MevandeException;
 import com.mall4j.cloud.common.response.ServerResponseEntity;
 import com.mall4j.cloud.common.security.AuthUserContext;
 import com.mall4j.cloud.product.dto.CategoryDTO;
@@ -51,7 +51,7 @@ public class CategoryController {
     @Operation(summary = "保存分类信息" , description = "保存分类信息")
     public ServerResponseEntity<Void> save(@Valid @RequestBody CategoryDTO categoryDTO) {
         if (!Objects.equals(Constant.PLATFORM_SHOP_ID, AuthUserContext.get().getTenantId()) && categoryDTO.getLevel() > CategoryLevel.SECOND.value()) {
-            throw new mevandeException("分类等级最高只能为二级分类");
+            throw new MevandeException("分类等级最高只能为二级分类");
         }
         Category category = BeanUtil.map(categoryDTO, Category.class);
         categoryService.save(category);

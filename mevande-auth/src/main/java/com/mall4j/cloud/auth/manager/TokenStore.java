@@ -5,9 +5,8 @@ import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.util.BooleanUtil;
 import cn.hutool.core.util.IdUtil;
 import cn.hutool.core.util.StrUtil;
-import cn.hutool.crypto.symmetric.AES;
 import com.mall4j.cloud.common.cache.constant.CacheNames;
-import com.mall4j.cloud.common.exception.mevandeException;
+import com.mall4j.cloud.common.exception.MevandeException;
 import com.mall4j.cloud.common.response.ResponseEnum;
 import com.mall4j.cloud.common.security.bo.TokenInfoBO;
 import com.mall4j.cloud.api.auth.bo.UserInfoInTokenBO;
@@ -18,7 +17,6 @@ import com.mall4j.cloud.common.util.PrincipalUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.data.redis.core.RedisCallback;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -301,7 +299,7 @@ public class TokenStore {
 		String uidKey = getUidToAccessKey(getApprovalKey(appId, uid));
 		Set<String> tokenInfoBoList = stringRedisTemplate.opsForSet().members(uidKey);
 		if (tokenInfoBoList == null || tokenInfoBoList.size() == 0) {
-			throw new mevandeException(ResponseEnum.UNAUTHORIZED);
+			throw new MevandeException(ResponseEnum.UNAUTHORIZED);
 		}
 		for (String accessTokenWithRefreshToken : tokenInfoBoList) {
 			String[] accessTokenWithRefreshTokenArr = accessTokenWithRefreshToken.split(StrUtil.COLON);

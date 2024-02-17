@@ -1,7 +1,7 @@
 package com.mall4j.cloud.common.handler;
 
 import cn.hutool.core.util.StrUtil;
-import com.mall4j.cloud.common.exception.mevandeException;
+import com.mall4j.cloud.common.exception.MevandeException;
 import com.mall4j.cloud.common.response.ResponseEnum;
 import com.mall4j.cloud.common.response.ServerResponseEntity;
 import io.seata.core.context.RootContext;
@@ -65,8 +65,8 @@ public class DefaultExceptionHandlerConfig {
 				.body(ServerResponseEntity.fail(ResponseEnum.HTTP_MESSAGE_NOT_READABLE));
 	}
 
-	@ExceptionHandler(mevandeException.class)
-	public ResponseEntity<ServerResponseEntity<Object>> mevandeExceptionHandler(mevandeException e) {
+	@ExceptionHandler(MevandeException.class)
+	public ResponseEntity<ServerResponseEntity<Object>> mevandeExceptionHandler(MevandeException e) {
 		logger.error("mevandeExceptionHandler", e);
 
 		ResponseEnum responseEnum = e.getResponseEnum();

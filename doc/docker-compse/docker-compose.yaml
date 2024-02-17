@@ -2,7 +2,7 @@ version: "3.5"
 
 services:
   mevande-mysql:
-    image: mysql:8.0
+    image: mysql:8.0.36
     container_name: mevande-mysql
     restart: always
     environment:
@@ -15,7 +15,7 @@ services:
       - ./mysql/initdb:/docker-entrypoint-initdb.d
 
   mevande-minio:
-    image: minio/minio:latest
+    image: minio/minio:RELEASE.2023-12-23T07-19-11Z
     container_name: mevande-minio
     restart: always
     command: server /data
@@ -28,7 +28,7 @@ services:
       - MINIO_ROOT_PASSWORD=admin123456
 
   mevande-redis:
-    image: redis:7.2
+    image: redis:6.2
     container_name: mevande-redis
     restart: always
     ports:
@@ -49,7 +49,7 @@ services:
       - MODE=standalone
       - PREFER_HOST_MODE=hostname
       - SPRING_DATASOURCE_PLATFORM=mysql
-      - MYSQL_SERVICE_HOST=172.214.32.61
+      - MYSQL_SERVICE_HOST=34.229.19.12
       - MYSQL_SERVICE_DB_NAME=mevande_nacos
       - MYSQL_SERVICE_USER=root
       - MYSQL_SERVICE_PASSWORD=root
@@ -58,7 +58,7 @@ services:
 
 
   mevande-seata:
-    image: seataio/seata-server:2.0.0
+    image: seataio/seata-server:1.6.1
     container_name: mevande-seata
     restart: always
     depends_on:
@@ -68,12 +68,12 @@ services:
       - "8091:8091"
       - "7091:7091"
     environment:
-      - SEATA_IP=172.214.32.61
+      - SEATA_IP=34.229.19.12
     volumes:
       - ./seata/application.yml:/seata-server/resources/application.yml
 
   mevande-elasticsearch:
-    image: elasticsearch:8.12.0
+    image: elasticsearch:7.17.5
     container_name: mevande-elasticsearch
     restart: always
     ports:
@@ -88,7 +88,7 @@ services:
       - ./elasticsearch/plugins:/usr/share/elasticsearch/plugins
 
   mevande-kibana:
-    image: kibana:7.17.18
+    image: kibana:7.17.5
     container_name: mevande-kibana
     restart: always
     ports:
@@ -111,7 +111,7 @@ services:
 
 
   mevande-rocketmq-namesrv:
-    image: apache/rocketmq:5.1.4
+    image: apache/rocketmq:4.9.4
     container_name: mevande-rocketmq-namesrv
     restart: always
     ports:
@@ -128,7 +128,7 @@ services:
           - mevande-rocketmq-namesrv
 
   mevande-rocketmq-broker:
-    image: apache/rocketmq:5.1.4
+    image: apache/rocketmq:4.9.4
     container_name: mevande-rocketmq-broker
     restart: always
     ports:

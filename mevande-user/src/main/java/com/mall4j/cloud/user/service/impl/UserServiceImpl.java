@@ -11,7 +11,7 @@ import com.mall4j.cloud.common.cache.constant.UserCacheNames;
 import com.mall4j.cloud.common.database.dto.PageDTO;
 import com.mall4j.cloud.common.database.util.PageUtil;
 import com.mall4j.cloud.common.database.vo.PageVO;
-import com.mall4j.cloud.common.exception.mevandeException;
+import com.mall4j.cloud.common.exception.MevandeException;
 import com.mall4j.cloud.common.response.ResponseEnum;
 import com.mall4j.cloud.common.response.ServerResponseEntity;
 import com.mall4j.cloud.common.util.IpHelper;
@@ -20,7 +20,6 @@ import com.mall4j.cloud.user.model.User;
 import com.mall4j.cloud.user.mapper.UserMapper;
 import com.mall4j.cloud.user.service.UserService;
 import io.seata.spring.annotation.GlobalTransactional;
-import com.mall4j.cloud.common.util.BeanUtil;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
@@ -82,7 +81,7 @@ public class UserServiceImpl implements UserService {
 
         ServerResponseEntity<Long> segmentIdResponse = segmentFeignClient.getSegmentId(User.DISTRIBUTED_ID_KEY);
         if (!segmentIdResponse.isSuccess()) {
-            throw new mevandeException(ResponseEnum.EXCEPTION);
+            throw new MevandeException(ResponseEnum.EXCEPTION);
         }
         Long userId = segmentIdResponse.getData();
 
@@ -101,7 +100,7 @@ public class UserServiceImpl implements UserService {
         ServerResponseEntity<Long> serverResponse = accountFeignClient.save(authAccountDTO);
         // 抛异常回滚
         if (!serverResponse.isSuccess()) {
-            throw new mevandeException(serverResponse.getMsg());
+            throw new MevandeException(serverResponse.getMsg());
         }
 
         User user = new User();
@@ -118,10 +117,10 @@ public class UserServiceImpl implements UserService {
     private void checkRegisterInfo(UserRegisterDTO userRegisterDTO) {
         ServerResponseEntity<AuthAccountVO> responseEntity = accountFeignClient.getByUsernameAndSysType(userRegisterDTO.getUserName(), SysTypeEnum.ORDINARY);
         if (!responseEntity.isSuccess()) {
-            throw new mevandeException(responseEntity.getMsg());
+            throw new MevandeException(responseEntity.getMsg());
         }
         if (Objects.nonNull(responseEntity.getData())) {
-            throw new mevandeException("用户名已存在");
+            throw new MevandeException("用户名已存在");
         }
     }
 

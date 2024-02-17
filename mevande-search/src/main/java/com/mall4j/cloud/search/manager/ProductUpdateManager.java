@@ -1,7 +1,7 @@
 package com.mall4j.cloud.search.manager;
 
 import com.mall4j.cloud.api.product.bo.EsProductBO;
-import com.mall4j.cloud.common.exception.mevandeException;
+import com.mall4j.cloud.common.exception.MevandeException;
 import com.mall4j.cloud.common.util.Json;
 import com.mall4j.cloud.search.constant.EsIndexEnum;
 import org.elasticsearch.action.bulk.BulkRequest;
@@ -41,10 +41,10 @@ public class ProductUpdateManager {
             //更新
             BulkResponse bulkResponse = restHighLevelClient.bulk(request, RequestOptions.DEFAULT);
             if (bulkResponse.hasFailures()) {
-                throw new mevandeException(bulkResponse.buildFailureMessage());
+                throw new MevandeException(bulkResponse.buildFailureMessage());
             }
         } catch (Exception e) {
-            throw new mevandeException(e.getMessage());
+            throw new MevandeException(e.getMessage());
         }
     }
 }

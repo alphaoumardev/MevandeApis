@@ -2,7 +2,7 @@ package com.mall4j.cloud.user.service.impl;
 
 import com.mall4j.cloud.api.user.vo.AreaVO;
 import com.mall4j.cloud.common.cache.constant.CacheNames;
-import com.mall4j.cloud.common.exception.mevandeException;
+import com.mall4j.cloud.common.exception.MevandeException;
 import com.mall4j.cloud.user.mapper.AreaMapper;
 import com.mall4j.cloud.user.model.Area;
 import com.mall4j.cloud.user.service.AreaService;
@@ -76,7 +76,7 @@ public class AreaServiceImpl implements AreaService {
     public void deleteById(Long areaId) {
         int areaNum = areaMapper.countByAreaId(areaId);
         if (areaNum > 0) {
-            throw new mevandeException("请先删除子地区");
+            throw new MevandeException("请先删除子地区");
         }
         areaMapper.deleteById(areaId);
     }

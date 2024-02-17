@@ -7,7 +7,7 @@ import com.mall4j.cloud.common.constant.StatusEnum;
 import com.mall4j.cloud.common.database.dto.PageDTO;
 import com.mall4j.cloud.common.database.util.PageUtil;
 import com.mall4j.cloud.common.database.vo.PageVO;
-import com.mall4j.cloud.common.exception.mevandeException;
+import com.mall4j.cloud.common.exception.MevandeException;
 import com.mall4j.cloud.product.dto.BrandDTO;
 import com.mall4j.cloud.product.model.Brand;
 import com.mall4j.cloud.product.mapper.BrandMapper;
@@ -65,7 +65,7 @@ public class BrandServiceImpl implements BrandService {
     @Override
     public void deleteById(Long brandId) {
         if (getUseNum(brandId) > 0){
-            throw new mevandeException("有部分商品在使用该品牌，不能进行删除操作");
+            throw new MevandeException("有部分商品在使用该品牌，不能进行删除操作");
         }
         brandMapper.deleteById(brandId);
         categoryBrandService.deleteByBrandId(brandId);

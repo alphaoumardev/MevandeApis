@@ -7,7 +7,7 @@ import com.mall4j.cloud.biz.service.AttachFileService;
 import com.mall4j.cloud.biz.vo.AttachFileVO;
 import com.mall4j.cloud.common.database.dto.PageDTO;
 import com.mall4j.cloud.common.database.vo.PageVO;
-import com.mall4j.cloud.common.exception.mevandeException;
+import com.mall4j.cloud.common.exception.MevandeException;
 import com.mall4j.cloud.common.response.ServerResponseEntity;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import io.swagger.v3.oas.annotations.Operation;
@@ -61,7 +61,7 @@ public class AttachFileController {
     public ServerResponseEntity<Boolean> updateFileName(@RequestBody AttachFileDTO attachFileDto) {
         if (Objects.isNull(attachFileDto.getFileName())) {
             // 图片名称不能为空
-            throw new mevandeException("图片名称不能为空");
+            throw new MevandeException("图片名称不能为空");
         }
         AttachFile attachFile = BeanUtil.map(attachFileDto, AttachFile.class);
         return ServerResponseEntity.success(attachFileService.updateFileName(attachFile));

@@ -6,6 +6,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
  * @author Alphaoumardev
  * @date 2020/9/22
  */
+
 public class AuthAccountVO {
     /**
      * 全平台用户唯一id

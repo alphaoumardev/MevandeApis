@@ -4,22 +4,18 @@ import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.util.StrUtil;
 import com.mall4j.cloud.common.cache.constant.CacheNames;
 import com.mall4j.cloud.common.constant.Constant;
-import com.mall4j.cloud.common.constant.StatusEnum;
-import com.mall4j.cloud.common.exception.mevandeException;
+import com.mall4j.cloud.common.exception.MevandeException;
 import com.mall4j.cloud.common.security.AuthUserContext;
 import com.mall4j.cloud.api.product.constant.CategoryLevel;
-import com.mall4j.cloud.product.dto.CategoryDTO;
 import com.mall4j.cloud.product.model.Category;
 import com.mall4j.cloud.product.mapper.CategoryMapper;
 import com.mall4j.cloud.product.service.CategoryService;
 import com.mall4j.cloud.api.product.vo.CategoryVO;
-import com.mall4j.cloud.product.service.SpuService;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.cache.annotation.Caching;
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -71,7 +67,7 @@ public class CategoryServiceImpl implements CategoryService {
     public void update(Category category) {
         CategoryVO dbCategory = getById(category.getCategoryId());
         if (Objects.equals(dbCategory.getCategoryId(), category.getParentId())) {
-            throw new mevandeException("分类不能成为本身的上级分类");
+            throw new MevandeException("分类不能成为本身的上级分类");
         }
         existCategoryName(category);
         int updateCount = categoryMapper.update(category);
@@ -81,7 +77,7 @@ public class CategoryServiceImpl implements CategoryService {
     public void deleteById(Long categoryId) {
         int count = categoryMapper.getCategoryUseNum(categoryId);
         if (count > 0) {
-            throw new mevandeException("该分类在使用中，不能进行删除操作");
+            throw new MevandeException("该分类在使用中，不能进行删除操作");
         }
         categoryMapper.deleteById(categoryId);
     }
@@ -225,7 +221,7 @@ public class CategoryServiceImpl implements CategoryService {
         category.setShopId(AuthUserContext.get().getTenantId());
         int countByName = categoryMapper.existCategoryName(category);
         if (countByName > 0) {
-            throw new mevandeException("分类名已存在，请重新输入");
+            throw new MevandeException("分类名已存在，请重新输入");
         }
     }
 }

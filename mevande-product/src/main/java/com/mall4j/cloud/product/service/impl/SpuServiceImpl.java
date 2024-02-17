@@ -15,7 +15,7 @@ import com.mall4j.cloud.common.constant.StatusEnum;
 import com.mall4j.cloud.common.database.dto.PageDTO;
 import com.mall4j.cloud.common.database.util.PageUtil;
 import com.mall4j.cloud.common.database.vo.PageVO;
-import com.mall4j.cloud.common.exception.mevandeException;
+import com.mall4j.cloud.common.exception.MevandeException;
 import com.mall4j.cloud.common.response.ServerResponseEntity;
 import com.mall4j.cloud.common.security.AuthUserContext;
 import com.mall4j.cloud.product.dto.SpuDTO;
@@ -118,7 +118,7 @@ public class SpuServiceImpl implements SpuService {
             SpuVO spuVO = spuMapper.getBySpuId(spuId);
             ServerResponseEntity<Void> imgRes = indexImgFeignClient.deleteBySpuId(spuVO.getSpuId(), spuVO.getShopId());
             if (!imgRes.isSuccess()) {
-                throw new mevandeException("服务异常");
+                throw new MevandeException("服务异常");
             }
         }
     }
@@ -191,7 +191,7 @@ public class SpuServiceImpl implements SpuService {
     public void deleteById(Long spuId) {
         SpuVO spuVO = getBySpuId(spuId);
         if(Objects.isNull(spuVO) || Objects.equals(spuVO.getStatus(), StatusEnum.DELETE.value())){
-            throw new mevandeException("商品不存在或者已被删除！");
+            throw new MevandeException("商品不存在或者已被删除！");
         }
         // 删除商品、sku信息(逻辑删除)
         spuMapper.updateStatusBySpuId(spuId);
@@ -199,7 +199,7 @@ public class SpuServiceImpl implements SpuService {
         // 把轮播图中关联了该商品的数据删除
         ServerResponseEntity<Void> imgRes = indexImgFeignClient.deleteBySpuId(spuId, spuVO.getShopId());
         if (!imgRes.isSuccess()) {
-            throw new mevandeException("服务异常");
+            throw new MevandeException("服务异常");
         }
     }
 

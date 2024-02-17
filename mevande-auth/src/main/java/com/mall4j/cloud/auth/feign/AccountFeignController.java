@@ -10,7 +10,7 @@ import com.mall4j.cloud.api.leaf.feign.SegmentFeignClient;
 import com.mall4j.cloud.auth.manager.TokenStore;
 import com.mall4j.cloud.auth.mapper.AuthAccountMapper;
 import com.mall4j.cloud.auth.model.AuthAccount;
-import com.mall4j.cloud.common.exception.mevandeException;
+import com.mall4j.cloud.common.exception.MevandeException;
 import com.mall4j.cloud.common.response.ResponseEnum;
 import com.mall4j.cloud.common.response.ServerResponseEntity;
 import com.mall4j.cloud.common.security.AuthUserContext;
@@ -50,7 +50,7 @@ public class AccountFeignController implements AccountFeignClient {
     public ServerResponseEntity<Long> save(AuthAccountDTO authAccountDTO) {
         ServerResponseEntity<Long> segmentIdResponse = segmentFeignClient.getSegmentId("mevande-auth-account");
         if (!segmentIdResponse.isSuccess()) {
-            throw new mevandeException(ResponseEnum.EXCEPTION);
+            throw new MevandeException(ResponseEnum.EXCEPTION);
         }
 
         ServerResponseEntity<AuthAccount> verify = verify(authAccountDTO);
@@ -79,7 +79,7 @@ public class AccountFeignController implements AccountFeignClient {
     @Transactional(rollbackFor = Exception.class)
     public ServerResponseEntity<Void> updateAuthAccountStatus(AuthAccountDTO authAccountDTO) {
         if (Objects.isNull(authAccountDTO.getStatus())) {
-            throw new mevandeException(ResponseEnum.EXCEPTION);
+            throw new MevandeException(ResponseEnum.EXCEPTION);
         }
         AuthAccount authAccount = BeanUtil.map(authAccountDTO, AuthAccount.class);
         authAccountMapper.updateAccountInfo(authAccount);
@@ -141,7 +141,7 @@ public class AccountFeignController implements AccountFeignClient {
         AuthAccount authAccount = BeanUtil.map(userInfoInTokenBO, AuthAccount.class);
         int res = authAccountMapper.updateUserInfoByUserId(authAccount, userId, sysType);
         if (res != 1) {
-            throw new mevandeException("用户信息错误，更新失败");
+            throw new MevandeException("用户信息错误，更新失败");
         }
         return ServerResponseEntity.success();
     }

@@ -2,7 +2,7 @@ package com.mall4j.cloud.common.handler;
 
 import cn.hutool.core.util.CharsetUtil;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.mall4j.cloud.common.exception.mevandeException;
+import com.mall4j.cloud.common.exception.MevandeException;
 import com.mall4j.cloud.common.response.ServerResponseEntity;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -54,7 +54,7 @@ public class HttpHandler {
 			printWriter.write(objectMapper.writeValueAsString(serverResponseEntity));
 		}
 		catch (IOException e) {
-			throw new mevandeException("io 异常", e);
+			throw new MevandeException("io 异常", e);
 		}
 	}
 

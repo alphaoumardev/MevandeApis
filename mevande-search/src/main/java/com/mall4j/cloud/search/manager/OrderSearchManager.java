@@ -5,7 +5,7 @@ import com.mall4j.cloud.api.dto.EsPageDTO;
 import com.mall4j.cloud.api.vo.EsPageVO;
 import com.mall4j.cloud.api.vo.search.EsOrderVO;
 import com.mall4j.cloud.common.dto.OrderSearchDTO;
-import com.mall4j.cloud.common.exception.mevandeException;
+import com.mall4j.cloud.common.exception.MevandeException;
 import com.mall4j.cloud.common.util.BooleanUtil;
 import com.mall4j.cloud.common.util.Json;
 import com.mall4j.cloud.search.constant.EsIndexEnum;
@@ -68,7 +68,7 @@ public class OrderSearchManager {
             result = buildSearchResult(pageDTO, response);
         } catch (IOException e) {
             log.error(e.toString());
-            throw new mevandeException("搜索服务出了点小差，请稍后再试", e);
+            throw new MevandeException("搜索服务出了点小差，请稍后再试", e);
         }
         return result;
     }

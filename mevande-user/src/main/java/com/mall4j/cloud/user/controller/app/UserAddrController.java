@@ -1,6 +1,6 @@
 package com.mall4j.cloud.user.controller.app;
 
-import com.mall4j.cloud.common.exception.mevandeException;
+import com.mall4j.cloud.common.exception.MevandeException;
 import com.mall4j.cloud.common.order.vo.UserAddrVO;
 import com.mall4j.cloud.common.response.ResponseEnum;
 import com.mall4j.cloud.common.response.ServerResponseEntity;
@@ -77,11 +77,11 @@ public class UserAddrController {
         Long userId = AuthUserContext.get().getUserId();
         UserAddrVO dbUserAddr = userAddrService.getUserAddrByUserId(userAddrDTO.getAddrId(), userId);
         if (dbUserAddr == null) {
-            throw new mevandeException("该地址已被删除");
+            throw new MevandeException("该地址已被删除");
         }
         // 默认地址不能修改为普通地址
         else if (dbUserAddr.getIsDefault().equals(UserAddr.DEFAULT_ADDR) && userAddrDTO.getIsDefault().equals(UserAddr.NOT_DEFAULT_ADDR)) {
-            throw new mevandeException(ResponseEnum.DATA_ERROR);
+            throw new MevandeException(ResponseEnum.DATA_ERROR);
         }
         UserAddr userAddr = BeanUtil.map(userAddrDTO, UserAddr.class);
         userAddr.setUserId(userId);
@@ -99,9 +99,9 @@ public class UserAddrController {
         Long userId = AuthUserContext.get().getUserId();
         UserAddrVO dbUserAddr = userAddrService.getUserAddrByUserId(addrId, userId);
         if (dbUserAddr == null) {
-            throw new mevandeException("该地址已被删除");
+            throw new MevandeException("该地址已被删除");
         } else if (dbUserAddr.getIsDefault().equals(UserAddr.DEFAULT_ADDR)) {
-            throw new mevandeException("默认地址不能删除");
+            throw new MevandeException("默认地址不能删除");
         }
         userAddrService.deleteUserAddrByUserId(addrId, userId);
         return ServerResponseEntity.success();
