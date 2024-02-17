@@ -5,23 +5,23 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.mall4j.cloud</groupId>
-    <artifactId>mall4cloud</artifactId>
+    <artifactId>mevande</artifactId>
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>mall4cloud-gateway</module>
-        <module>mall4cloud-auth</module>
-        <module>mall4cloud-common</module>
-        <module>mall4cloud-rbac</module>
-        <module>mall4cloud-leaf</module>
-        <module>mall4cloud-api</module>
-        <module>mall4cloud-multishop</module>
-        <module>mall4cloud-platform</module>
-        <module>mall4cloud-biz</module>
-        <module>mall4cloud-product</module>
-        <module>mall4cloud-search</module>
-        <module>mall4cloud-user</module>
-        <module>mall4cloud-order</module>
-        <module>mall4cloud-payment</module>
+        <module>mevande-gateway</module>
+        <module>mevande-auth</module>
+        <module>mevande-common</module>
+        <module>mevande-rbac</module>
+        <module>mevande-leaf</module>
+        <module>mevande-api</module>
+        <module>mevande-multishop</module>
+        <module>mevande-platform</module>
+        <module>mevande-biz</module>
+        <module>mevande-product</module>
+        <module>mevande-search</module>
+        <module>mevande-user</module>
+        <module>mevande-order</module>
+        <module>mevande-payment</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -216,6 +216,11 @@
                 <artifactId>springdoc-openapi-starter-webflux-ui</artifactId>
                 <version>${springdoc-webflux.version}</version>
             </dependency>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid-spring-boot-starter</artifactId>
+                <version>1.2.18</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -224,6 +229,11 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-configuration-processor</artifactId>
             <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid-spring-boot-starter</artifactId>
+            <version>1.2.21</version>
         </dependency>
     </dependencies>
     <build>

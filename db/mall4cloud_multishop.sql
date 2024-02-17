@@ -1,6 +1,6 @@
 /*
 SQLyog Ultimate v13.1.1 (64 bit)
-MySQL - 8.0.25 : Database - mall4cloud_multishop
+MySQL - 8.0.25 : Database - mevande_multishop
 *********************************************************************
 */
 
@@ -12,9 +12,9 @@ MySQL - 8.0.25 : Database - mall4cloud_multishop
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-CREATE DATABASE /*!32312 IF NOT EXISTS*/`mall4cloud_multishop` /*!40100 DEFAULT CHARACTER SET utf8 */ /*!80016 DEFAULT ENCRYPTION='N' */;
+CREATE DATABASE /*!32312 IF NOT EXISTS*/`mevande_multishop` /*!40100 DEFAULT CHARACTER SET utf8 */ /*!80016 DEFAULT ENCRYPTION='N' */;
 
-USE `mall4cloud_multishop`;
+USE `mevande_multishop`;
 
 /*Table structure for table `hot_search` */
 
@@ -114,9 +114,9 @@ CREATE TABLE `undo_log` (
 ) ENGINE=InnoDB AUTO_INCREMENT=388 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 
-INSERT INTO `mall4cloud_multishop`.`shop_detail` (`shop_id`, `create_time`, `update_time`, `shop_name`, `intro`, `shop_logo`, `mobile_background_pic`, `shop_status`, `business_license`, `identity_card_front`, `identity_card_later`, `type`) VALUES (0, '2022-04-25 14:49:45', '2022-04-25 14:50:35', 'lanhai', NULL, NULL, NULL, 1, '123456789123', '123456789123', NULL, 1);
+INSERT INTO `mevande_multishop`.`shop_detail` (`shop_id`, `create_time`, `update_time`, `shop_name`, `intro`, `shop_logo`, `mobile_background_pic`, `shop_status`, `business_license`, `identity_card_front`, `identity_card_later`, `type`) VALUES (0, '2022-04-25 14:49:45', '2022-04-25 14:50:35', 'lanhai', NULL, NULL, NULL, 1, '123456789123', '123456789123', NULL, 1);
 
-INSERT INTO `mall4cloud_multishop`.`shop_user` (`shop_user_id`, `create_time`, `update_time`, `shop_id`, `nick_name`, `code`, `phone_num`, `has_account`) VALUES (2, '2022-04-25 14:07:57', '2022-04-25 14:53:38', 0, 'hyg123', '', '18470778787', 1);
+INSERT INTO `mevande_multishop`.`shop_user` (`shop_user_id`, `create_time`, `update_time`, `shop_id`, `nick_name`, `code`, `phone_num`, `has_account`) VALUES (2, '2022-04-25 14:07:57', '2022-04-25 14:53:38', 0, 'hyg123', '', '18470778787', 1);
 
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;

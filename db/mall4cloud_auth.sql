@@ -1,6 +1,6 @@
 /*
 SQLyog Ultimate v13.1.1 (64 bit)
-MySQL - 8.0.25 : Database - mall4cloud_auth
+MySQL - 8.0.25 : Database - mevande_auth
 *********************************************************************
 */
 
@@ -12,9 +12,9 @@ MySQL - 8.0.25 : Database - mall4cloud_auth
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-CREATE DATABASE /*!32312 IF NOT EXISTS*/`mall4cloud_auth` /*!40100 DEFAULT CHARACTER SET utf8 */ /*!80016 DEFAULT ENCRYPTION='N' */;
+CREATE DATABASE /*!32312 IF NOT EXISTS*/`mevande_auth` /*!40100 DEFAULT CHARACTER SET utf8 */ /*!80016 DEFAULT ENCRYPTION='N' */;
 
-USE `mall4cloud_auth`;
+USE `mevande_auth`;
 
 /*Table structure for table `auth_account` */
 
@@ -62,7 +62,7 @@ CREATE TABLE `undo_log` (
 ) ENGINE=InnoDB AUTO_INCREMENT=397 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 
-INSERT INTO `mall4cloud_auth`.`auth_account` (`uid`, `create_time`, `update_time`, `username`, `password`, `create_ip`, `status`, `sys_type`, `user_id`, `tenant_id`, `is_admin`) VALUES (2, '2021-07-01 11:07:38', '2022-04-25 14:47:40', 'hyg123', '$2a$10$EiwfzqsAVUtuJ0Ry5YPMPOeyc/4shzSUcqMBRInKTijzir48LLkM.', '127.0.0.1', 1, 1, 1, 0, 1);
+INSERT INTO `mevande_auth`.`auth_account` (`uid`, `create_time`, `update_time`, `username`, `password`, `create_ip`, `status`, `sys_type`, `user_id`, `tenant_id`, `is_admin`) VALUES (2, '2021-07-01 11:07:38', '2022-04-25 14:47:40', 'hyg123', '$2a$10$EiwfzqsAVUtuJ0Ry5YPMPOeyc/4shzSUcqMBRInKTijzir48LLkM.', '127.0.0.1', 1, 1, 1, 0, 1);
 
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
