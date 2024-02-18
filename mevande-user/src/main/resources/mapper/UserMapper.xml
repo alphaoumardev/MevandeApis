@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.mall4j.cloud.user.mapper.UserMapper">
-  <resultMap id="userMap" type="com.mall4j.cloud.user.model.User">
+<mapper namespace="com.mev.cloud.user.mapper.UserMapper">
+  <resultMap id="userMap" type="com.mev.cloud.user.model.User">
     <id column="user_id" property="userId" />
     <result column="create_time" property="createTime"/>
     <result column="update_time" property="updateTime"/>
@@ -11,7 +11,7 @@
     <result column="status" property="status"/>
   </resultMap>
 
-  <resultMap id="userAndOpenIdsMap" type="com.mall4j.cloud.api.user.vo.UserApiVO">
+  <resultMap id="userAndOpenIdsMap" type="com.mev.cloud.api.user.vo.UserApiVO">
     <!--
       WARNING - @mbg.generated
     -->
@@ -27,10 +27,10 @@
   <sql id="Vo_Column_List">
     `user_id`,`create_time`,`update_time`,`nick_name`,`pic`,`status`
   </sql>
-  <select id="list" resultType="com.mall4j.cloud.user.vo.UserVO">
+  <select id="list" resultType="com.mev.cloud.user.vo.UserVO">
     select <include refid="Vo_Column_List"/> from user order by user_id desc
   </select>
-  <select id="getByUserId" resultType="com.mall4j.cloud.api.user.vo.UserApiVO">
+  <select id="getByUserId" resultType="com.mev.cloud.api.user.vo.UserApiVO">
     select <include refid="Vo_Column_List"/> from user where user_id = #{userId}
   </select>
 
@@ -54,7 +54,7 @@
     where user_id = #{user.userId}
   </update>
 
-  <select id="getUserByUserIds" resultType="com.mall4j.cloud.api.user.vo.UserApiVO">
+  <select id="getUserByUserIds" resultType="com.mev.cloud.api.user.vo.UserApiVO">
     select `user_id`,`nick_name`,`pic` from user
     where user_id in
       <foreach collection="userIds" item="userId" separator="," open="(" close=")">

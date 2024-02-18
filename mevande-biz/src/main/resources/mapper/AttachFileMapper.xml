@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.mall4j.cloud.biz.mapper.AttachFileMapper">
-  <resultMap id="attachFileMap" type="com.mall4j.cloud.biz.model.AttachFile">
+<mapper namespace="com.mev.cloud.biz.mapper.AttachFileMapper">
+  <resultMap id="attachFileMap" type="com.mev.cloud.biz.model.AttachFile">
     <id column="file_id" property="fileId" />
     <result column="file_path" property="filePath"/>
     <result column="file_type" property="fileType"/>
@@ -16,7 +16,7 @@
   <sql id="Vo_Column_List">
     `file_id`,`file_path`,`file_type`,`file_name`,`file_size`,`shop_id`,`type`,`create_time`,`update_time`,`attach_file_group_id`
   </sql>
-  <select id="list" resultType="com.mall4j.cloud.biz.vo.AttachFileVO">
+  <select id="list" resultType="com.mev.cloud.biz.vo.AttachFileVO">
     select <include refid="Vo_Column_List"/> from attach_file
     WHERE `type` = 1 AND shop_id = #{shopId}
     <if test="fileName != null and fileName != ''">

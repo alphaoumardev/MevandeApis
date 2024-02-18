@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.mall4j.cloud.biz.mapper.AttachFileGroupMapper">
-  <resultMap id="attachFileGroupMap" type="com.mall4j.cloud.biz.model.AttachFileGroup">
+<mapper namespace="com.mev.cloud.biz.mapper.AttachFileGroupMapper">
+  <resultMap id="attachFileGroupMap" type="com.mev.cloud.biz.model.AttachFileGroup">
     <id column="attach_file_group_id" property="attachFileGroupId" />
     <result column="create_time" property="createTime"/>
     <result column="update_time" property="updateTime"/>
@@ -12,12 +12,12 @@
   <sql id="Vo_Column_List">
     `attach_file_group_id`,`create_time`,`update_time`,`shop_id`,`name`
   </sql>
-  <select id="list" resultType="com.mall4j.cloud.biz.vo.AttachFileGroupVO">
+  <select id="list" resultType="com.mev.cloud.biz.vo.AttachFileGroupVO">
     select <include refid="Vo_Column_List"/> from attach_file_group
     where shop_id = #{shopId}
     order by attach_file_group_id desc
   </select>
-  <select id="getByAttachFileGroupId" resultType="com.mall4j.cloud.biz.vo.AttachFileGroupVO">
+  <select id="getByAttachFileGroupId" resultType="com.mev.cloud.biz.vo.AttachFileGroupVO">
     select <include refid="Vo_Column_List"/> from attach_file_group where attach_file_group_id = #{attachFileGroupId}
   </select>
   <insert id="save">

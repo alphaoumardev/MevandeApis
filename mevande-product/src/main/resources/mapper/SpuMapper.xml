@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.mall4j.cloud.product.mapper.SpuMapper">
-  <resultMap id="spuMap" type="com.mall4j.cloud.product.model.Spu">
+<mapper namespace="com.mev.cloud.product.mapper.SpuMapper">
+  <resultMap id="spuMap" type="com.mev.cloud.product.model.Spu">
     <id column="spu_id" property="spuId" />
     <result column="create_time" property="createTime"/>
     <result column="update_time" property="updateTime"/>
@@ -20,10 +20,10 @@
     <result column="seq" property="seq"/>
     <result column="has_sku_img" property="hasSkuImg"/>
   </resultMap>
-  <resultMap id="spuDetailMap" type="com.mall4j.cloud.api.product.vo.SpuVO" extends="com.mall4j.cloud.product.mapper.SpuMapper.spuMap">
+  <resultMap id="spuDetailMap" type="com.mev.cloud.api.product.vo.SpuVO" extends="com.mev.cloud.product.mapper.SpuMapper.spuMap">
     <result column="detail" property="detail"/>
     <result column="total_stock" property="totalStock"/>
-    <collection property="spuAttrValues" ofType="com.mall4j.cloud.api.product.vo.SpuAttrValueVO">
+    <collection property="spuAttrValues" ofType="com.mev.cloud.api.product.vo.SpuAttrValueVO">
       <id column="spu_attr_value_id" property="spuAttrValueId"/>
       <result column="attr_id" property="attrId"/>
       <result column="attr_name" property="attrName"/>
@@ -36,7 +36,7 @@
     s.`spu_id`,s.`shop_id`,s.`create_time`,s.`update_time`,s.`brand_id`,s.`shop_category_id`,s.`category_id`,s.`name`,s.`selling_point`,s.`img_urls`,s.`main_img_url`,s.`price_fee`
     ,s.`market_price_fee`,s.`status`,s.`has_sku_img`,s.`seq`
   </sql>
-  <select id="list" resultType="com.mall4j.cloud.api.product.vo.SpuVO">
+  <select id="list" resultType="com.mev.cloud.api.product.vo.SpuVO">
     select distinct <include refid="Vo_Column_List"/> ,se.actual_stock as total_stock,se.sale_num from spu s
     left join `spu_extension` se on s.`spu_id` = se.`spu_id`
     <if test="spu.partyCode != null and spu.partyCode != ''">
@@ -163,7 +163,7 @@
     delete from spu where spu_id = #{spuId}
   </delete>
 
-  <select id="loadEsProductBO" resultType="com.mall4j.cloud.api.product.bo.EsProductBO">
+  <select id="loadEsProductBO" resultType="com.mev.cloud.api.product.bo.EsProductBO">
     SELECT s.spu_id,s.name AS spu_name,s.shop_id,s.selling_point,s.price_fee,s.market_price_fee,s.img_urls,s.status AS spu_status,
            s.seq, IF(se.stock>0,1,0) AS has_stock,se.sale_num,s.create_time,s.category_id,s.main_img_url,s.category_id,
            s.shop_category_id, se.actual_stock AS stock, s.brand_id,b.name AS brand_name,b.img_url AS brand_img, s.shop_category_id AS  shop_secondary_category_id,
@@ -238,7 +238,7 @@
     </if>
   </select>
 
-  <select id="pageByLangAndTagId" resultType="com.mall4j.cloud.api.product.vo.SpuVO">
+  <select id="pageByLangAndTagId" resultType="com.mev.cloud.api.product.vo.SpuVO">
     SELECT p.name,p.main_img_url,p.spu_id
     <if test="isContain == 1">
       ,pt.seq,pt.reference_id

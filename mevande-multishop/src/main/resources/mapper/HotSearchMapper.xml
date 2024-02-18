@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.mall4j.cloud.multishop.mapper.HotSearchMapper">
-  <resultMap id="hotSearchMap" type="com.mall4j.cloud.multishop.model.HotSearch">
+<mapper namespace="com.mev.cloud.multishop.mapper.HotSearchMapper">
+  <resultMap id="hotSearchMap" type="com.mev.cloud.multishop.model.HotSearch">
     <id column="hot_search_id" property="hotSearchId" />
     <result column="shop_id" property="shopId"/>
     <result column="content" property="content"/>
@@ -15,7 +15,7 @@
   <sql id="Vo_Column_List">
     `hot_search_id`,`shop_id`,`content`,`create_time`,`update_time`,`seq`,`status`,`title`
   </sql>
-  <select id="list" resultType="com.mall4j.cloud.multishop.vo.HotSearchVO">
+  <select id="list" resultType="com.mev.cloud.multishop.vo.HotSearchVO">
     select <include refid="Vo_Column_List"/>
     from hot_search
     <where>
@@ -34,7 +34,7 @@
     </where>
     order by hot_search_id desc
   </select>
-  <select id="getByHotSearchId" resultType="com.mall4j.cloud.multishop.vo.HotSearchVO">
+  <select id="getByHotSearchId" resultType="com.mev.cloud.multishop.vo.HotSearchVO">
     select <include refid="Vo_Column_List"/> from hot_search where hot_search_id = #{hotSearchId}
   </select>
   <insert id="save">
@@ -49,7 +49,7 @@
   <delete id="deleteById">
     delete from hot_search where hot_search_id = #{hotSearchId} and shop_id = #{shopId}
   </delete>
-  <select id="listByShopId" resultType="com.mall4j.cloud.multishop.vo.HotSearchVO">
+  <select id="listByShopId" resultType="com.mev.cloud.multishop.vo.HotSearchVO">
     select hot_search_id,content from hot_search where shop_id = #{shopId}
   </select>
 

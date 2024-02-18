@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.mall4j.cloud.product.mapper.CategoryMapper">
-  <resultMap id="categoryMap" type="com.mall4j.cloud.product.model.Category">
+<mapper namespace="com.mev.cloud.product.mapper.CategoryMapper">
+  <resultMap id="categoryMap" type="com.mev.cloud.product.model.Category">
     <id column="category_id" property="categoryId" />
     <result column="create_time" property="createTime"/>
     <result column="update_time" property="updateTime"/>
@@ -22,7 +22,7 @@
   <sql id="Vo_Column_List">
     `category_id`,`create_time`,`update_time`,`shop_id`,`parent_id`,`name`,`desc`,`path`,`status`,`icon`,`img_url`,`level`,`seq`
   </sql>
-  <select id="getById" resultType="com.mall4j.cloud.api.product.vo.CategoryVO">
+  <select id="getById" resultType="com.mev.cloud.api.product.vo.CategoryVO">
     select <include refid="Vo_Column_List"/> from category where category_id = #{categoryId}
   </select>
   <insert id="save">
@@ -67,18 +67,18 @@
     ) AS c
   </select>
 
-  <select id="list" resultType="com.mall4j.cloud.api.product.vo.CategoryVO">
+  <select id="list" resultType="com.mev.cloud.api.product.vo.CategoryVO">
     SELECT <include refid="Vo_Column_List"/> FROM `category` WHERE shop_id = #{shopId} AND `status` != -1
   </select>
 
-  <select id="listByShopIdAndParenId" resultType="com.mall4j.cloud.api.product.vo.CategoryVO">
+  <select id="listByShopIdAndParenId" resultType="com.mev.cloud.api.product.vo.CategoryVO">
     SELECT <include refid="Vo_Column_List"/> FROM `category` WHERE shop_id = #{shopId} AND `status` = 1
     <if test="parentId != null">
       AND parent_id = #{parentId}
     </if>
   </select>
 
-  <select id="getChildCategory" resultType="com.mall4j.cloud.product.model.Category">
+  <select id="getChildCategory" resultType="com.mev.cloud.product.model.Category">
     SELECT `category_id`,`level` FROM category WHERE parent_id = #{categoryId}
     UNION
     SELECT `category_id`,`level` FROM category
@@ -119,7 +119,7 @@
         </if>
     </where>
   </select>
-  <select id="getCategoryAndChildCatogory" resultType="com.mall4j.cloud.api.product.vo.CategoryVO">
+  <select id="getCategoryAndChildCatogory" resultType="com.mev.cloud.api.product.vo.CategoryVO">
     SELECT `category_id`,`shop_id`,`parent_id`,`name`,`icon`,`img_url` FROM category WHERE status = 1 AND (parent_id = #{parentId} OR parent_id IN (SELECT category_id FROM category WHERE status = 1 AND parent_id = #{parentId}))
   </select>
 </mapper>

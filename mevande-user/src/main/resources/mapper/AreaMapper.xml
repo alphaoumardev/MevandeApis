@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.mall4j.cloud.user.mapper.AreaMapper">
-  <resultMap id="areaMap" type="com.mall4j.cloud.user.model.Area">
+<mapper namespace="com.mev.cloud.user.mapper.AreaMapper">
+  <resultMap id="areaMap" type="com.mev.cloud.user.model.Area">
     <id column="area_id" property="areaId" />
     <result column="area_name" property="areaName"/>
     <result column="parent_id" property="parentId"/>
@@ -11,17 +11,17 @@
     <result column="update_time" property="updateTime"/>
   </resultMap>
 
-  <resultMap id="areaListMap" type="com.mall4j.cloud.api.user.vo.AreaVO">
+  <resultMap id="areaListMap" type="com.mev.cloud.api.user.vo.AreaVO">
     <id column="pid" property="areaId"/>
     <result column="pname"  property="areaName"/>
     <result column="ppid"  property="parentId"/>
     <result column="plevel"  property="level"/>
-    <collection property="areas" ofType="com.mall4j.cloud.api.user.vo.AreaVO">
+    <collection property="areas" ofType="com.mev.cloud.api.user.vo.AreaVO">
       <id column="cid" property="areaId"/>
       <result column="cname"  property="areaName"/>
       <result column="cpid"  property="parentId"/>
       <result column="clevel"  property="level"/>
-      <collection property="areas" ofType="com.mall4j.cloud.api.user.vo.AreaVO">
+      <collection property="areas" ofType="com.mev.cloud.api.user.vo.AreaVO">
         <id column="area_id"  property="areaId"/>
         <result column="area_name"  property="areaName"/>
         <result column="parent_id"  property="parentId"/>
@@ -33,11 +33,11 @@
   <sql id="Vo_Column_List">
     `area_id`,`area_name`,`parent_id`,`level`,`create_time`,`update_time`
   </sql>
-  <select id="list" resultType="com.mall4j.cloud.api.user.vo.AreaVO">
+  <select id="list" resultType="com.mev.cloud.api.user.vo.AreaVO">
     select `area_id`,`area_name`,`parent_id`,`level` from area
     order by area_id asc
   </select>
-  <select id="getByAreaId" resultType="com.mall4j.cloud.api.user.vo.AreaVO">
+  <select id="getByAreaId" resultType="com.mev.cloud.api.user.vo.AreaVO">
     select `area_id`,`area_name`,`parent_id`,`level` from area where area_id = #{areaId}
   </select>
   <insert id="save">
@@ -67,7 +67,7 @@
     SELECT COUNT(*) FROM `area` WHERE parent_id = #{areaId}
   </select>
 
-  <select id="listByPid" resultType="com.mall4j.cloud.api.user.vo.AreaVO">
+  <select id="listByPid" resultType="com.mev.cloud.api.user.vo.AreaVO">
     SELECT `area_id`,`area_name`,`parent_id`,`level` FROM `area` WHERE parent_id = #{pid}
   </select>
 

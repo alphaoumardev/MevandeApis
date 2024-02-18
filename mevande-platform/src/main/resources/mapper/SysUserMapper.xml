@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.mall4j.cloud.platform.mapper.SysUserMapper">
-  <resultMap id="BaseResultMap" type="com.mall4j.cloud.platform.model.SysUser">
+<mapper namespace="com.mev.cloud.platform.mapper.SysUserMapper">
+  <resultMap id="BaseResultMap" type="com.mev.cloud.platform.model.SysUser">
     <!--@mbg.generated-->
     <!--@Table sys_user-->
     <id column="sys_user_id" property="sysUserId" />
@@ -18,14 +18,14 @@
     sys_user_id, create_time, update_time, nick_name, avatar,`code`,phone_num,has_account
   </sql>
 
-  <select id="getSimpleByUserId" resultType="com.mall4j.cloud.platform.vo.SysUserSimpleVO">
+  <select id="getSimpleByUserId" resultType="com.mev.cloud.platform.vo.SysUserSimpleVO">
     select nick_name, avatar  from sys_user where sys_user_id = #{userId}
   </select>
 
-  <select id="getByUserId" resultType="com.mall4j.cloud.platform.vo.SysUserVO">
+  <select id="getByUserId" resultType="com.mev.cloud.platform.vo.SysUserVO">
     select sys_user_id,nick_name, avatar,`code`,phone_num,has_account  from sys_user where sys_user_id = #{userId}
   </select>
-  <select id="listByShopId" resultType="com.mall4j.cloud.platform.vo.SysUserVO">
+  <select id="listByShopId" resultType="com.mev.cloud.platform.vo.SysUserVO">
     select sys_user_id,nick_name, avatar,`code`,phone_num,has_account from sys_user order by sys_user_id desc
     <where>
       <if test="nickName != null and nickName != ''">

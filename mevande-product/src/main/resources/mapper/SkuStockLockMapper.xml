@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.mall4j.cloud.product.mapper.SkuStockLockMapper">
-    <resultMap id="skuStockLockMap" type="com.mall4j.cloud.product.model.SkuStockLock">
+<mapper namespace="com.mev.cloud.product.mapper.SkuStockLockMapper">
+    <resultMap id="skuStockLockMap" type="com.mev.cloud.product.model.SkuStockLock">
         <id column="id" property="id"/>
         <result column="create_time" property="createTime"/>
         <result column="update_time" property="updateTime"/>
@@ -73,7 +73,7 @@
              #{skuStockLock.status})
         </foreach>
     </insert>
-    <select id="listByOrderIds" resultType="com.mall4j.cloud.product.bo.SkuWithStockBO">
+    <select id="listByOrderIds" resultType="com.mev.cloud.product.bo.SkuWithStockBO">
         select id, sku_id, spu_id, count
         from sku_stock_lock where order_id in
         <foreach collection="orderIds" item="orderId" separator="," open="(" close=")">
@@ -97,7 +97,7 @@
         </foreach>
     </update>
 
-    <select id="listUnLockByOrderIds" resultType="com.mall4j.cloud.product.bo.SkuWithStockBO">
+    <select id="listUnLockByOrderIds" resultType="com.mev.cloud.product.bo.SkuWithStockBO">
         select id, sku_id, spu_id, count
         from sku_stock_lock where order_id in
         <foreach collection="orderIds" item="orderId" separator="," open="(" close=")">

@@ -129,7 +129,7 @@ mevande
 
 
 ## 提交反馈
-- Mall4j官网 https://www.mall4j.com
+- mev官网 https://www.mev.com
 - mevande开源技术QQ群：561496886
 - 如需购买商业版源码，请联系商务微信
 
@@ -138,10 +138,10 @@ mevande
 
 
 ## springboot版本商城请点击
-https://gitee.com/gz-yami/mall4j
+https://gitee.com/gz-yami/mev
 
 ## 你的点赞鼓励，是我们前进的动力~
 ## 你的点赞鼓励，是我们前进的动力~
 ## 你的点赞鼓励，是我们前进的动力~
 
-## 更多信息请查看官网 https://www.mall4j.com
+## 更多信息请查看官网 https://www.mev.com

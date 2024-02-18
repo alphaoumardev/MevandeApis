@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.mall4j.cloud.product.mapper.SkuMapper">
-  <resultMap id="skuMap" type="com.mall4j.cloud.product.model.Sku">
+<mapper namespace="com.mev.cloud.product.mapper.SkuMapper">
+  <resultMap id="skuMap" type="com.mev.cloud.product.model.Sku">
     <id column="sku_id" property="skuId" />
     <result column="create_time" property="createTime"/>
     <result column="update_time" property="updateTime"/>
@@ -19,9 +19,9 @@
     <result column="volume" property="volume"/>
   </resultMap>
 
-  <resultMap id="skuAndAttrMap" type="com.mall4j.cloud.api.product.vo.SkuVO" extends="com.mall4j.cloud.product.mapper.SkuMapper.skuMap">
+  <resultMap id="skuAndAttrMap" type="com.mev.cloud.api.product.vo.SkuVO" extends="com.mev.cloud.product.mapper.SkuMapper.skuMap">
     <result column="stock" property="stock"/>
-    <collection property="spuSkuAttrValues" ofType="com.mall4j.cloud.api.product.vo.SpuSkuAttrValueVO">
+    <collection property="spuSkuAttrValues" ofType="com.mev.cloud.api.product.vo.SpuSkuAttrValueVO">
       <id column="spu_sku_attr_id" property="spuSkuAttrId" />
       <result column="create_time" property="createTime"/>
       <result column="update_time" property="updateTime"/>
@@ -129,7 +129,7 @@
       where sku_id = #{sku.skuId}
     </foreach>
   </update>
-  <select id="getSkuBySkuId" resultType="com.mall4j.cloud.api.product.vo.SkuVO">
+  <select id="getSkuBySkuId" resultType="com.mev.cloud.api.product.vo.SkuVO">
     select <include refid="Vo_Column_List"/> from sku  where sku_id = #{skuId}
   </select>
   <select id="getSkuBySpuId" resultMap="skuAndAttrMap">

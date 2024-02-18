@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.mall4j.cloud.multishop.mapper.IndexImgMapper">
-  <resultMap id="indexImgMap" type="com.mall4j.cloud.multishop.model.IndexImg">
+<mapper namespace="com.mev.cloud.multishop.mapper.IndexImgMapper">
+  <resultMap id="indexImgMap" type="com.mev.cloud.multishop.model.IndexImg">
     <id column="img_id" property="imgId" />
     <result column="shop_id" property="shopId"/>
     <result column="img_url" property="imgUrl"/>
@@ -16,7 +16,7 @@
   <sql id="Vo_Column_List">
     `img_id`,`shop_id`,`img_url`,`status`,`seq`,`spu_id`,`img_type`,`create_time`,`update_time`
   </sql>
-  <select id="list" resultType="com.mall4j.cloud.multishop.vo.IndexImgVO">
+  <select id="list" resultType="com.mev.cloud.multishop.vo.IndexImgVO">
     select `img_id`,`img_url`,`status`,`seq`,`img_type` from index_img
       <where>
         <if test="indexImg.imgType != null">
@@ -31,7 +31,7 @@
       </where>
     order by seq desc,img_id desc
   </select>
-  <select id="getByImgId" resultType="com.mall4j.cloud.multishop.vo.IndexImgVO">
+  <select id="getByImgId" resultType="com.mev.cloud.multishop.vo.IndexImgVO">
     select `img_id`,`shop_id`,`img_url`,`status`,`seq`,`spu_id`,`img_type` from index_img where img_id = #{imgId}
   </select>
   <insert id="save">
@@ -52,7 +52,7 @@
     delete from index_img where img_id = #{imgId} and shop_id = #{shopId}
   </delete>
 
-    <select id="getListByShopId" resultType="com.mall4j.cloud.multishop.vo.IndexImgVO">
+    <select id="getListByShopId" resultType="com.mev.cloud.multishop.vo.IndexImgVO">
     select `img_id`,`img_url`,`seq`,`spu_id`,`img_type` from index_img
     where `status` = 1 and shop_id = #{shopId}
     order by seq desc,img_id desc

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.mall4j.cloud.order.mapper.OrderPayInfoMapper">
-  <resultMap id="orderPayInfoMap" type="com.mall4j.cloud.order.model.OrderPayInfo">
+<mapper namespace="com.mev.cloud.order.mapper.OrderPayInfoMapper">
+  <resultMap id="orderPayInfoMap" type="com.mev.cloud.order.model.OrderPayInfo">
     <id column="pay_id" property="payId" />
     <result column="create_time" property="createTime"/>
     <result column="update_time" property="updateTime"/>

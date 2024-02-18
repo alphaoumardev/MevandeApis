@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.mall4j.cloud.product.mapper.ShopCartItemMapper">
-    <resultMap id="shopCartItemMap" type="com.mall4j.cloud.product.model.ShopCartItem">
+<mapper namespace="com.mev.cloud.product.mapper.ShopCartItemMapper">
+    <resultMap id="shopCartItemMap" type="com.mev.cloud.product.model.ShopCartItem">
         <id column="cart_item_id" property="cartItemId"/>
         <result column="create_time" property="createTime"/>
         <result column="update_time" property="updateTime"/>
@@ -29,13 +29,13 @@
         `distribution_user_id`,
         is_checked
     </sql>
-    <select id="list" resultType="com.mall4j.cloud.common.order.vo.ShopCartItemVO">
+    <select id="list" resultType="com.mev.cloud.common.order.vo.ShopCartItemVO">
         select
         <include refid="Vo_Column_List"/>
         from shop_cart_item
         order by cart_item_id desc
     </select>
-    <select id="getByCartId" resultType="com.mall4j.cloud.common.order.vo.ShopCartItemVO">
+    <select id="getByCartId" resultType="com.mev.cloud.common.order.vo.ShopCartItemVO">
         select
         <include refid="Vo_Column_List"/>
         from shop_cart_item
@@ -79,7 +79,7 @@
         where cart_item_id = #{cartItemId}
     </delete>
 
-    <select id="getShopCartItems" resultType="com.mall4j.cloud.common.order.vo.ShopCartItemVO">
+    <select id="getShopCartItems" resultType="com.mev.cloud.common.order.vo.ShopCartItemVO">
         SELECT sci.*,
                spu.name  spuName,
                spu.category_id,

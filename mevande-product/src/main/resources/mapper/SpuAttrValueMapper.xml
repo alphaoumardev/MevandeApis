@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.mall4j.cloud.product.mapper.SpuAttrValueMapper">
-  <resultMap id="spuAttrValueMap" type="com.mall4j.cloud.product.model.SpuAttrValue">
+<mapper namespace="com.mev.cloud.product.mapper.SpuAttrValueMapper">
+  <resultMap id="spuAttrValueMap" type="com.mev.cloud.product.model.SpuAttrValue">
     <id column="spu_attr_value_id" property="spuAttrValueId" />
     <result column="spu_id" property="spuId"/>
     <result column="attr_id" property="attrId"/>
@@ -61,7 +61,7 @@
     </if>
   </delete>
 
-  <select id="getSpuAttrsBySpuId" resultType="com.mall4j.cloud.api.product.vo.SpuAttrValueVO">
+  <select id="getSpuAttrsBySpuId" resultType="com.mev.cloud.api.product.vo.SpuAttrValueVO">
     SELECT sav.attr_id,sav.attr_name,sav.attr_value_id,sav.attr_value_name,a.search_type
     FROM spu_attr_value sav
     LEFT JOIN attr a ON a.attr_id = sav.attr_id

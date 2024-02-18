@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.mall4j.cloud.multishop.mapper.ShopDetailMapper">
-  <resultMap id="shopDetailMap" type="com.mall4j.cloud.multishop.model.ShopDetail">
+<mapper namespace="com.mev.cloud.multishop.mapper.ShopDetailMapper">
+  <resultMap id="shopDetailMap" type="com.mev.cloud.multishop.model.ShopDetail">
     <id column="shop_id" property="shopId" />
     <result column="create_time" property="createTime"/>
     <result column="update_time" property="updateTime"/>
@@ -19,7 +19,7 @@
   <sql id="Vo_Column_List">
     `shop_id`,`create_time`,`update_time`,`type`,`shop_name`,`intro`,`shop_logo`,`mobile_background_pic`,`shop_status`,`business_license`,`identity_card_front`,`identity_card_later`
   </sql>
-  <select id="list" resultType="com.mall4j.cloud.api.multishop.vo.ShopDetailVO">
+  <select id="list" resultType="com.mev.cloud.api.multishop.vo.ShopDetailVO">
     select <include refid="Vo_Column_List"/>
     from shop_detail
     where shop_status != -1
@@ -31,11 +31,11 @@
         </if>
     order by shop_id desc
   </select>
-  <select id="getByShopId" resultType="com.mall4j.cloud.api.multishop.vo.ShopDetailVO">
+  <select id="getByShopId" resultType="com.mev.cloud.api.multishop.vo.ShopDetailVO">
     select `shop_id`,`type`,`shop_name`,`intro`,`shop_logo`,`mobile_background_pic`,`shop_status`,`business_license`,`identity_card_front`,`identity_card_later`
     from shop_detail where shop_id = #{shopId}
   </select>
-  <select id="getShoExtensionsByShopId" resultType="com.mall4j.cloud.api.multishop.vo.ShopDetailVO">
+  <select id="getShoExtensionsByShopId" resultType="com.mev.cloud.api.multishop.vo.ShopDetailVO">
     select s.`shop_id`,s.intro,s.`type`,s.`shop_name`,s.`intro`,s.`shop_logo`,s.`mobile_background_pic`,s.`shop_status`,s.`business_license`,
     s.`identity_card_front`,s.`identity_card_later`,s.type,s.mobile_background_pic,s.pc_background_pic
     from shop_detail s
@@ -89,7 +89,7 @@
         #{shopId}
     </foreach>
   </select>
-  <select id="shopSearchList" resultType="com.mall4j.cloud.multishop.vo.ShopDetailAppVO">
+  <select id="shopSearchList" resultType="com.mev.cloud.multishop.vo.ShopDetailAppVO">
     select sd.shop_id,sd.type,sd.shop_name,sd.intro,sd.shop_logo from shop_detail sd
     where shop_status = 1
     <if test="shopDetail.shopName != null and shopDetail.shopName != ''">
@@ -108,12 +108,12 @@
     update shop_detail set `shop_status` = #{shopStatus} where shop_id = #{shopId}
   </update>
 
-  <select id="shopExtensionData" resultType="com.mall4j.cloud.api.multishop.bo.EsShopDetailBO">
+  <select id="shopExtensionData" resultType="com.mev.cloud.api.multishop.bo.EsShopDetailBO">
     SELECT ad.shop_id,ad.shop_name,ad.type,ad.shop_logo FROM shop_detail ad
     WHERE ad.shop_id = #{shopId}
   </select>
 
-  <select id="getShopDetailByShopIdAndShopName" resultType="com.mall4j.cloud.api.multishop.vo.ShopDetailVO">
+  <select id="getShopDetailByShopIdAndShopName" resultType="com.mev.cloud.api.multishop.vo.ShopDetailVO">
     SELECT ad.shop_id,ad.shop_name,ad.type,ad.shop_logo,ad.shop_status FROM shop_detail ad
     WHERE ad.shop_id in
     <foreach collection="shopIds" item="shopId" open="(" separator="," close=")">

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.mall4j.cloud.product.mapper.SpuExtensionMapper">
-    <resultMap id="spuExtensionMap" type="com.mall4j.cloud.product.model.SpuExtension">
+<mapper namespace="com.mev.cloud.product.mapper.SpuExtensionMapper">
+    <resultMap id="spuExtensionMap" type="com.mev.cloud.product.model.SpuExtension">
         <id column="spu_extend_id" property="spuExtendId"/>
         <result column="create_time" property="createTime"/>
         <result column="update_time" property="updateTime"/>
@@ -22,13 +22,13 @@
         `lock_stock`,
         `stock`
     </sql>
-    <select id="list" resultType="com.mall4j.cloud.product.vo.SpuExtensionVO">
+    <select id="list" resultType="com.mev.cloud.product.vo.SpuExtensionVO">
         select
         <include refid="Vo_Column_List"/>
         from spu_extension
         order by spu_extend_id desc
     </select>
-    <select id="getBySpuExtendId" resultType="com.mall4j.cloud.product.vo.SpuExtensionVO">
+    <select id="getBySpuExtendId" resultType="com.mev.cloud.product.vo.SpuExtensionVO">
         select
         <include refid="Vo_Column_List"/>
         from spu_extension

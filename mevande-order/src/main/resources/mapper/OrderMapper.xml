@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.mall4j.cloud.order.mapper.OrderMapper">
-    <resultMap id="orderMap" type="com.mall4j.cloud.order.model.Order">
+<mapper namespace="com.mev.cloud.order.mapper.OrderMapper">
+    <resultMap id="orderMap" type="com.mev.cloud.order.model.Order">
         <id column="order_id" property="orderId"/>
         <result column="create_time" property="createTime"/>
         <result column="update_time" property="updateTime"/>
@@ -23,8 +23,8 @@
         <result column="delete_status" property="deleteStatus"/>
     </resultMap>
 
-    <resultMap type="com.mall4j.cloud.order.model.Order" id="orderAndOrderItem" extends="orderMap">
-        <collection property="orderItems" columnPrefix="oi_" ofType="com.mall4j.cloud.order.model.OrderItem">
+    <resultMap type="com.mev.cloud.order.model.Order" id="orderAndOrderItem" extends="orderMap">
+        <collection property="orderItems" columnPrefix="oi_" ofType="com.mev.cloud.order.model.OrderItem">
             <id column="order_item_id" jdbcType="BIGINT" property="orderItemId"/>
             <result column="shop_id" property="shopId"/>
             <result column="order_id" property="orderId"/>
@@ -42,10 +42,10 @@
         </collection>
     </resultMap>
 
-    <resultMap type="com.mall4j.cloud.api.order.bo.EsOrderBO" id="esOrderAndOrderItemAndUserAddrMap" extends="orderMap">
+    <resultMap type="com.mev.cloud.api.order.bo.EsOrderBO" id="esOrderAndOrderItemAndUserAddrMap" extends="orderMap">
         <result column="mobile" jdbcType="VARCHAR" property="mobile"/>
         <result column="consignee" jdbcType="VARCHAR" property="consignee"/>
-        <collection property="orderItems" columnPrefix="oi_" ofType="com.mall4j.cloud.order.model.OrderItem">
+        <collection property="orderItems" columnPrefix="oi_" ofType="com.mev.cloud.order.model.OrderItem">
             <id column="order_item_id" jdbcType="BIGINT" property="orderItemId"/>
             <result column="shop_id" property="shopId"/>
             <result column="order_id" property="orderId"/>
@@ -147,13 +147,13 @@
             #{order.cancelTime}, #{order.isPayed}, #{order.deleteStatus})
         </foreach>
     </insert>
-    <select id="getOrdersStatus" resultType="com.mall4j.cloud.api.order.bo.OrderStatusBO">
+    <select id="getOrdersStatus" resultType="com.mev.cloud.api.order.bo.OrderStatusBO">
         select `status`, `order_id` from `order` where order_id in
         <foreach collection="orderIds" open="(" item="orderId" close=")" separator=",">
             #{orderId}
         </foreach>
     </select>
-    <select id="getOrdersActualAmount" resultType="com.mall4j.cloud.api.order.vo.OrderAmountVO">
+    <select id="getOrdersActualAmount" resultType="com.mev.cloud.api.order.vo.OrderAmountVO">
         select SUM(total) as payAmount from `order` where order_id in
         <foreach collection="orderIds" open="(" item="orderId" close=")" separator=",">
             #{orderId}
@@ -166,7 +166,7 @@
             #{orderId}
         </foreach>
     </update>
-    <select id="getOrdersSimpleAmountInfo" resultType="com.mall4j.cloud.api.order.bo.OrderSimpleAmountInfoBO">
+    <select id="getOrdersSimpleAmountInfo" resultType="com.mev.cloud.api.order.bo.OrderSimpleAmountInfoBO">
         select `shop_id`, `order_id`, actual_total, platform_amount,`status`,close_type
         from `order`
         where order_id in
@@ -220,7 +220,7 @@
             and o.shop_id = #{shopId}
         </if>
     </select>
-    <select id="getSubmitOrderPayAmountInfo" resultType="com.mall4j.cloud.order.bo.SubmitOrderPayAmountInfoBO">
+    <select id="getSubmitOrderPayAmountInfo" resultType="com.mev.cloud.order.bo.SubmitOrderPayAmountInfoBO">
         select sum(total) as totalFee, max(create_time) as createTime from `order` where order_id in
         <foreach collection="orderIdList" item="orderId" separator="," close=")" open="(">
             #{orderId}
@@ -251,7 +251,7 @@
         where o.order_id = #{orderId}
     </select>
 
-    <select id="countNumberOfStatus" resultType="com.mall4j.cloud.order.vo.OrderCountVO">
+    <select id="countNumberOfStatus" resultType="com.mev.cloud.order.vo.OrderCountVO">
         SELECT COUNT(o.order_id)                                                  as all_count,
                COUNT(CASE WHEN o.status = 1 THEN o.order_id ELSE NULL END)        AS unPay,
                COUNT(CASE WHEN o.status = 2 THEN o.order_id ELSE NULL END)        AS payed,

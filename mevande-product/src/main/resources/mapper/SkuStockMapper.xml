@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.mall4j.cloud.product.mapper.SkuStockMapper">
-    <resultMap id="stockMap" type="com.mall4j.cloud.product.model.SkuStock">
+<mapper namespace="com.mev.cloud.product.mapper.SkuStockMapper">
+    <resultMap id="stockMap" type="com.mev.cloud.product.model.SkuStock">
         <id column="stock_id" property="stockId"/>
         <result column="create_time" property="createTime"/>
         <result column="update_time" property="updateTime"/>
@@ -21,7 +21,7 @@
         `stock`
     </sql>
 
-    <select id="listBySkuList" resultType="com.mall4j.cloud.product.vo.SkuStockVO">
+    <select id="listBySkuList" resultType="com.mev.cloud.product.vo.SkuStockVO">
         select
         <include refid="Vo_Column_List"/>
         from sku_stock where sku_id in (

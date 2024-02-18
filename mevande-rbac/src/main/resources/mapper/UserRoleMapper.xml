@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.mall4j.cloud.rbac.mapper.UserRoleMapper">
-    <resultMap id="BaseResultMap" type="com.mall4j.cloud.rbac.model.UserRole">
+<mapper namespace="com.mev.cloud.rbac.mapper.UserRoleMapper">
+    <resultMap id="BaseResultMap" type="com.mev.cloud.rbac.model.UserRole">
         <!--@mbg.generated-->
         <!--@Table user_role-->
         <id column="id" property="id"/>
