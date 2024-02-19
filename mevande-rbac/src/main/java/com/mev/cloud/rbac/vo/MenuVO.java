@@ -2,13 +2,15 @@ package com.mev.cloud.rbac.vo;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 
+import java.io.Serializable;
+
 /**
  * 菜单管理VO
  *
  * @author Alphaoumardev
  * @date 2020-09-15 16:35:01
  */
-public class MenuVO{
+public class MenuVO implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Schema(description = "菜单id" )

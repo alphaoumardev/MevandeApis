@@ -2,6 +2,8 @@ package com.mev.cloud.rbac.vo;
 
 import com.mev.cloud.common.vo.BaseVO;
 import io.swagger.v3.oas.annotations.media.Schema;
+
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -10,7 +12,7 @@ import java.util.List;
  * @author Alphaoumardev
  * @date 2020-09-17 19:15:44
  */
-public class RoleVO extends BaseVO{
+public class RoleVO extends BaseVO implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Schema(description = "角色id" )
