@@ -8,10 +8,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @date 2020/7/23
  */
 @SpringBootApplication(scanBasePackages = { "com.mev.cloud" })
-public class GatewayApplication {
-
-	public static void main(String[] args) {
+public class GatewayApplication
+{
+	public static void main(String[] args)
+	{
 		SpringApplication.run(GatewayApplication.class, args);
 	}
-
 }

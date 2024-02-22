@@ -38,7 +38,6 @@ public class OrderController {
     private OrderService orderService;
 
 
-
     @Autowired
     private SearchOrderFeignClient searchOrderFeignClient;
 
@@ -102,7 +101,8 @@ public class OrderController {
     public ServerResponseEntity<Void> delivery(@Valid @RequestBody DeliveryOrderDTO deliveryOrderParam) {
         OrderVO order = orderService.getOrderByOrderId(deliveryOrderParam.getOrderId());
         // 订单不在支付状态
-        if (!Objects.equals(order.getStatus(), OrderStatus.PADYED.value())){
+        if (!Objects.equals(order.getStatus(), OrderStatus.PADYED.value()))
+        {
             return ServerResponseEntity.fail(ResponseEnum.ORDER_NOT_PAYED);
         }
         orderService.delivery(deliveryOrderParam);

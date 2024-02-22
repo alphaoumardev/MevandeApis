@@ -3,13 +3,15 @@ package com.mev.cloud.product.vo;
 import com.mev.cloud.common.vo.BaseVO;
 import io.swagger.v3.oas.annotations.media.Schema;
 
+import java.io.Serializable;
+
 /**
  * 品牌分类关联信息VO
  *
  * @author Alphaoumardev
  * @date 2020-10-28 15:27:24
  */
-public class CategoryBrandVO extends BaseVO{
+public class CategoryBrandVO extends BaseVO implements Serializable {
     private static final long serialVersionUID = 1L;
 
     

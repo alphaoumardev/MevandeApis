@@ -28,8 +28,6 @@ public class SkuStockLockController {
     @Autowired
     private SkuStockLockService skuStockLockService;
 
-
-
 	@GetMapping("/page")
 	@Operation(summary = "获取库存锁定信息列表" , description = "分页获取库存锁定信息列表")
 	public ServerResponseEntity<PageVO<SkuStockLock>> page(@Valid PageDTO pageDTO) {

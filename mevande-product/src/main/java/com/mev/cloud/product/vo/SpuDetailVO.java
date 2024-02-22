@@ -3,13 +3,15 @@ package com.mev.cloud.product.vo;
 import com.mev.cloud.common.vo.BaseVO;
 import io.swagger.v3.oas.annotations.media.Schema;
 
+import java.io.Serializable;
+
 /**
  * 商品详情信息VO
  *
  * @author Alphaoumardev
  * @date 2020-10-28 15:27:24
  */
-public class SpuDetailVO extends BaseVO {
+public class SpuDetailVO extends BaseVO implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Schema(description = "商品id" )

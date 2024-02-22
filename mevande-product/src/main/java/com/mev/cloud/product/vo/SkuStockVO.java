@@ -3,13 +3,15 @@ package com.mev.cloud.product.vo;
 import com.mev.cloud.common.vo.BaseVO;
 import io.swagger.v3.oas.annotations.media.Schema;
 
+import java.io.Serializable;
+
 /**
  * 库存信息VO
  *
  * @author Alphaoumardev
  * @date 2020-10-28 15:27:24
  */
-public class SkuStockVO extends BaseVO {
+public class SkuStockVO extends BaseVO implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Schema(description = "库存id" )

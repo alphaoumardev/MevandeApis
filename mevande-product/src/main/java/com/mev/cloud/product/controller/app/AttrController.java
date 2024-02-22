@@ -22,8 +22,6 @@ public class AttrController {
     @Autowired
     private AttrService attrService;
 
-
-
 	@GetMapping
 	@Operation(summary = "获取属性信息" , description = "根据attrId获取属性信息")
 	public ServerResponseEntity<AttrVO> getByAttrId(@RequestParam Long attrId) {

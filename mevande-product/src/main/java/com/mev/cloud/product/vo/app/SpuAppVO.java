@@ -5,6 +5,7 @@ import com.mev.cloud.api.product.vo.SpuAttrValueVO;
 import com.mev.cloud.common.serializer.ImgJsonSerializer;
 import io.swagger.v3.oas.annotations.media.Schema;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -13,7 +14,7 @@ import java.util.List;
  * @author Alphaoumardev
  * @date 2020-10-28 15:27:24
  */
-public class SpuAppVO {
+public class SpuAppVO implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Schema(description = "spu id" )
