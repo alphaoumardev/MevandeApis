@@ -3,6 +3,9 @@ package com.mev.cloud.auth.dto;
 import io.swagger.v3.oas.annotations.media.Schema;
 
 import jakarta.validation.constraints.NotBlank;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 /**
  * 刷新token
@@ -10,7 +13,11 @@ import jakarta.validation.constraints.NotBlank;
  * @author Alphaoumardev
  * @date 2020/7/1
  */
-public class RefreshTokenDTO {
+@Setter
+@Getter
+@ToString
+public class RefreshTokenDTO
+{
 
 	/**
 	 * refreshToken
@@ -18,18 +25,5 @@ public class RefreshTokenDTO {
 	@NotBlank(message = "refreshToken不能为空")
 	@Schema(description = "refreshToken" , requiredMode = Schema.RequiredMode.REQUIRED)
 	private String refreshToken;
-
-	public String getRefreshToken() {
-		return refreshToken;
-	}
-
-	public void setRefreshToken(String refreshToken) {
-		this.refreshToken = refreshToken;
-	}
-
-	@Override
-	public String toString() {
-		return "RefreshTokenDTO{" + "refreshToken='" + refreshToken + '\'' + '}';
-	}
 
 }

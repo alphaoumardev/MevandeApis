@@ -4,6 +4,9 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 /**
  * 用于登陆传递账号密码
@@ -11,6 +14,9 @@ import jakarta.validation.constraints.NotNull;
  * @author Alphaoumardev
  * @date 2020/7/1
  */
+@Setter
+@Getter
+@ToString
 public class AuthenticationDTO {
 
 	/**
@@ -34,36 +40,5 @@ public class AuthenticationDTO {
 	@Schema(description = "系统类型 0.普通用户系统 1.商家端" , requiredMode = Schema.RequiredMode.REQUIRED)
 	protected Integer sysType;
 
-	public String getPrincipal() {
-		return principal;
-	}
 
-	public void setPrincipal(String principal) {
-		this.principal = principal;
-	}
-
-	public String getCredentials() {
-		return credentials;
-	}
-
-	public void setCredentials(String credentials) {
-		this.credentials = credentials;
-	}
-
-	public Integer getSysType() {
-		return sysType;
-	}
-
-	public void setSysType(Integer sysType) {
-		this.sysType = sysType;
-	}
-
-	@Override
-	public String toString() {
-		return "AuthenticationDTO{" +
-				"principal='" + principal + '\'' +
-				", credentials='" + credentials + '\'' +
-				", sysType=" + sysType +
-				'}';
-	}
 }

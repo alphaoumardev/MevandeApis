@@ -15,7 +15,8 @@ import java.util.Properties;
  * @date 2020/8/12
  */
 @Configuration
-public class CaptchaConfig {
+public class CaptchaConfig
+{
 
 	@Bean
 	public CaptchaService captchaService()

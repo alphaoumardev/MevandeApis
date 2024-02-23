@@ -31,7 +31,8 @@ import java.util.Objects;
  * @date 2020/9/22
  */
 @RestController
-public class AccountFeignController implements AccountFeignClient {
+public class AccountFeignController implements AccountFeignClient
+{
 
     @Autowired
     private AuthAccountMapper authAccountMapper;

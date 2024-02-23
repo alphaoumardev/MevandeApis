@@ -61,6 +61,14 @@
     <dependencyManagement>
         <dependencies>
             <!-- 核心依赖 -->
+            <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>1.18.30</version>
+                <scope>provided</scope>
+            </dependency>
+
             <!--spring boot-->
             <dependency>
                 <groupId>org.springframework.boot</groupId>

@@ -2,6 +2,9 @@ package com.mev.cloud.auth.model;
 
 import com.mev.cloud.common.database.annotations.DistributedId;
 import com.mev.cloud.common.model.BaseModel;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 /**
  * 统一账户信息
@@ -9,7 +12,12 @@ import com.mev.cloud.common.model.BaseModel;
  * @author Alphaoumardev
  * @date 2020/07/02
  */
-public class AuthAccount extends BaseModel {
+
+@Setter
+@Getter
+@ToString
+public class AuthAccount extends BaseModel
+{
 
 	/**
 	 * 全平台用户唯一id
@@ -57,91 +65,6 @@ public class AuthAccount extends BaseModel {
 	 */
 	private Integer isAdmin;
 
-	public Long getUid() {
-		return uid;
-	}
 
-	public void setUid(Long uid) {
-		this.uid = uid;
-	}
-
-	public String getUsername() {
-		return username;
-	}
-
-	public void setUsername(String username) {
-		this.username = username;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
-	public String getCreateIp() {
-		return createIp;
-	}
-
-	public void setCreateIp(String createIp) {
-		this.createIp = createIp;
-	}
-
-	public Integer getStatus() {
-		return status;
-	}
-
-	public void setStatus(Integer status) {
-		this.status = status;
-	}
-
-	public Integer getSysType() {
-		return sysType;
-	}
-
-	public void setSysType(Integer sysType) {
-		this.sysType = sysType;
-	}
-
-	public Long getUserId() {
-		return userId;
-	}
-
-	public void setUserId(Long userId) {
-		this.userId = userId;
-	}
-
-	public Long getTenantId() {
-		return tenantId;
-	}
-
-	public void setTenantId(Long tenantId) {
-		this.tenantId = tenantId;
-	}
-
-	public Integer getIsAdmin() {
-		return isAdmin;
-	}
-
-	public void setIsAdmin(Integer isAdmin) {
-		this.isAdmin = isAdmin;
-	}
-
-	@Override
-	public String toString() {
-		return "AuthAccount{" +
-				"uid=" + uid +
-				", username='" + username + '\'' +
-				", password='" + password + '\'' +
-				", createIp='" + createIp + '\'' +
-				", status=" + status +
-				", sysType=" + sysType +
-				", userId=" + userId +
-				", tenantId=" + tenantId +
-				", isAdmin=" + isAdmin +
-				'}';
-	}
 
 }

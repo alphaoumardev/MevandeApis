@@ -14,7 +14,8 @@ import org.springframework.web.bind.annotation.RestController;
  * @date 2020/7/15
  */
 @RestController
-public class TokenFeignController implements TokenFeignClient {
+public class TokenFeignController implements TokenFeignClient
+{
 
 	private static final Logger logger = LoggerFactory.getLogger(TokenFeignController.class);
 
@@ -22,10 +23,12 @@ public class TokenFeignController implements TokenFeignClient {
 	private TokenStore tokenStore;
 
 	@Override
-	public ServerResponseEntity<UserInfoInTokenBO> checkToken(String accessToken) {
+	public ServerResponseEntity<UserInfoInTokenBO> checkToken(String accessToken)
+	{
 		ServerResponseEntity<UserInfoInTokenBO> userInfoByAccessTokenResponse = tokenStore
 				.getUserInfoByAccessToken(accessToken, true);
-		if (!userInfoByAccessTokenResponse.isSuccess()) {
+		if (!userInfoByAccessTokenResponse.isSuccess())
+		{
 			return ServerResponseEntity.transform(userInfoByAccessTokenResponse);
 		}
 		return ServerResponseEntity.success(userInfoByAccessTokenResponse.getData());
