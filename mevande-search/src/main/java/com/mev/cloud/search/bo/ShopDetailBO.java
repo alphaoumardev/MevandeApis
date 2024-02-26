@@ -2,6 +2,9 @@ package com.mev.cloud.search.bo;
 
 import cn.throwx.canal.gule.annotation.CanalModel;
 import cn.throwx.canal.gule.common.FieldNamingPolicy;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 /**
  * 品牌信息
@@ -9,6 +12,9 @@ import cn.throwx.canal.gule.common.FieldNamingPolicy;
  * @author YXF
  * @date 2020-12-23 15:27:24
  */
+@Setter
+@Getter
+@ToString
 @CanalModel(database = "mevande_multishop", table = "shop_detail", fieldNamingPolicy = FieldNamingPolicy.LOWER_UNDERSCORE)
 public class ShopDetailBO {
     /**

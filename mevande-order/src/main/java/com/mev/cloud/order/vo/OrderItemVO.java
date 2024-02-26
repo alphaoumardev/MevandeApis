@@ -2,6 +2,11 @@ package com.mev.cloud.order.vo;
 
 import com.mev.cloud.common.vo.BaseVO;
 import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.Getter;
+import lombok.Setter;
+
+import java.io.Serial;
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -10,8 +15,11 @@ import java.util.Date;
  * @author Alphaoumardev
  * @date 2020-12-04 11:27:35
  */
-public class OrderItemVO extends BaseVO{
-    private static final long serialVersionUID = 1L;
+@Setter
+@Getter
+public class OrderItemVO extends BaseVO implements Serializable {
+    @Serial
+	private static final long serialVersionUID = 1L;
 
     @Schema(description = "订单项ID" )
     private Long orderItemId;
@@ -57,126 +65,6 @@ public class OrderItemVO extends BaseVO{
 
 	@Schema(description = "发货改变的数量" )
 	private Integer changeNum;
-
-	public Long getOrderItemId() {
-		return orderItemId;
-	}
-
-	public void setOrderItemId(Long orderItemId) {
-		this.orderItemId = orderItemId;
-	}
-
-	public Long getShopId() {
-		return shopId;
-	}
-
-	public void setShopId(Long shopId) {
-		this.shopId = shopId;
-	}
-
-	public Long getOrderId() {
-		return orderId;
-	}
-
-	public void setOrderId(Long orderId) {
-		this.orderId = orderId;
-	}
-
-	public Long getSpuId() {
-		return spuId;
-	}
-
-	public void setSpuId(Long spuId) {
-		this.spuId = spuId;
-	}
-
-	public Long getSkuId() {
-		return skuId;
-	}
-
-	public void setSkuId(Long skuId) {
-		this.skuId = skuId;
-	}
-
-	public Long getUserId() {
-		return userId;
-	}
-
-	public void setUserId(Long userId) {
-		this.userId = userId;
-	}
-
-	public Integer getCount() {
-		return count;
-	}
-
-	public void setCount(Integer count) {
-		this.count = count;
-	}
-
-	public String getSpuName() {
-		return spuName;
-	}
-
-	public void setSpuName(String spuName) {
-		this.spuName = spuName;
-	}
-
-	public String getSkuName() {
-		return skuName;
-	}
-
-	public void setSkuName(String skuName) {
-		this.skuName = skuName;
-	}
-
-	public String getPic() {
-		return pic;
-	}
-
-	public void setPic(String pic) {
-		this.pic = pic;
-	}
-
-	public Date getShopCartTime() {
-		return shopCartTime;
-	}
-
-	public void setShopCartTime(Date shopCartTime) {
-		this.shopCartTime = shopCartTime;
-	}
-
-	public Long getPrice() {
-		return price;
-	}
-
-	public void setPrice(Long price) {
-		this.price = price;
-	}
-
-	public Long getSpuTotalAmount() {
-		return spuTotalAmount;
-	}
-
-	public void setSpuTotalAmount(Long spuTotalAmount) {
-		this.spuTotalAmount = spuTotalAmount;
-	}
-
-	public Integer getDeliveryType() {
-		return deliveryType;
-	}
-
-	public void setDeliveryType(Integer deliveryType) {
-		this.deliveryType = deliveryType;
-	}
-
-	public Integer getChangeNum() {
-		return changeNum;
-	}
-
-	public void setChangeNum(Integer changeNum) {
-		this.changeNum = changeNum;
-	}
 
 	@Override
 	public String toString() {

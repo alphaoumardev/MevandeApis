@@ -1,18 +1,25 @@
 package com.mev.cloud.order.model;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
 import com.mev.cloud.common.model.BaseModel;
+import lombok.Getter;
+import lombok.Setter;
+
 /**
  * 订单信息
  *
  * @author Alphaoumardev
  * @date 2020-12-05 14:13:50
  */
+@Setter
+@Getter
 public class Order extends BaseModel implements Serializable{
-    private static final long serialVersionUID = 1L;
+    @Serial
+	private static final long serialVersionUID = 1L;
 
 	public static final String DISTRIBUTED_ID_KEY = "mevande-order";
 
@@ -105,150 +112,6 @@ public class Order extends BaseModel implements Serializable{
 	 * 订单项
 	 */
 	private List<OrderItem> orderItems;
-
-	public Long getOrderAddrId() {
-		return orderAddrId;
-	}
-
-	public void setOrderAddrId(Long orderAddrId) {
-		this.orderAddrId = orderAddrId;
-	}
-
-	public Long getOrderId() {
-		return orderId;
-	}
-
-	public void setOrderId(Long orderId) {
-		this.orderId = orderId;
-	}
-
-	public Long getShopId() {
-		return shopId;
-	}
-
-	public void setShopId(Long shopId) {
-		this.shopId = shopId;
-	}
-
-	public Long getUserId() {
-		return userId;
-	}
-
-	public void setUserId(Long userId) {
-		this.userId = userId;
-	}
-
-	public Long getTotal() {
-		return total;
-	}
-
-	public void setTotal(Long total) {
-		this.total = total;
-	}
-
-	public Integer getStatus() {
-		return status;
-	}
-
-	public void setStatus(Integer status) {
-		this.status = status;
-	}
-
-	public Integer getDeliveryType() {
-		return deliveryType;
-	}
-
-	public void setDeliveryType(Integer deliveryType) {
-		this.deliveryType = deliveryType;
-	}
-
-	public OrderAddr getOrderAddr() {
-		return orderAddr;
-	}
-
-	public void setOrderAddr(OrderAddr orderAddr) {
-		this.orderAddr = orderAddr;
-	}
-
-	public Integer getCloseType() {
-		return closeType;
-	}
-
-	public void setCloseType(Integer closeType) {
-		this.closeType = closeType;
-	}
-
-	public Integer getAllCount() {
-		return allCount;
-	}
-
-	public void setAllCount(Integer allCount) {
-		this.allCount = allCount;
-	}
-
-	public Date getPayTime() {
-		return payTime;
-	}
-
-	public void setPayTime(Date payTime) {
-		this.payTime = payTime;
-	}
-
-	public Date getDeliveryTime() {
-		return deliveryTime;
-	}
-
-	public void setDeliveryTime(Date deliveryTime) {
-		this.deliveryTime = deliveryTime;
-	}
-
-	public Date getFinallyTime() {
-		return finallyTime;
-	}
-
-	public void setFinallyTime(Date finallyTime) {
-		this.finallyTime = finallyTime;
-	}
-
-	public Date getCancelTime() {
-		return cancelTime;
-	}
-
-	public void setCancelTime(Date cancelTime) {
-		this.cancelTime = cancelTime;
-	}
-
-	public Integer getIsPayed() {
-		return isPayed;
-	}
-
-	public void setIsPayed(Integer isPayed) {
-		this.isPayed = isPayed;
-	}
-
-	public Integer getDeleteStatus() {
-		return deleteStatus;
-	}
-
-	public void setDeleteStatus(Integer deleteStatus) {
-		this.deleteStatus = deleteStatus;
-	}
-
-	public List<OrderItem> getOrderItems() {
-		return orderItems;
-	}
-
-	public void setOrderItems(List<OrderItem> orderItems) {
-		this.orderItems = orderItems;
-	}
-
-	public String getShopName() {
-		return shopName;
-	}
-
-	public void setShopName(String shopName) {
-		this.shopName = shopName;
-	}
 
 	@Override
 	public String toString() {

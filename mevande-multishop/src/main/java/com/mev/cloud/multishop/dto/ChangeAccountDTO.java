@@ -4,11 +4,15 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import lombok.Getter;
+import lombok.Setter;
 
 /**
  * @author Alphaoumardev
  * @date 2020/9/22
  */
+@Setter
+@Getter
 public class ChangeAccountDTO {
 
     @NotNull(message = "userId not null")
@@ -32,54 +36,6 @@ public class ChangeAccountDTO {
 
     @Schema(description = "手机号" )
     private String phone;
-
-    public Long getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Long userId) {
-        this.userId = userId;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public Integer getStatus() {
-        return status;
-    }
-
-    public void setStatus(Integer status) {
-        this.status = status;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
 
     @Override
     public String toString() {

@@ -1,6 +1,8 @@
 package com.mev.cloud.common.vo;
 
 import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.Date;
 
@@ -11,8 +13,10 @@ import java.util.Date;
  *
  * @author Alphaoumardev
  */
-public class BaseVO {
-
+@Setter
+@Getter
+public class BaseVO
+{
 	/**
 	 * 创建时间
 	 */
@@ -24,22 +28,6 @@ public class BaseVO {
 	 */
 	@Schema(description = "更新时间" )
 	protected Date updateTime;
-
-	public Date getCreateTime() {
-		return createTime;
-	}
-
-	public void setCreateTime(Date createTime) {
-		this.createTime = createTime;
-	}
-
-	public Date getUpdateTime() {
-		return updateTime;
-	}
-
-	public void setUpdateTime(Date updateTime) {
-		this.updateTime = updateTime;
-	}
 
 	@Override
 	public String toString() {

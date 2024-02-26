@@ -4,11 +4,15 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
+import lombok.Getter;
+import lombok.Setter;
 
 /**
  * @author Alphaoumardev
  * @date 2020/12/22
  */
+@Setter
+@Getter
 public class SkuStockLockDTO {
 
     @NotNull(message = "产品ID不能为空")
@@ -35,38 +39,6 @@ public class SkuStockLockDTO {
         this.spuId = spuId;
         this.skuId = skuId;
         this.orderId = orderId;
-        this.count = count;
-    }
-
-    public Long getSpuId() {
-        return spuId;
-    }
-
-    public void setSpuId(Long spuId) {
-        this.spuId = spuId;
-    }
-
-    public Long getSkuId() {
-        return skuId;
-    }
-
-    public void setSkuId(Long skuId) {
-        this.skuId = skuId;
-    }
-
-    public Long getOrderId() {
-        return orderId;
-    }
-
-    public void setOrderId(Long orderId) {
-        this.orderId = orderId;
-    }
-
-    public Integer getCount() {
-        return count;
-    }
-
-    public void setCount(Integer count) {
         this.count = count;
     }
 

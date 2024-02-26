@@ -1,5 +1,7 @@
 package com.mev.cloud.biz.config;
 
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.context.annotation.Bean;
@@ -9,6 +11,8 @@ import org.springframework.context.annotation.Configuration;
  * @author Alphaoumardev
  * @date 2020/9/10
  */
+@Setter
+@Getter
 @RefreshScope
 @Configuration
 public class OssConfig {
@@ -34,51 +38,4 @@ public class OssConfig {
         return accessKeyId;
     }
 
-    public String getBucket() {
-        return bucket;
-    }
-
-    public String getEndpoint() {
-        return endpoint;
-    }
-
-    public Integer getMaxLength() {
-        return maxLength;
-    }
-
-    public void setEndpoint(String endpoint) {
-        this.endpoint = endpoint;
-    }
-
-    public void setBucket(String bucket) {
-        this.bucket = bucket;
-    }
-
-    public String getAccessKeyId() {
-        return accessKeyId;
-    }
-
-    public void setAccessKeyId(String accessKeyId) {
-        this.accessKeyId = accessKeyId;
-    }
-
-    public String getAccessKeySecret() {
-        return accessKeySecret;
-    }
-
-    public void setAccessKeySecret(String accessKeySecret) {
-        this.accessKeySecret = accessKeySecret;
-    }
-
-    public void setMaxLength(Integer maxLength) {
-        this.maxLength = maxLength;
-    }
-
-    public Integer getOssType() {
-        return ossType;
-    }
-
-    public void setOssType(Integer ossType) {
-        this.ossType = ossType;
-    }
 }

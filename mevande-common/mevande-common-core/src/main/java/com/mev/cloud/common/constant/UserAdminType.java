@@ -1,10 +1,13 @@
 package com.mev.cloud.common.constant;
 
 
+import lombok.Getter;
+
 /**
  * @author lhd
  * @date 2020/12/30
  */
+@Getter
 public enum UserAdminType {
     /**
      * 管理员
@@ -19,10 +22,6 @@ public enum UserAdminType {
     private Integer value;
 
     public Integer value() {
-        return value;
-    }
-
-    public Integer getValue() {
         return value;
     }
 

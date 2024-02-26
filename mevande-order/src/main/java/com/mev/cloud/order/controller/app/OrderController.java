@@ -149,7 +149,8 @@ public class OrderController {
         long total = 0;
         int totalCount = 0;
         // 所有店铺所有的商品item
-        for (ShopCartVO shopCart : shopCarts) {
+        for (ShopCartVO shopCart : shopCarts)
+        {
             // 每个店铺的订单信息
             ShopCartOrderVO shopCartOrder = new ShopCartOrderVO();
             shopCartOrder.setShopId(shopCart.getShopId());
@@ -158,7 +159,7 @@ public class OrderController {
             totalCount += shopCart.getTotalCount();
             shopCartOrder.setTotal(shopCart.getTotal());
             shopCartOrder.setTotalCount(shopCart.getTotalCount());
-            shopCartOrder.setShopCartItemVO(shopCart.getshopCartItem());
+            shopCartOrder.setShopCartItemVO(shopCart.getShopCartItem());
             shopCartOrders.add(shopCartOrder);
         }
         shopCartOrderMerger.setTotal(total);

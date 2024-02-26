@@ -3,6 +3,12 @@ package com.mev.cloud.product.dto;
 import io.swagger.v3.oas.annotations.media.Schema;
 
 import jakarta.validation.constraints.NotNull;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
+import java.io.Serial;
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -11,8 +17,12 @@ import java.util.List;
  * @author Alphaoumardev
  * @date 2020-10-28 15:27:23
  */
-public class AttrDTO{
-    private static final long serialVersionUID = 1L;
+@Setter
+@Getter
+@ToString
+public class AttrDTO implements Serializable {
+    @Serial
+	private static final long serialVersionUID = 1L;
 
     @Schema(description = "attr id" )
     private Long attrId;
@@ -39,81 +49,4 @@ public class AttrDTO{
     @Schema(description = "属性值列表" )
 	private List<AttrValueDTO> attrValues;
 
-	public Long getAttrId() {
-		return attrId;
-	}
-
-	public void setAttrId(Long attrId) {
-		this.attrId = attrId;
-	}
-
-	public Long getShopId() {
-		return shopId;
-	}
-
-	public void setShopId(Long shopId) {
-		this.shopId = shopId;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getDesc() {
-		return desc;
-	}
-
-	public void setDesc(String desc) {
-		this.desc = desc;
-	}
-
-	public Integer getAttrType() {
-		return attrType;
-	}
-
-	public void setAttrType(Integer attrType) {
-		this.attrType = attrType;
-	}
-
-	public Integer getSearchType() {
-		return searchType;
-	}
-
-	public void setSearchType(Integer searchType) {
-		this.searchType = searchType;
-	}
-
-	public List<AttrValueDTO> getAttrValues() {
-		return attrValues;
-	}
-
-	public void setAttrValues(List<AttrValueDTO> attrValues) {
-		this.attrValues = attrValues;
-	}
-
-	public List<Long> getCategoryIds() {
-		return categoryIds;
-	}
-
-	public void setCategoryIds(List<Long> categoryIds) {
-		this.categoryIds = categoryIds;
-	}
-
-	@Override
-	public String toString() {
-		return "AttrDTO{" +
-				"attrId=" + attrId +
-				", shopId='" + shopId + '\'' +
-				", name='" + name + '\'' +
-				", desc='" + desc + '\'' +
-				", attrType=" + attrType +
-				", searchType=" + searchType +
-				", categoryIds=" + categoryIds +
-				", attrValues=" + attrValues +
-				'}';
-	}
 }

@@ -2,7 +2,10 @@ package com.mev.cloud.common.order.vo;
 
 import com.mev.cloud.common.vo.BaseVO;
 import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.Getter;
+import lombok.Setter;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 /**
@@ -11,8 +14,12 @@ import java.io.Serializable;
  * @author Alphaoumardev
  * @date 2020-12-07 15:50:02
  */
-public class UserAddrVO extends BaseVO implements Serializable {
-    private static final long serialVersionUID = 1L;
+@Setter
+@Getter
+public class UserAddrVO extends BaseVO implements Serializable
+{
+    @Serial
+	private static final long serialVersionUID = 1L;
 
     @Schema(description = "ID" )
     private Long addrId;
@@ -55,118 +62,6 @@ public class UserAddrVO extends BaseVO implements Serializable {
 
     @Schema(description = "纬度" )
     private Double lat;
-
-	public Long getAddrId() {
-		return addrId;
-	}
-
-	public void setAddrId(Long addrId) {
-		this.addrId = addrId;
-	}
-
-	public String getMobile() {
-		return mobile;
-	}
-
-	public void setMobile(String mobile) {
-		this.mobile = mobile;
-	}
-
-	public Integer getIsDefault() {
-		return isDefault;
-	}
-
-	public void setIsDefault(Integer isDefault) {
-		this.isDefault = isDefault;
-	}
-
-	public String getConsignee() {
-		return consignee;
-	}
-
-	public void setConsignee(String consignee) {
-		this.consignee = consignee;
-	}
-
-	public Long getProvinceId() {
-		return provinceId;
-	}
-
-	public void setProvinceId(Long provinceId) {
-		this.provinceId = provinceId;
-	}
-
-	public String getProvince() {
-		return province;
-	}
-
-	public void setProvince(String province) {
-		this.province = province;
-	}
-
-	public Long getCityId() {
-		return cityId;
-	}
-
-	public void setCityId(Long cityId) {
-		this.cityId = cityId;
-	}
-
-	public String getCity() {
-		return city;
-	}
-
-	public void setCity(String city) {
-		this.city = city;
-	}
-
-	public Long getAreaId() {
-		return areaId;
-	}
-
-	public void setAreaId(Long areaId) {
-		this.areaId = areaId;
-	}
-
-	public String getArea() {
-		return area;
-	}
-
-	public void setArea(String area) {
-		this.area = area;
-	}
-
-	public String getPostCode() {
-		return postCode;
-	}
-
-	public void setPostCode(String postCode) {
-		this.postCode = postCode;
-	}
-
-	public String getAddr() {
-		return addr;
-	}
-
-	public void setAddr(String addr) {
-		this.addr = addr;
-	}
-
-	public Double getLng() {
-		return lng;
-	}
-
-	public void setLng(Double lng) {
-		this.lng = lng;
-	}
-
-	public Double getLat() {
-		return lat;
-	}
-
-	public void setLat(Double lat) {
-		this.lat = lat;
-	}
 
 	@Override
 	public String toString() {

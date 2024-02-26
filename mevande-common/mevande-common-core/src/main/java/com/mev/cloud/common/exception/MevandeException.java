@@ -1,6 +1,7 @@
 package com.mev.cloud.common.exception;
 
 import com.mev.cloud.common.response.ResponseEnum;
+import lombok.Getter;
 
 import java.io.Serial;
 
@@ -8,6 +9,7 @@ import java.io.Serial;
  * @author Alphaoumardev
  * @date 2020/7/11
  */
+@Getter
 public class MevandeException extends RuntimeException
 {
 
@@ -44,13 +46,5 @@ public class MevandeException extends RuntimeException
 		this.object = object;
 	}
 
-
-	public Object getObject() {
-		return object;
-	}
-
-	public ResponseEnum getResponseEnum() {
-		return responseEnum;
-	}
 
 }

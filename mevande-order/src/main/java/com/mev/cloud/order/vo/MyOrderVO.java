@@ -1,6 +1,8 @@
 package com.mev.cloud.order.vo;
 
 import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.Date;
 import java.util.List;
@@ -10,8 +12,11 @@ import java.util.List;
  *
  * @author Alphaoumardev
  */
+@Setter
+@Getter
 @Schema(description = "我的订单")
-public class MyOrderVO {
+public class MyOrderVO
+{
 
 	@Schema(description = "订单项" ,requiredMode = Schema.RequiredMode.REQUIRED)
 	private List<MyOrderItemVO> orderItems;
@@ -39,78 +44,6 @@ public class MyOrderVO {
 
 	@Schema(description = "商品总数" ,requiredMode = Schema.RequiredMode.REQUIRED)
 	private Integer allCount;
-
-	public List<MyOrderItemVO> getOrderItems() {
-		return orderItems;
-	}
-
-	public void setOrderItems(List<MyOrderItemVO> orderItems) {
-		this.orderItems = orderItems;
-	}
-
-	public Long getOrderId() {
-		return orderId;
-	}
-
-	public void setOrderId(Long orderId) {
-		this.orderId = orderId;
-	}
-
-	public Long getActualTotal() {
-		return actualTotal;
-	}
-
-	public void setActualTotal(Long actualTotal) {
-		this.actualTotal = actualTotal;
-	}
-
-	public Integer getStatus() {
-		return status;
-	}
-
-	public void setStatus(Integer status) {
-		this.status = status;
-	}
-
-	public String getShopName() {
-		return shopName;
-	}
-
-	public void setShopName(String shopName) {
-		this.shopName = shopName;
-	}
-
-	public Long getShopId() {
-		return shopId;
-	}
-
-	public void setShopId(Long shopId) {
-		this.shopId = shopId;
-	}
-
-	public Date getCreateTime() {
-		return createTime;
-	}
-
-	public void setCreateTime(Date createTime) {
-		this.createTime = createTime;
-	}
-
-	public Integer getDeliveryType() {
-		return deliveryType;
-	}
-
-	public void setDeliveryType(Integer deliveryType) {
-		this.deliveryType = deliveryType;
-	}
-
-	public Integer getAllCount() {
-		return allCount;
-	}
-
-	public void setAllCount(Integer allCount) {
-		this.allCount = allCount;
-	}
 
 	@Override
 	public String toString() {

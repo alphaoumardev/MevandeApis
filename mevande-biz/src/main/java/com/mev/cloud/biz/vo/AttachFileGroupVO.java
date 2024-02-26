@@ -2,6 +2,11 @@ package com.mev.cloud.biz.vo;
 
 import com.mev.cloud.common.vo.BaseVO;
 import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.Getter;
+import lombok.Setter;
+
+import java.io.Serial;
+import java.io.Serializable;
 
 /**
  * VO
@@ -9,8 +14,11 @@ import io.swagger.v3.oas.annotations.media.Schema;
  * @author YXF
  * @date 2020-12-04 16:15:02
  */
-public class AttachFileGroupVO extends BaseVO{
-    private static final long serialVersionUID = 1L;
+@Setter
+@Getter
+public class AttachFileGroupVO extends BaseVO implements Serializable {
+    @Serial
+	private static final long serialVersionUID = 1L;
 
     
     private Long attachFileGroupId;
@@ -20,30 +28,6 @@ public class AttachFileGroupVO extends BaseVO{
 
     @Schema(description = "分组名称" )
     private String name;
-
-	public Long getAttachFileGroupId() {
-		return attachFileGroupId;
-	}
-
-	public void setAttachFileGroupId(Long attachFileGroupId) {
-		this.attachFileGroupId = attachFileGroupId;
-	}
-
-	public Long getShopId() {
-		return shopId;
-	}
-
-	public void setShopId(Long shopId) {
-		this.shopId = shopId;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
 
 	@Override
 	public String toString() {

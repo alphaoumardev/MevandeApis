@@ -1,16 +1,25 @@
 package com.mev.cloud.product.model;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 import com.mev.cloud.common.model.BaseModel;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
 /**
  * 库存锁定信息
  *
  * @author Alphaoumardev
  * @date 2020-12-22 16:12:10
  */
+@Setter
+@Getter
+@ToString
 public class SkuStockLock extends BaseModel implements Serializable{
-    private static final long serialVersionUID = 1L;
+    @Serial
+	private static final long serialVersionUID = 1L;
 
     /**
      * id
@@ -42,65 +51,4 @@ public class SkuStockLock extends BaseModel implements Serializable{
      */
     private Integer status;
 
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public Long getSpuId() {
-		return spuId;
-	}
-
-	public void setSpuId(Long spuId) {
-		this.spuId = spuId;
-	}
-
-	public Long getSkuId() {
-		return skuId;
-	}
-
-	public void setSkuId(Long skuId) {
-		this.skuId = skuId;
-	}
-
-	public Long getOrderId() {
-		return orderId;
-	}
-
-	public void setOrderId(Long orderId) {
-		this.orderId = orderId;
-	}
-
-	public Integer getCount() {
-		return count;
-	}
-
-	public void setCount(Integer count) {
-		this.count = count;
-	}
-
-	public Integer getStatus() {
-		return status;
-	}
-
-	public void setStatus(Integer status) {
-		this.status = status;
-	}
-
-	@Override
-	public String toString() {
-		return "SkuStockLock{" +
-				"id=" + id +
-				",createTime=" + createTime +
-				",updateTime=" + updateTime +
-				",spuId=" + spuId +
-				",skuId=" + skuId +
-				",orderId=" + orderId +
-				",count=" + count +
-				",status=" + status +
-				'}';
-	}
 }

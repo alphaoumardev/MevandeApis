@@ -10,7 +10,8 @@ import java.util.List;
  * @author YXF
  * @date 2020-12-04 16:15:02
  */
-public interface AttachFileGroupMapper {
+public interface AttachFileGroupMapper
+{
 
 	/**
 	 * 获取列表

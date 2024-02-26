@@ -1,7 +1,12 @@
 package com.mev.cloud.product.dto;
 
 import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
+import java.io.Serial;
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -10,7 +15,11 @@ import java.util.List;
  * @author Alphaoumardev
  * @date 2020-10-28 15:27:24
  */
-public class SkuDTO{
+@Setter
+@Getter
+@ToString
+public class SkuDTO implements Serializable {
+	@Serial
 	private static final long serialVersionUID = 1L;
 
 	@Schema(description = "属性id" )
@@ -58,144 +67,4 @@ public class SkuDTO{
 	@Schema(description = "规格列表" )
 	private List<SpuSkuAttrValueDTO> spuSkuAttrValues;
 
-	public String getPartyCode() {
-		return partyCode;
-	}
-
-	public void setPartyCode(String partyCode) {
-		this.partyCode = partyCode;
-	}
-
-	public String getModelId() {
-		return modelId;
-	}
-
-	public void setModelId(String modelId) {
-		this.modelId = modelId;
-	}
-
-	public Double getWeight() {
-		return weight;
-	}
-
-	public void setWeight(Double weight) {
-		this.weight = weight;
-	}
-
-	public Double getVolume() {
-		return volume;
-	}
-
-	public void setVolume(Double volume) {
-		this.volume = volume;
-	}
-
-	public List<SpuSkuAttrValueDTO> getSpuSkuAttrValues() {
-		return spuSkuAttrValues;
-	}
-
-	public void setSpuSkuAttrValues(List<SpuSkuAttrValueDTO> spuSkuAttrValues) {
-		this.spuSkuAttrValues = spuSkuAttrValues;
-	}
-
-	public Long getPriceFee() {
-		return priceFee;
-	}
-
-	public void setPriceFee(Long priceFee) {
-		this.priceFee = priceFee;
-	}
-
-
-	public Long getMarketPriceFee() {
-		return marketPriceFee;
-	}
-
-	public void setMarketPriceFee(Long marketPriceFee) {
-		this.marketPriceFee = marketPriceFee;
-	}
-
-	public Integer getStock() {
-		return stock;
-	}
-
-	public void setStock(Integer stock) {
-		this.stock = stock;
-	}
-
-	public Integer getChangeStock() {
-		return changeStock;
-	}
-
-	public void setChangeStock(Integer changeStock) {
-		this.changeStock = changeStock;
-	}
-
-	public Long getSkuId() {
-		return skuId;
-	}
-
-	public void setSkuId(Long skuId) {
-		this.skuId = skuId;
-	}
-
-	public Long getSpuId() {
-		return spuId;
-	}
-
-	public void setSpuId(Long spuId) {
-		this.spuId = spuId;
-	}
-
-	public String getAttrs() {
-		return attrs;
-	}
-
-	public void setAttrs(String attrs) {
-		this.attrs = attrs;
-	}
-
-	public String getImgUrl() {
-		return imgUrl;
-	}
-
-	public void setImgUrl(String imgUrl) {
-		this.imgUrl = imgUrl;
-	}
-
-	public Integer getStatus() {
-		return status;
-	}
-
-	public void setStatus(Integer status) {
-		this.status = status;
-	}
-
-	public String getSkuName() {
-		return skuName;
-	}
-
-	public void setSkuName(String skuName) {
-		this.skuName = skuName;
-	}
-
-	@Override
-	public String toString() {
-		return "SkuDTO{" +
-				"skuId=" + skuId +
-				", spuId=" + spuId +
-				", attrs='" + attrs + '\'' +
-				", skuName='" + skuName + '\'' +
-				", imgUrl='" + imgUrl + '\'' +
-				", priceFee=" + priceFee +
-				", marketPriceFee=" + marketPriceFee +
-				", status=" + status +
-				", stock=" + stock +
-				", partyCode='" + partyCode + '\'' +
-				", modelId='" + modelId + '\'' +
-				", weight=" + weight +
-				", volume=" + volume +
-				", spuSkuAttrValues=" + spuSkuAttrValues +
-				'}';
-	}
 }

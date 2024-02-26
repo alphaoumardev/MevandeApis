@@ -1,6 +1,8 @@
 package com.mev.cloud.common.order.bo;
 
 import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.List;
 
@@ -9,6 +11,8 @@ import java.util.List;
  * @author Alphaoumardev
  * @date 2020/12/8
  */
+@Setter
+@Getter
 public class PayNotifyBO {
 
     private List<Long> orderIds;
@@ -18,14 +22,6 @@ public class PayNotifyBO {
     }
 
     public PayNotifyBO(List<Long> orderIds) {
-        this.orderIds = orderIds;
-    }
-
-    public List<Long> getOrderIds() {
-        return orderIds;
-    }
-
-    public void setOrderIds(List<Long> orderIds) {
         this.orderIds = orderIds;
     }
 

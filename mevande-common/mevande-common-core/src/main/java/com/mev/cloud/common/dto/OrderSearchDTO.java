@@ -1,6 +1,8 @@
 package com.mev.cloud.common.dto;
 
 import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
@@ -9,7 +11,10 @@ import java.util.Date;
 /**
  * @author Alphaoumardev
  */
-public class OrderSearchDTO {
+@Setter
+@Getter
+public class OrderSearchDTO
+{
 
     /**
      * 用户id
@@ -60,118 +65,6 @@ public class OrderSearchDTO {
 
     @Schema(description = "每页大小" )
     private Integer pageSize;
-
-    public Long getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Long userId) {
-        this.userId = userId;
-    }
-
-    public Long getShopId() {
-        return shopId;
-    }
-
-    public void setShopId(Long shopId) {
-        this.shopId = shopId;
-    }
-
-    public Integer getStatus() {
-        return status;
-    }
-
-    public void setStatus(Integer status) {
-        this.status = status;
-    }
-
-    public Integer getIsPayed() {
-        return isPayed;
-    }
-
-    public void setIsPayed(Integer isPayed) {
-        this.isPayed = isPayed;
-    }
-
-    public Long getOrderId() {
-        return orderId;
-    }
-
-    public void setOrderId(Long orderId) {
-        this.orderId = orderId;
-    }
-
-    public Date getStartTime() {
-        return startTime;
-    }
-
-    public void setStartTime(Date startTime) {
-        this.startTime = startTime;
-    }
-
-    public Date getEndTime() {
-        return endTime;
-    }
-
-    public void setEndTime(Date endTime) {
-        this.endTime = endTime;
-    }
-
-    public String getShopName() {
-        return shopName;
-    }
-
-    public void setShopName(String shopName) {
-        this.shopName = shopName;
-    }
-
-    public String getSpuName() {
-        return spuName;
-    }
-
-    public void setSpuName(String spuName) {
-        this.spuName = spuName;
-    }
-
-    public String getConsignee() {
-        return consignee;
-    }
-
-    public void setConsignee(String consignee) {
-        this.consignee = consignee;
-    }
-
-    public String getMobile() {
-        return mobile;
-    }
-
-    public void setMobile(String mobile) {
-        this.mobile = mobile;
-    }
-
-    public Integer getDeliveryType() {
-        return deliveryType;
-    }
-
-    public void setDeliveryType(Integer deliveryType) {
-        this.deliveryType = deliveryType;
-    }
-
-    public Integer getPageNum() {
-        return pageNum;
-    }
-
-    public void setPageNum(Integer pageNum) {
-        this.pageNum = pageNum;
-    }
-
-    public Integer getPageSize() {
-        return pageSize;
-    }
-
-    public void setPageSize(Integer pageSize) {
-        this.pageSize = pageSize;
-    }
 
     @Override
     public String toString() {

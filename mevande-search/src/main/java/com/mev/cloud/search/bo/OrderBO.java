@@ -15,7 +15,9 @@ import java.util.Date;
  * @author YXF
  * @date 2020-12-23 15:27:24
  */
-@Data
+@Setter
+@Getter
+@ToString
 @CanalModel(database = "mevande_order", table = "order", fieldNamingPolicy = FieldNamingPolicy.LOWER_UNDERSCORE)
 public class OrderBO {
 

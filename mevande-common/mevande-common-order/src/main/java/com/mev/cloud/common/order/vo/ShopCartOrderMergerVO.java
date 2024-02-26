@@ -1,6 +1,8 @@
 package com.mev.cloud.common.order.vo;
 
 import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.List;
 
@@ -9,7 +11,10 @@ import java.util.List;
  * "/confirm" 使用
  * @author Alphaoumardev
  */
-public class ShopCartOrderMergerVO {
+@Setter
+@Getter
+public class ShopCartOrderMergerVO
+{
 
     @Schema(description = "商品总值" , requiredMode = Schema.RequiredMode.REQUIRED)
     private Long total;
@@ -29,54 +34,6 @@ public class ShopCartOrderMergerVO {
     @Schema(description = "用户地址" )
     private UserAddrVO userAddr;
 
-
-    public Long getTotal() {
-        return total;
-    }
-
-    public void setTotal(Long total) {
-        this.total = total;
-    }
-
-    public Integer getTotalCount() {
-        return totalCount;
-    }
-
-    public void setTotalCount(Integer totalCount) {
-        this.totalCount = totalCount;
-    }
-
-    public Integer getDvyType() {
-        return dvyType;
-    }
-
-    public void setDvyType(Integer dvyType) {
-        this.dvyType = dvyType;
-    }
-
-    public List<ShopCartOrderVO> getShopCartOrders() {
-        return shopCartOrders;
-    }
-
-    public void setShopCartOrders(List<ShopCartOrderVO> shopCartOrders) {
-        this.shopCartOrders = shopCartOrders;
-    }
-
-    public List<ShopCartItemVO> getFilterShopItems() {
-        return filterShopItems;
-    }
-
-    public void setFilterShopItems(List<ShopCartItemVO> filterShopItems) {
-        this.filterShopItems = filterShopItems;
-    }
-
-    public UserAddrVO getUserAddr() {
-        return userAddr;
-    }
-
-    public void setUserAddr(UserAddrVO userAddr) {
-        this.userAddr = userAddr;
-    }
 
     @Override
     public String toString() {

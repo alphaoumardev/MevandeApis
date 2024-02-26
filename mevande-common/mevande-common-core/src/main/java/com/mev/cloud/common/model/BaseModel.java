@@ -1,5 +1,8 @@
 package com.mev.cloud.common.model;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -10,6 +13,8 @@ import java.util.Date;
  *
  * @author Alphaoumardev
  */
+@Setter
+@Getter
 public class BaseModel implements Serializable {
 
 	/**
@@ -21,22 +26,6 @@ public class BaseModel implements Serializable {
 	 * 更新时间
 	 */
 	protected Date updateTime;
-
-	public Date getCreateTime() {
-		return createTime;
-	}
-
-	public void setCreateTime(Date createTime) {
-		this.createTime = createTime;
-	}
-
-	public Date getUpdateTime() {
-		return updateTime;
-	}
-
-	public void setUpdateTime(Date updateTime) {
-		this.updateTime = updateTime;
-	}
 
 	@Override
 	public String toString() {

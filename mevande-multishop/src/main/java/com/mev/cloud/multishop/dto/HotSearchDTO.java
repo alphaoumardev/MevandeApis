@@ -1,6 +1,11 @@
 package com.mev.cloud.multishop.dto;
 
 import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.Getter;
+import lombok.Setter;
+
+import java.io.Serial;
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -9,8 +14,11 @@ import java.util.Date;
  * @author YXF
  * @date 2021-01-27 09:10:00
  */
-public class HotSearchDTO{
-    private static final long serialVersionUID = 1L;
+@Setter
+@Getter
+public class HotSearchDTO implements Serializable {
+    @Serial
+	private static final long serialVersionUID = 1L;
 
     @Schema(description = "主键" )
     private Long hotSearchId;
@@ -29,54 +37,6 @@ public class HotSearchDTO{
 
     @Schema(description = "热搜标题" )
     private String title;
-
-	public Long getHotSearchId() {
-		return hotSearchId;
-	}
-
-	public void setHotSearchId(Long hotSearchId) {
-		this.hotSearchId = hotSearchId;
-	}
-
-	public Long getShopId() {
-		return shopId;
-	}
-
-	public void setShopId(Long shopId) {
-		this.shopId = shopId;
-	}
-
-	public String getContent() {
-		return content;
-	}
-
-	public void setContent(String content) {
-		this.content = content;
-	}
-
-	public Integer getSeq() {
-		return seq;
-	}
-
-	public void setSeq(Integer seq) {
-		this.seq = seq;
-	}
-
-	public Integer getStatus() {
-		return status;
-	}
-
-	public void setStatus(Integer status) {
-		this.status = status;
-	}
-
-	public String getTitle() {
-		return title;
-	}
-
-	public void setTitle(String title) {
-		this.title = title;
-	}
 
 	@Override
 	public String toString() {

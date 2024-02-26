@@ -3,6 +3,9 @@ package com.mev.cloud.rbac.dto;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 /**
  * 菜单管理DTO
@@ -10,6 +13,9 @@ import jakarta.validation.constraints.NotNull;
  * @author Alphaoumardev
  * @date 2020-09-15 16:35:01
  */
+@Setter
+@Getter
+@ToString
 public class MenuDTO {
     private static final long serialVersionUID = 1L;
 
@@ -53,117 +59,4 @@ public class MenuDTO {
     @Schema(description = "排序，越小越靠前" )
     private Integer seq;
 
-	public Integer getSysType() {
-		return sysType;
-	}
-
-	public void setSysType(Integer sysType) {
-		this.sysType = sysType;
-	}
-
-	public Long getMenuId() {
-		return menuId;
-	}
-
-	public void setMenuId(Long menuId) {
-		this.menuId = menuId;
-	}
-
-	public Long getParentId() {
-		return parentId;
-	}
-
-	public void setParentId(Long parentId) {
-		this.parentId = parentId;
-	}
-
-	public String getPermission() {
-		return permission;
-	}
-
-	public void setPermission(String permission) {
-		this.permission = permission;
-	}
-
-	public String getPath() {
-		return path;
-	}
-
-	public void setPath(String path) {
-		this.path = path;
-	}
-
-	public String getComponent() {
-		return component;
-	}
-
-	public void setComponent(String component) {
-		this.component = component;
-	}
-
-	public Integer getHidden() {
-		return hidden;
-	}
-
-	public void setHidden(Integer hidden) {
-		this.hidden = hidden;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getTitle() {
-		return title;
-	}
-
-	public void setTitle(String title) {
-		this.title = title;
-	}
-
-	public String getIcon() {
-		return icon;
-	}
-
-	public void setIcon(String icon) {
-		this.icon = icon;
-	}
-
-	public String getActiveMenu() {
-		return activeMenu;
-	}
-
-	public void setActiveMenu(String activeMenu) {
-		this.activeMenu = activeMenu;
-	}
-
-	public Integer getSeq() {
-		return seq;
-	}
-
-	public void setSeq(Integer seq) {
-		this.seq = seq;
-	}
-
-	@Override
-	public String toString() {
-		return "MenuDTO{" +
-				"menuId=" + menuId +
-				", parentId=" + parentId +
-				", permission='" + permission + '\'' +
-				", path='" + path + '\'' +
-				", component='" + component + '\'' +
-				", hidden=" + hidden +
-				", name='" + name + '\'' +
-				", title='" + title + '\'' +
-				", sysType=" + sysType +
-				", icon='" + icon + '\'' +
-				", activeMenu='" + activeMenu + '\'' +
-				", seq=" + seq +
-				'}';
-	}
 }

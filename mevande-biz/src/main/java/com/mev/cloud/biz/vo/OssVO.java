@@ -1,11 +1,16 @@
 package com.mev.cloud.biz.vo;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import java.util.List;
 
 /**
  * @author Alphaoumardev
  * @date 2020/9/12
  */
+@Setter
+@Getter
 public class OssVO {
 
     private String accessid;
@@ -29,78 +34,6 @@ public class OssVO {
      * @return
      */
     private List<OssVO> ossList;
-
-    public String getAccessid() {
-        return accessid;
-    }
-
-    public void setAccessid(String accessid) {
-        this.accessid = accessid;
-    }
-
-    public String getPolicy() {
-        return policy;
-    }
-
-    public void setPolicy(String policy) {
-        this.policy = policy;
-    }
-
-    public String getSignature() {
-        return signature;
-    }
-
-    public void setSignature(String signature) {
-        this.signature = signature;
-    }
-
-    public String getDir() {
-        return dir;
-    }
-
-    public void setDir(String dir) {
-        this.dir = dir;
-    }
-
-    public String getHost() {
-        return host;
-    }
-
-    public void setHost(String host) {
-        this.host = host;
-    }
-
-    public Integer getExpire() {
-        return expire;
-    }
-
-    public void setExpire(Integer expire) {
-        this.expire = expire;
-    }
-
-    public String getFileName() {
-        return fileName;
-    }
-
-    public void setFileName(String fileName) {
-        this.fileName = fileName;
-    }
-
-    public String getActionUrl() {
-        return actionUrl;
-    }
-
-    public void setActionUrl(String actionUrl) {
-        this.actionUrl = actionUrl;
-    }
-
-    public List<OssVO> getOssList() {
-        return ossList;
-    }
-
-    public void setOssList(List<OssVO> ossList) {
-        this.ossList = ossList;
-    }
 
     @Override
     public String toString() {

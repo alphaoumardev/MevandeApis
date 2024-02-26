@@ -3,6 +3,8 @@ package com.mev.cloud.common.order.vo;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.mev.cloud.common.serializer.ImgJsonSerializer;
 import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -12,6 +14,8 @@ import java.util.Date;
  * @author Alphaoumardev
  * @date 2020-11-20 15:47:32
  */
+@Setter
+@Getter
 public class ShopCartItemVO implements Serializable {
 
     @Schema(description = "加入购物车时间" , requiredMode = Schema.RequiredMode.REQUIRED)
@@ -69,134 +73,6 @@ public class ShopCartItemVO implements Serializable {
     @Schema(description = "spu名称" )
     private String spuName;
 
-    public Long getCartItemId() {
-        return cartItemId;
-    }
-
-    public void setCartItemId(Long cartItemId) {
-        this.cartItemId = cartItemId;
-    }
-
-    public Long getShopId() {
-        return shopId;
-    }
-
-    public void setShopId(Long shopId) {
-        this.shopId = shopId;
-    }
-
-    public Long getSpuId() {
-        return spuId;
-    }
-
-    public void setSpuId(Long spuId) {
-        this.spuId = spuId;
-    }
-
-    public Long getSkuId() {
-        return skuId;
-    }
-
-    public void setSkuId(Long skuId) {
-        this.skuId = skuId;
-    }
-
-    public Long getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Long userId) {
-        this.userId = userId;
-    }
-
-    public Integer getCount() {
-        return count;
-    }
-
-    public void setCount(Integer count) {
-        this.count = count;
-    }
-
-    public Long getPriceFee() {
-        return priceFee;
-    }
-
-    public void setPriceFee(Long priceFee) {
-        this.priceFee = priceFee;
-    }
-
-    public Long getSkuPriceFee() {
-        return skuPriceFee;
-    }
-
-    public void setSkuPriceFee(Long skuPriceFee) {
-        this.skuPriceFee = skuPriceFee;
-    }
-
-    public String getImgUrl() {
-        return imgUrl;
-    }
-
-    public void setImgUrl(String imgUrl) {
-        this.imgUrl = imgUrl;
-    }
-
-    public String getSkuName() {
-        return skuName;
-    }
-
-    public void setSkuName(String skuName) {
-        this.skuName = skuName;
-    }
-
-    public String getSpuName() {
-        return spuName;
-    }
-
-    public void setSpuName(String spuName) {
-        this.spuName = spuName;
-    }
-
-    public Long getTotalAmount() {
-        return totalAmount;
-    }
-
-    public void setTotalAmount(Long totalAmount) {
-        this.totalAmount = totalAmount;
-    }
-
-    public Long getTotalPriceFee() {
-        return totalPriceFee;
-    }
-
-    public Integer getIsChecked() {
-        return isChecked;
-    }
-
-    public void setIsChecked(Integer isChecked) {
-        this.isChecked = isChecked;
-    }
-
-    public void setTotalPriceFee(Long totalPriceFee) {
-        this.totalPriceFee = totalPriceFee;
-    }
-
-    public Long getTotalPrice() {
-        return totalPrice;
-    }
-
-    public void setTotalPrice(Long totalPrice) {
-        this.totalPrice = totalPrice;
-    }
-
-    public Date getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
-    }
-
     @Override
     public String toString() {
         return "ShopCartItemVO{" +
@@ -221,19 +97,4 @@ public class ShopCartItemVO implements Serializable {
                 '}';
     }
 
-    public BigDecimal getWeight() {
-        return weight;
-    }
-
-    public void setWeight(BigDecimal weight) {
-        this.weight = weight;
-    }
-
-    public BigDecimal getVolume() {
-        return volume;
-    }
-
-    public void setVolume(BigDecimal volume) {
-        this.volume = volume;
-    }
 }

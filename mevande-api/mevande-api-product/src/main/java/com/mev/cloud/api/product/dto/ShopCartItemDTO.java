@@ -4,6 +4,8 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
+import lombok.Getter;
+import lombok.Setter;
 
 /**
  * 购物车物品参数
@@ -11,6 +13,8 @@ import jakarta.validation.constraints.NotNull;
  * @author Alphaoumardev
  * @date 2020-12-04 11:27:35
  */
+@Setter
+@Getter
 public class ShopCartItemDTO {
 
 	@NotNull(message = "产品ID不能为空")
@@ -29,38 +33,6 @@ public class ShopCartItemDTO {
 	@NotNull(message = "店铺id不能为空")
 	@Schema(description = "店铺id" ,requiredMode = Schema.RequiredMode.REQUIRED)
 	private Long shopId;
-
-	public Long getSpuId() {
-		return spuId;
-	}
-
-	public void setSpuId(Long spuId) {
-		this.spuId = spuId;
-	}
-
-	public Long getSkuId() {
-		return skuId;
-	}
-
-	public void setSkuId(Long skuId) {
-		this.skuId = skuId;
-	}
-
-	public Integer getCount() {
-		return count;
-	}
-
-	public void setCount(Integer count) {
-		this.count = count;
-	}
-
-	public Long getShopId() {
-		return shopId;
-	}
-
-	public void setShopId(Long shopId) {
-		this.shopId = shopId;
-	}
 
 	@Override
 	public String toString() {

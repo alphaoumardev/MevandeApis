@@ -1,6 +1,9 @@
 package com.mev.cloud.rbac.model;
 
 import com.mev.cloud.common.model.BaseModel;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 /**
  * 角色与菜单对应关系
@@ -8,6 +11,9 @@ import com.mev.cloud.common.model.BaseModel;
  * @author Alphaoumardev
  * @date 2020/6/24
  */
+@Setter
+@Getter
+@ToString
 public class RoleMenu extends BaseModel {
 
 	/**
@@ -30,45 +36,4 @@ public class RoleMenu extends BaseModel {
 	 */
 	private Long menuPermissionId;
 
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public Long getRoleId() {
-		return roleId;
-	}
-
-	public void setRoleId(Long roleId) {
-		this.roleId = roleId;
-	}
-
-	public Long getMenuId() {
-		return menuId;
-	}
-
-	public void setMenuId(Long menuId) {
-		this.menuId = menuId;
-	}
-
-	public Long getMenuPermissionId() {
-		return menuPermissionId;
-	}
-
-	public void setMenuPermissionId(Long menuPermissionId) {
-		this.menuPermissionId = menuPermissionId;
-	}
-
-	@Override
-	public String toString() {
-		return "RoleMenu{" +
-				"id=" + id +
-				", roleId=" + roleId +
-				", menuId=" + menuId +
-				", menuPermissionId=" + menuPermissionId +
-				"} " + super.toString();
-	}
 }

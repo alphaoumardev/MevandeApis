@@ -1,5 +1,8 @@
 package com.mev.cloud.leaf.segment.model;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import java.util.Arrays;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.locks.Lock;
@@ -11,13 +14,17 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
  *
  * @author left
  */
+@Getter
+@Setter
 public class SegmentBuffer {
+
 
 	private String key;
 
 	/**
 	 * 双buffer
 	 */
+	@Getter
 	private final Segment[] segments;
 
 	/**
@@ -28,24 +35,34 @@ public class SegmentBuffer {
 	/**
 	 * 下一个segment是否处于可切换状态
 	 */
+	@Setter
+	@Getter
 	private volatile boolean nextReady;
 
 	/**
 	 * 是否初始化完成
 	 */
+	@Setter
 	private volatile boolean initOk;
 
 	/**
 	 * 线程是否在运行中
 	 */
-	private final AtomicBoolean threadRunning;
+	@Getter
+	private AtomicBoolean threadRunning;
 
 	private final ReadWriteLock lock;
 
+	@Setter
+	@Getter
 	private volatile int step;
 
+	@Setter
+	@Getter
 	private volatile int minStep;
 
+	@Getter
+	@Setter
 	private volatile long updateTimestamp;
 
 	public SegmentBuffer() {
@@ -57,24 +74,8 @@ public class SegmentBuffer {
 		lock = new ReentrantReadWriteLock();
 	}
 
-	public String getKey() {
-		return key;
-	}
-
-	public void setKey(String key) {
-		this.key = key;
-	}
-
-	public Segment[] getSegments() {
-		return segments;
-	}
-
 	public Segment getCurrent() {
 		return segments[currentPos];
-	}
-
-	public int getCurrentPos() {
-		return currentPos;
 	}
 
 	public int nextPos() {
@@ -89,52 +90,12 @@ public class SegmentBuffer {
 		return !initOk;
 	}
 
-	public void setInitOk(boolean initOk) {
-		this.initOk = initOk;
-	}
-
-	public boolean isNextReady() {
-		return nextReady;
-	}
-
-	public void setNextReady(boolean nextReady) {
-		this.nextReady = nextReady;
-	}
-
-	public AtomicBoolean getThreadRunning() {
-		return threadRunning;
-	}
-
 	public Lock rLock() {
 		return lock.readLock();
 	}
 
 	public Lock wLock() {
 		return lock.writeLock();
-	}
-
-	public int getStep() {
-		return step;
-	}
-
-	public void setStep(int step) {
-		this.step = step;
-	}
-
-	public int getMinStep() {
-		return minStep;
-	}
-
-	public void setMinStep(int minStep) {
-		this.minStep = minStep;
-	}
-
-	public long getUpdateTimestamp() {
-		return updateTimestamp;
-	}
-
-	public void setUpdateTimestamp(long updateTimestamp) {
-		this.updateTimestamp = updateTimestamp;
 	}
 
 	@Override

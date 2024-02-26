@@ -3,6 +3,9 @@ package com.mev.cloud.api.order.dto;
 import io.swagger.v3.oas.annotations.media.Schema;
 
 import jakarta.validation.constraints.NotNull;
+import lombok.Getter;
+import lombok.Setter;
+
 import java.util.List;
 
 /**
@@ -11,6 +14,8 @@ import java.util.List;
  * @author Alphaoumardev
  * @date 2020-12-07 15:10:00
  */
+@Setter
+@Getter
 public class DeliveryOrderDTO{
 
 	@Schema(description = "deliveryOrderId" )
@@ -25,38 +30,6 @@ public class DeliveryOrderDTO{
 	private Integer deliveryType;
 
 	private List<DeliveryOrderItemDTO> selectOrderItems;
-
-	public Long getOrderId() {
-		return orderId;
-	}
-
-	public void setOrderId(Long orderId) {
-		this.orderId = orderId;
-	}
-
-	public Integer getDeliveryType() {
-		return deliveryType;
-	}
-
-	public void setDeliveryType(Integer deliveryType) {
-		this.deliveryType = deliveryType;
-	}
-
-	public List<DeliveryOrderItemDTO> getSelectOrderItems() {
-		return selectOrderItems;
-	}
-
-	public void setSelectOrderItems(List<DeliveryOrderItemDTO> selectOrderItems) {
-		this.selectOrderItems = selectOrderItems;
-	}
-
-	public Long getDeliveryOrderId() {
-		return deliveryOrderId;
-	}
-
-	public void setDeliveryOrderId(Long deliveryOrderId) {
-		this.deliveryOrderId = deliveryOrderId;
-	}
 
 	@Override
 	public String toString() {

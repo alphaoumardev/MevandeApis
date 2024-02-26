@@ -5,12 +5,17 @@ import com.mev.cloud.common.util.PrincipalUtil;
 import io.swagger.v3.oas.annotations.media.Schema;
 
 import jakarta.validation.constraints.NotNull;
+import lombok.Getter;
+import lombok.Setter;
+
 import java.util.Arrays;
 
 /**
  * @author Alphaoumardev
  * @date 2020/9/8
  */
+@Getter
+@Setter
 public class PageDTO implements IPage {
 
     public static final String ASC = "ASC";

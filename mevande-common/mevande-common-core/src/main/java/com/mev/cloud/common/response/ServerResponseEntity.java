@@ -1,5 +1,7 @@
 package com.mev.cloud.common.response;
 
+import lombok.Getter;
+import lombok.Setter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -12,6 +14,8 @@ import java.util.Objects;
  * @author Alphaoumardev
  * @date 2020/7/3
  */
+@Setter
+@Getter
 public class ServerResponseEntity<T> implements Serializable {
 
 	private static final Logger log = LoggerFactory.getLogger(ServerResponseEntity.class);
@@ -30,30 +34,6 @@ public class ServerResponseEntity<T> implements Serializable {
 	 * 数据
 	 */
 	private T data;
-
-	public String getCode() {
-		return code;
-	}
-
-	public void setCode(String code) {
-		this.code = code;
-	}
-
-	public String getMsg() {
-		return msg;
-	}
-
-	public void setMsg(String msg) {
-		this.msg = msg;
-	}
-
-	public T getData() {
-		return data;
-	}
-
-	public void setData(T data) {
-		this.data = data;
-	}
 
 	public boolean isSuccess() {
 		return Objects.equals(ResponseEnum.OK.value(), this.code);

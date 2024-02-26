@@ -2,6 +2,11 @@ package com.mev.cloud.api.product.vo;
 
 import com.mev.cloud.common.vo.BaseVO;
 import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.Getter;
+import lombok.Setter;
+
+import java.io.Serial;
+import java.io.Serializable;
 
 /**
  * 属性与属性分组关联信息VO
@@ -9,8 +14,12 @@ import io.swagger.v3.oas.annotations.media.Schema;
  * @author YXF
  * @date 2020-11-23 16:20:01
  */
-public class AttrCategoryVO extends BaseVO{
-    private static final long serialVersionUID = 1L;
+@Setter
+@Getter
+public class AttrCategoryVO extends BaseVO implements Serializable
+{
+    @Serial
+	private static final long serialVersionUID = 1L;
 
     @Schema(description = "属性与分类关联id" )
     private Long attrCategoryId;
@@ -20,30 +29,6 @@ public class AttrCategoryVO extends BaseVO{
 
     @Schema(description = "属性id" )
     private Long attrId;
-
-	public Long getAttrCategoryId() {
-		return attrCategoryId;
-	}
-
-	public void setAttrCategoryId(Long attrCategoryId) {
-		this.attrCategoryId = attrCategoryId;
-	}
-
-	public Long getCategoryId() {
-		return categoryId;
-	}
-
-	public void setCategoryId(Long categoryId) {
-		this.categoryId = categoryId;
-	}
-
-	public Long getAttrId() {
-		return attrId;
-	}
-
-	public void setAttrId(Long attrId) {
-		this.attrId = attrId;
-	}
 
 	@Override
 	public String toString() {

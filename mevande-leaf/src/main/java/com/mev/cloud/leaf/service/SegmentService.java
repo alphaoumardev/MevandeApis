@@ -18,9 +18,7 @@ import javax.sql.DataSource;
 @Service("SegmentService")
 public class SegmentService {
 
-	private final Logger logger = LoggerFactory.getLogger(SegmentService.class);
-
-	private final IDGen idGen;
+    private final IDGen idGen;
 
 	public SegmentService(DataSource dataSource) throws InitException {
 		// Config Dao
@@ -30,7 +28,8 @@ public class SegmentService {
 		idGen = new SegmentIDGenImpl();
 		((SegmentIDGenImpl) idGen).setDao(dao);
 		if (idGen.init()) {
-			logger.info("Segment Service Init Successfully");
+            Logger logger = LoggerFactory.getLogger(SegmentService.class);
+            logger.info("Segment Service Init Successfully");
 		}
 		else {
 			throw new InitException("Segment Service Init Fail");

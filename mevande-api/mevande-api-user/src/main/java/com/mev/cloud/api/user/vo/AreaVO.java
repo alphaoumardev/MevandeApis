@@ -2,7 +2,11 @@ package com.mev.cloud.api.user.vo;
 
 import com.mev.cloud.common.vo.BaseVO;
 import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.Getter;
+import lombok.Setter;
 
+import java.io.Serial;
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -11,10 +15,12 @@ import java.util.List;
  * @author YXF
  * @date 2020-11-25 15:16:14
  */
-public class AreaVO extends BaseVO{
-    private static final long serialVersionUID = 1L;
+@Setter
+@Getter
+public class AreaVO extends BaseVO implements Serializable {
+    @Serial
+	private static final long serialVersionUID = 1L;
 
-	
 	private Long areaId;
 
 	@Schema(description = "地址" )
@@ -37,62 +43,6 @@ public class AreaVO extends BaseVO{
 	 * 下级地址的areaId
 	 */
 	private List<Long> areaIds;
-
-	public Long getAreaId() {
-		return areaId;
-	}
-
-	public Integer getCheck() {
-		return check;
-	}
-
-	public void setCheck(Integer check) {
-		this.check = check;
-	}
-
-	public List<AreaVO> getAreas() {
-		return areas;
-	}
-
-	public void setAreas(List<AreaVO> areas) {
-		this.areas = areas;
-	}
-
-	public List<Long> getAreaIds() {
-		return areaIds;
-	}
-
-	public void setAreaIds(List<Long> areaIds) {
-		this.areaIds = areaIds;
-	}
-
-	public void setAreaId(Long areaId) {
-		this.areaId = areaId;
-	}
-
-	public String getAreaName() {
-		return areaName;
-	}
-
-	public void setAreaName(String areaName) {
-		this.areaName = areaName;
-	}
-
-	public Long getParentId() {
-		return parentId;
-	}
-
-	public void setParentId(Long parentId) {
-		this.parentId = parentId;
-	}
-
-	public Integer getLevel() {
-		return level;
-	}
-
-	public void setLevel(Integer level) {
-		this.level = level;
-	}
 
 	@Override
 	public String toString() {

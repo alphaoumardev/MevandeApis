@@ -2,7 +2,11 @@ package com.mev.cloud.api.product.vo;
 
 import com.mev.cloud.common.vo.BaseVO;
 import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.Getter;
+import lombok.Setter;
 
+import java.io.Serial;
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.List;
 
@@ -12,7 +16,10 @@ import java.util.List;
  * @author Alphaoumardev
  * @date 2020-10-28 15:27:24
  */
-public class SkuVO extends BaseVO {
+@Setter
+@Getter
+public class SkuVO extends BaseVO implements Serializable {
+	@Serial
 	private static final long serialVersionUID = 1L;
 
 	@Schema(description = "属性id" )
@@ -56,118 +63,6 @@ public class SkuVO extends BaseVO {
 
 	@Schema(description = "当前sku规格列表" )
 	private List<SpuSkuAttrValueVO> spuSkuAttrValues;
-
-	public String getPartyCode() {
-		return partyCode;
-	}
-
-	public void setPartyCode(String partyCode) {
-		this.partyCode = partyCode;
-	}
-
-	public String getModelId() {
-		return modelId;
-	}
-
-	public void setModelId(String modelId) {
-		this.modelId = modelId;
-	}
-
-	public BigDecimal getWeight() {
-		return weight;
-	}
-
-	public void setWeight(BigDecimal weight) {
-		this.weight = weight;
-	}
-
-	public BigDecimal getVolume() {
-		return volume;
-	}
-
-	public void setVolume(BigDecimal volume) {
-		this.volume = volume;
-	}
-
-	public List<SpuSkuAttrValueVO> getSpuSkuAttrValues() {
-		return spuSkuAttrValues;
-	}
-
-	public void setSpuSkuAttrValues(List<SpuSkuAttrValueVO> spuSkuAttrValues) {
-		this.spuSkuAttrValues = spuSkuAttrValues;
-	}
-
-	public Integer getStock() {
-		return stock;
-	}
-
-	public void setStock(Integer stock) {
-		this.stock = stock;
-	}
-
-	public Long getSkuId() {
-		return skuId;
-	}
-
-	public Long getPriceFee() {
-		return priceFee;
-	}
-
-	public void setPriceFee(Long priceFee) {
-		this.priceFee = priceFee;
-	}
-
-	public Long getMarketPriceFee() {
-		return marketPriceFee;
-	}
-
-	public void setMarketPriceFee(Long marketPriceFee) {
-		this.marketPriceFee = marketPriceFee;
-	}
-
-	public void setSkuId(Long skuId) {
-		this.skuId = skuId;
-	}
-
-	public Long getSpuId() {
-		return spuId;
-	}
-
-	public void setSpuId(Long spuId) {
-		this.spuId = spuId;
-	}
-
-	public String getAttrs() {
-		return attrs;
-	}
-
-	public void setAttrs(String attrs) {
-		this.attrs = attrs;
-	}
-
-	public String getImgUrl() {
-		return imgUrl;
-	}
-
-	public void setImgUrl(String imgUrl) {
-		this.imgUrl = imgUrl;
-	}
-
-	public Integer getStatus() {
-		return status;
-	}
-
-	public void setStatus(Integer status) {
-		this.status = status;
-	}
-
-	public String getSkuName() {
-		return skuName;
-	}
-
-	public void setSkuName(String skuName) {
-		this.skuName = skuName;
-	}
 
 	@Override
 	public String toString() {

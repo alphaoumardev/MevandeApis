@@ -2,6 +2,11 @@ package com.mev.cloud.order.vo;
 
 import com.mev.cloud.common.vo.BaseVO;
 import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.Getter;
+import lombok.Setter;
+
+import java.io.Serial;
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -10,8 +15,11 @@ import java.util.Date;
  * @author Alphaoumardev
  * @date 2020-12-04 11:27:35
  */
-public class OrderPayInfoVO extends BaseVO{
-    private static final long serialVersionUID = 1L;
+@Setter
+@Getter
+public class OrderPayInfoVO extends BaseVO implements Serializable {
+    @Serial
+	private static final long serialVersionUID = 1L;
 
     @Schema(description = "支付单号" )
     private Long payId;
@@ -42,86 +50,6 @@ public class OrderPayInfoVO extends BaseVO{
 
     @Schema(description = "确认时间" )
     private Date confirmTime;
-
-	public Long getPayId() {
-		return payId;
-	}
-
-	public void setPayId(Long payId) {
-		this.payId = payId;
-	}
-
-	public Long getUserId() {
-		return userId;
-	}
-
-	public void setUserId(Long userId) {
-		this.userId = userId;
-	}
-
-	public String getBizPayNo() {
-		return bizPayNo;
-	}
-
-	public void setBizPayNo(String bizPayNo) {
-		this.bizPayNo = bizPayNo;
-	}
-
-	public Integer getSysType() {
-		return sysType;
-	}
-
-	public void setSysType(Integer sysType) {
-		this.sysType = sysType;
-	}
-
-	public Integer getPayStatus() {
-		return payStatus;
-	}
-
-	public void setPayStatus(Integer payStatus) {
-		this.payStatus = payStatus;
-	}
-
-	public Long getPayAmount() {
-		return payAmount;
-	}
-
-	public void setPayAmount(Long payAmount) {
-		this.payAmount = payAmount;
-	}
-
-	public Integer getVersion() {
-		return version;
-	}
-
-	public void setVersion(Integer version) {
-		this.version = version;
-	}
-
-	public String getCallbackContent() {
-		return callbackContent;
-	}
-
-	public void setCallbackContent(String callbackContent) {
-		this.callbackContent = callbackContent;
-	}
-
-	public Date getCallbackTime() {
-		return callbackTime;
-	}
-
-	public void setCallbackTime(Date callbackTime) {
-		this.callbackTime = callbackTime;
-	}
-
-	public Date getConfirmTime() {
-		return confirmTime;
-	}
-
-	public void setConfirmTime(Date confirmTime) {
-		this.confirmTime = confirmTime;
-	}
 
 	@Override
 	public String toString() {

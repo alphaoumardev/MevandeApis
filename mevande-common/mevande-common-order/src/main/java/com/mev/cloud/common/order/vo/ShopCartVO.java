@@ -1,6 +1,8 @@
 package com.mev.cloud.common.order.vo;
 
 import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.List;
 
@@ -10,6 +12,8 @@ import java.util.List;
  * @author Alphaoumardev
  * @date 2020-11-20 15:47:32
  */
+@Setter
+@Getter
 public class ShopCartVO {
 
 	@Schema(description = "店铺ID" , requiredMode = Schema.RequiredMode.REQUIRED)
@@ -29,46 +33,6 @@ public class ShopCartVO {
 	@Schema(description = "数量" , requiredMode = Schema.RequiredMode.REQUIRED)
 	private Integer totalCount;
 
-	public Long getShopId() {
-		return shopId;
-	}
-
-	public void setShopId(Long shopId) {
-		this.shopId = shopId;
-	}
-
-	public String getShopName() {
-		return shopName;
-	}
-
-	public void setShopName(String shopName) {
-		this.shopName = shopName;
-	}
-
-	public Long getTotal() {
-		return total;
-	}
-
-	public void setTotal(Long total) {
-		this.total = total;
-	}
-
-	public Integer getShopType() {
-		return shopType;
-	}
-
-	public void setShopType(Integer shopType) {
-		this.shopType = shopType;
-	}
-
-	public List<ShopCartItemVO> getshopCartItem() {
-		return shopCartItem;
-	}
-
-	public void setshopCartItem(List<ShopCartItemVO> shopCartItem) {
-		this.shopCartItem = shopCartItem;
-	}
-
 	@Override
 	public String toString() {
 		return "ShopCartVO{" +
@@ -81,11 +45,4 @@ public class ShopCartVO {
 				'}';
 	}
 
-	public Integer getTotalCount() {
-		return totalCount;
-	}
-
-	public void setTotalCount(Integer totalCount) {
-		this.totalCount = totalCount;
-	}
 }

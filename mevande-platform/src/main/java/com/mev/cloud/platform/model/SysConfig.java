@@ -1,16 +1,23 @@
 package com.mev.cloud.platform.model;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 import com.mev.cloud.common.model.BaseModel;
+import lombok.Getter;
+import lombok.Setter;
+
 /**
  * 系统配置信息表
  *
  * @author lhd
  * @date 2020-12-23 16:27:57
  */
+@Setter
+@Getter
 public class SysConfig extends BaseModel implements Serializable{
-    private static final long serialVersionUID = 1L;
+    @Serial
+	private static final long serialVersionUID = 1L;
 
     /**
      * 
@@ -31,38 +38,6 @@ public class SysConfig extends BaseModel implements Serializable{
      * 备注
      */
     private String remark;
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public String getParamKey() {
-		return paramKey;
-	}
-
-	public void setParamKey(String paramKey) {
-		this.paramKey = paramKey;
-	}
-
-	public String getParamValue() {
-		return paramValue;
-	}
-
-	public void setParamValue(String paramValue) {
-		this.paramValue = paramValue;
-	}
-
-	public String getRemark() {
-		return remark;
-	}
-
-	public void setRemark(String remark) {
-		this.remark = remark;
-	}
 
 	@Override
 	public String toString() {

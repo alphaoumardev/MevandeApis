@@ -3,11 +3,15 @@ package com.mev.cloud.multishop.vo;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.mev.cloud.common.serializer.ImgJsonSerializer;
 import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.Getter;
+import lombok.Setter;
 
 /**
  * @author Alphaoumardev
  * @date 2020/9/2
  */
+@Setter
+@Getter
 public class ShopUserSimpleVO {
 
 	/**
@@ -24,30 +28,6 @@ public class ShopUserSimpleVO {
 	private String avatar;
 
 	private Integer isAdmin;
-
-	public String getNickName() {
-		return nickName;
-	}
-
-	public void setNickName(String nickName) {
-		this.nickName = nickName;
-	}
-
-	public String getAvatar() {
-		return avatar;
-	}
-
-	public void setAvatar(String avatar) {
-		this.avatar = avatar;
-	}
-
-	public Integer getIsAdmin() {
-		return isAdmin;
-	}
-
-	public void setIsAdmin(Integer isAdmin) {
-		this.isAdmin = isAdmin;
-	}
 
 	@Override
 	public String toString() {

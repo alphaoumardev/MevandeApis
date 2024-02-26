@@ -3,7 +3,11 @@ package com.mev.cloud.api.product.vo;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.mev.cloud.common.serializer.ImgJsonSerializer;
 import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.Getter;
+import lombok.Setter;
 
+import java.io.Serial;
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -12,8 +16,11 @@ import java.util.List;
  * @author Alphaoumardev
  * @date 2020-10-28 15:27:24
  */
-public class CategoryVO{
-    private static final long serialVersionUID = 1L;
+@Setter
+@Getter
+public class CategoryVO implements Serializable {
+    @Serial
+	private static final long serialVersionUID = 1L;
 
     @Schema(description = "分类id" )
     private Long categoryId;
@@ -55,110 +62,6 @@ public class CategoryVO{
 
 	@Schema(description = "子分类列表" )
 	private List<CategoryVO> categories;
-
-	public Long getCategoryId() {
-		return categoryId;
-	}
-
-	public void setCategoryId(Long categoryId) {
-		this.categoryId = categoryId;
-	}
-
-	public Long getShopId() {
-		return shopId;
-	}
-
-	public void setShopId(Long shopId) {
-		this.shopId = shopId;
-	}
-
-	public Long getParentId() {
-		return parentId;
-	}
-
-	public void setParentId(Long parentId) {
-		this.parentId = parentId;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getDesc() {
-		return desc;
-	}
-
-	public void setDesc(String desc) {
-		this.desc = desc;
-	}
-
-	public String getPath() {
-		return path;
-	}
-
-	public void setPath(String path) {
-		this.path = path;
-	}
-
-	public Integer getStatus() {
-		return status;
-	}
-
-	public void setStatus(Integer status) {
-		this.status = status;
-	}
-
-	public String getIcon() {
-		return icon;
-	}
-
-	public void setIcon(String icon) {
-		this.icon = icon;
-	}
-
-	public String getImgUrl() {
-		return imgUrl;
-	}
-
-	public void setImgUrl(String imgUrl) {
-		this.imgUrl = imgUrl;
-	}
-
-	public Integer getLevel() {
-		return level;
-	}
-
-	public void setLevel(Integer level) {
-		this.level = level;
-	}
-
-	public Integer getSeq() {
-		return seq;
-	}
-
-	public void setSeq(Integer seq) {
-		this.seq = seq;
-	}
-
-	public List<String> getPathNames() {
-		return pathNames;
-	}
-
-	public void setPathNames(List<String> pathNames) {
-		this.pathNames = pathNames;
-	}
-
-	public List<CategoryVO> getCategories() {
-		return categories;
-	}
-
-	public void setCategories(List<CategoryVO> categories) {
-		this.categories = categories;
-	}
 
 	@Override
 	public String toString() {

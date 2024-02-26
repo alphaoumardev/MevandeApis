@@ -35,7 +35,8 @@ import java.util.Objects;
  * @date 2020-12-25 09:50:59
  */
 @Service
-public class PayInfoServiceImpl implements PayInfoService {
+public class PayInfoServiceImpl implements PayInfoService
+{
 
     @Autowired
     private PayInfoMapper payInfoMapper;

@@ -2,6 +2,11 @@ package com.mev.cloud.api.multishop.bo;
 
 import com.mev.cloud.common.vo.BaseVO;
 import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.Getter;
+import lombok.Setter;
+
+import java.io.Serial;
+import java.io.Serializable;
 
 /**
  * 店铺详情VO
@@ -9,8 +14,12 @@ import io.swagger.v3.oas.annotations.media.Schema;
  * @author Alphaoumardev
  * @date 2020-11-23 16:24:29
  */
-public class EsShopDetailBO extends BaseVO{
-    private static final long serialVersionUID = 1L;
+@Setter
+@Getter
+public class EsShopDetailBO extends BaseVO implements Serializable
+{
+    @Serial
+	private static final long serialVersionUID = 1L;
 
     @Schema(description = "店铺id" )
     private Long shopId;
@@ -26,46 +35,6 @@ public class EsShopDetailBO extends BaseVO{
 
     @Schema(description = "店铺状态(-1:未开通 0: 停业中 1:营业中)" )
     private Integer shopStatus;
-
-	public Long getShopId() {
-		return shopId;
-	}
-
-	public void setShopId(Long shopId) {
-		this.shopId = shopId;
-	}
-
-	public Integer getType() {
-		return type;
-	}
-
-	public void setType(Integer type) {
-		this.type = type;
-	}
-
-	public String getShopName() {
-		return shopName;
-	}
-
-	public void setShopName(String shopName) {
-		this.shopName = shopName;
-	}
-
-	public String getShopLogo() {
-		return shopLogo;
-	}
-
-	public void setShopLogo(String shopLogo) {
-		this.shopLogo = shopLogo;
-	}
-
-	public Integer getShopStatus() {
-		return shopStatus;
-	}
-
-	public void setShopStatus(Integer shopStatus) {
-		this.shopStatus = shopStatus;
-	}
 
 	@Override
 	public String toString() {

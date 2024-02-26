@@ -1,7 +1,11 @@
 package com.mev.cloud.product.model;
 
 import com.mev.cloud.common.model.BaseModel;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 /**
@@ -10,7 +14,11 @@ import java.io.Serializable;
  * @author Alphaoumardev
  * @date 2020-10-28 15:27:24
  */
+@Setter
+@Getter
+@ToString
 public class SpuDetail extends BaseModel implements Serializable{
+	@Serial
 	private static final long serialVersionUID = 1L;
 
 	/**
@@ -23,29 +31,4 @@ public class SpuDetail extends BaseModel implements Serializable{
 	 */
 	private String detail;
 
-	public Long getSpuId() {
-		return spuId;
-	}
-
-	public void setSpuId(Long spuId) {
-		this.spuId = spuId;
-	}
-
-	public String getDetail() {
-		return detail;
-	}
-
-	public void setDetail(String detail) {
-		this.detail = detail;
-	}
-
-	@Override
-	public String toString() {
-		return "SpuDetail{" +
-				"spuId=" + spuId +
-				",createTime=" + createTime +
-				",updateTime=" + updateTime +
-				",detail=" + detail +
-				'}';
-	}
 }

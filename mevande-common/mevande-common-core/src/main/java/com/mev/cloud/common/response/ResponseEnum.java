@@ -4,8 +4,8 @@ package com.mev.cloud.common.response;
  * @author Alphaoumardev
  * @date 2020/7/9
  */
-public enum ResponseEnum {
-
+public enum ResponseEnum
+{
 	/**
 	 * ok
 	 */

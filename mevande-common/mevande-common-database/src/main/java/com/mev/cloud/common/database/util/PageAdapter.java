@@ -1,12 +1,16 @@
 package com.mev.cloud.common.database.util;
 
 import com.mev.cloud.common.database.dto.PageDTO;
+import lombok.Getter;
+import lombok.Setter;
 
 
 /**
  * 分页适配
  * @author Alphaoumardev
  */
+@Setter
+@Getter
 public class PageAdapter {
 
     private int begin;
@@ -16,22 +20,6 @@ public class PageAdapter {
     public PageAdapter(PageDTO page) {
         this.begin = getStart(page.getPageNum() - 1, page.getPageSize());
         this.size = page.getPageSize();
-    }
-
-    public int getBegin() {
-        return begin;
-    }
-
-    public void setBegin(int begin) {
-        this.begin = begin;
-    }
-
-    public int getSize() {
-        return size;
-    }
-
-    public void setSize(int size) {
-        this.size = size;
     }
 
     public static int getStart(int pageNo, int pageSize) {

@@ -1,12 +1,17 @@
 package com.mev.cloud.api.rbac.dto;
 
 import jakarta.validation.constraints.NotNull;
+import lombok.Getter;
+import lombok.Setter;
 
 /**
  * @author Alphaoumardev
  * @date 2020/11/27
  */
-public class ClearUserPermissionsCacheDTO {
+@Setter
+@Getter
+public class ClearUserPermissionsCacheDTO
+{
 
     /**
      * 用户id
@@ -19,22 +24,6 @@ public class ClearUserPermissionsCacheDTO {
      */
     @NotNull(message = "sysType not null")
     private Integer sysType;
-
-    public Long getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Long userId) {
-        this.userId = userId;
-    }
-
-    public Integer getSysType() {
-        return sysType;
-    }
-
-    public void setSysType(Integer sysType) {
-        this.sysType = sysType;
-    }
 
     @Override
     public String toString() {

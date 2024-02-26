@@ -1,7 +1,10 @@
 package com.mev.cloud.biz.model;
 
 import com.mev.cloud.common.model.BaseModel;
+import lombok.Getter;
+import lombok.Setter;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 /**
@@ -10,8 +13,11 @@ import java.io.Serializable;
  * @author Alphaoumardev
  * @date 2020-11-21 10:21:40
  */
+@Setter
+@Getter
 public class AttachFile extends BaseModel implements Serializable {
-    private static final long serialVersionUID = 1L;
+    @Serial
+	private static final long serialVersionUID = 1L;
 
     /**
      *
@@ -52,70 +58,6 @@ public class AttachFile extends BaseModel implements Serializable {
 	 * 文件分组id（0：默认为所有）
 	 */
 	private Long attachFileGroupId;
-
-	public Long getFileId() {
-		return fileId;
-	}
-
-	public void setFileId(Long fileId) {
-		this.fileId = fileId;
-	}
-
-	public String getFilePath() {
-		return filePath;
-	}
-
-	public void setFilePath(String filePath) {
-		this.filePath = filePath;
-	}
-
-	public String getFileType() {
-		return fileType;
-	}
-
-	public void setFileType(String fileType) {
-		this.fileType = fileType;
-	}
-
-	public String getFileName() {
-		return fileName;
-	}
-
-	public void setFileName(String fileName) {
-		this.fileName = fileName;
-	}
-
-	public Integer getFileSize() {
-		return fileSize;
-	}
-
-	public void setFileSize(Integer fileSize) {
-		this.fileSize = fileSize;
-	}
-
-	public Long getShopId() {
-		return shopId;
-	}
-
-	public void setShopId(Long shopId) {
-		this.shopId = shopId;
-	}
-
-	public Integer getType() {
-		return type;
-	}
-
-	public void setType(Integer type) {
-		this.type = type;
-	}
-
-	public Long getAttachFileGroupId() {
-		return attachFileGroupId;
-	}
-
-	public void setAttachFileGroupId(Long attachFileGroupId) {
-		this.attachFileGroupId = attachFileGroupId;
-	}
 
 	@Override
 	public String toString() {

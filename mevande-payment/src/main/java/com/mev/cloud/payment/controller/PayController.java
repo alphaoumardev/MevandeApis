@@ -23,7 +23,8 @@ import jakarta.validation.Valid;
 @RestController
 @RequestMapping("/pay")
 @Tag(name = "订单接口")
-public class PayController {
+public class PayController
+{
 
     @Autowired
     private PayInfoService payInfoService;

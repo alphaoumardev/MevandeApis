@@ -1,6 +1,12 @@
 package com.mev.cloud.product.dto;
 
 import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
+import java.io.Serial;
+import java.io.Serializable;
 
 /**
  * 库存锁定信息DTO
@@ -8,8 +14,12 @@ import io.swagger.v3.oas.annotations.media.Schema;
  * @author Alphaoumardev
  * @date 2020-12-22 16:12:10
  */
-public class SkuStockLockDTO{
-    private static final long serialVersionUID = 1L;
+@Setter
+@Getter
+@ToString
+public class SkuStockLockDTO implements Serializable {
+    @Serial
+	private static final long serialVersionUID = 1L;
 
     @Schema(description = "id" )
     private Long id;
@@ -28,64 +38,4 @@ public class SkuStockLockDTO{
 
     @Schema(description = "状态-1已解锁 0待确定 1已锁定" )
     private Integer status;
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public Long getSpuId() {
-		return spuId;
-	}
-
-	public void setSpuId(Long spuId) {
-		this.spuId = spuId;
-	}
-
-	public Long getSkuId() {
-		return skuId;
-	}
-
-	public void setSkuId(Long skuId) {
-		this.skuId = skuId;
-	}
-
-	public Long getOrderId() {
-		return orderId;
-	}
-
-	public void setOrderId(Long orderId) {
-		this.orderId = orderId;
-	}
-
-	public Integer getCount() {
-		return count;
-	}
-
-	public void setCount(Integer count) {
-		this.count = count;
-	}
-
-	public Integer getStatus() {
-		return status;
-	}
-
-	public void setStatus(Integer status) {
-		this.status = status;
-	}
-
-	@Override
-	public String toString() {
-		return "SkuStockLockDTO{" +
-				"id=" + id +
-				",spuId=" + spuId +
-				",skuId=" + skuId +
-				",orderId=" + orderId +
-				",count=" + count +
-				",status=" + status +
-				'}';
-	}
 }

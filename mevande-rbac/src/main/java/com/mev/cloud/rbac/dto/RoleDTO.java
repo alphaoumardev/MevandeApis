@@ -1,6 +1,10 @@
 package com.mev.cloud.rbac.dto;
 
 import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
 import java.util.List;
 
 /**
@@ -9,6 +13,9 @@ import java.util.List;
  * @author Alphaoumardev
  * @date 2020-09-17 19:15:44
  */
+@Setter
+@Getter
+@ToString
 public class RoleDTO{
     private static final long serialVersionUID = 1L;
 
@@ -27,54 +34,4 @@ public class RoleDTO{
 	@Schema(description = "菜单资源id列表" )
 	private List<Long> menuPermissionIds;
 
-	public Long getRoleId() {
-		return roleId;
-	}
-
-	public void setRoleId(Long roleId) {
-		this.roleId = roleId;
-	}
-
-	public String getRoleName() {
-		return roleName;
-	}
-
-	public void setRoleName(String roleName) {
-		this.roleName = roleName;
-	}
-
-	public String getRemark() {
-		return remark;
-	}
-
-	public void setRemark(String remark) {
-		this.remark = remark;
-	}
-
-	public List<Long> getMenuIds() {
-		return menuIds;
-	}
-
-	public void setMenuIds(List<Long> menuIds) {
-		this.menuIds = menuIds;
-	}
-
-	public List<Long> getMenuPermissionIds() {
-		return menuPermissionIds;
-	}
-
-	public void setMenuPermissionIds(List<Long> menuPermissionIds) {
-		this.menuPermissionIds = menuPermissionIds;
-	}
-
-	@Override
-	public String toString() {
-		return "RoleDTO{" +
-				"roleId=" + roleId +
-				", roleName='" + roleName + '\'' +
-				", remark='" + remark + '\'' +
-				", menuIds=" + menuIds +
-				", menuPermissionIds=" + menuPermissionIds +
-				'}';
-	}
 }

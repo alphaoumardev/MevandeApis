@@ -1,16 +1,25 @@
 package com.mev.cloud.rbac.model;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 import com.mev.cloud.common.model.BaseModel;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
 /**
  * 菜单资源
  *
  * @author Alphaoumardev
  * @date 2020-09-15 16:36:50
  */
+@Setter
+@Getter
+@ToString
 public class MenuPermission extends BaseModel implements Serializable{
-    private static final long serialVersionUID = 1L;
+    @Serial
+	private static final long serialVersionUID = 1L;
 
     /**
      * 菜单资源用户id
@@ -47,74 +56,4 @@ public class MenuPermission extends BaseModel implements Serializable{
      */
     private Integer method;
 
-	public Long getMenuPermissionId() {
-		return menuPermissionId;
-	}
-
-	public void setMenuPermissionId(Long menuPermissionId) {
-		this.menuPermissionId = menuPermissionId;
-	}
-
-	public Long getMenuId() {
-		return menuId;
-	}
-
-	public void setMenuId(Long menuId) {
-		this.menuId = menuId;
-	}
-
-	public Integer getBizType() {
-		return bizType;
-	}
-
-	public void setBizType(Integer bizType) {
-		this.bizType = bizType;
-	}
-
-	public String getPermission() {
-		return permission;
-	}
-
-	public void setPermission(String permission) {
-		this.permission = permission;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getUri() {
-		return uri;
-	}
-
-	public void setUri(String uri) {
-		this.uri = uri;
-	}
-
-	public Integer getMethod() {
-		return method;
-	}
-
-	public void setMethod(Integer method) {
-		this.method = method;
-	}
-
-	@Override
-	public String toString() {
-		return "MenuPermissionVO{" +
-				"menuPermissionId=" + menuPermissionId +
-				",createTime=" + createTime +
-				",updateTime=" + updateTime +
-				",menuId=" + menuId +
-				",bizType=" + bizType +
-				",permission=" + permission +
-				",name=" + name +
-				",uri=" + uri +
-				",method=" + method +
-				'}';
-	}
 }

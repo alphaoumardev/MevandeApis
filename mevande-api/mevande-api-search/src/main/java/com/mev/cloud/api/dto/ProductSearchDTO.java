@@ -2,6 +2,8 @@ package com.mev.cloud.api.dto;
 
 
 import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.List;
 import java.util.Map;
@@ -10,6 +12,8 @@ import java.util.Map;
  * @author Alphaoumardev
  * @date 2020/11/16
  */
+@Setter
+@Getter
 public class ProductSearchDTO {
 
     @Schema(description = "页面传递过来的全文匹配关键字" )
@@ -91,206 +95,6 @@ public class ProductSearchDTO {
      * 搜索属性信息
      */
     private Map<String, List<String>> attrMap;
-
-    public Map<String, List<String>> getAttrMap() {
-        return attrMap;
-    }
-
-    public void setAttrMap(Map<String, List<String>> attrMap) {
-        this.attrMap = attrMap;
-    }
-
-    public String getAttrIds() {
-        return attrIds;
-    }
-
-    public void setAttrIds(String attrIds) {
-        this.attrIds = attrIds;
-    }
-
-    public Long getMinSaleNum() {
-        return minSaleNum;
-    }
-
-    public void setMinSaleNum(Long minSaleNum) {
-        this.minSaleNum = minSaleNum;
-    }
-
-    public Long getMaxSaleNum() {
-        return maxSaleNum;
-    }
-
-    public void setMaxSaleNum(Long maxSaleNum) {
-        this.maxSaleNum = maxSaleNum;
-    }
-
-    public String getPartyCodes() {
-        return partyCodes;
-    }
-
-    public void setPartyCodes(String partyCodes) {
-        this.partyCodes = partyCodes;
-    }
-
-    public String getModelIds() {
-        return modelIds;
-    }
-
-    public void setModelIds(String modelIds) {
-        this.modelIds = modelIds;
-    }
-
-    public String getKeyword() {
-        return keyword;
-    }
-
-    public void setKeyword(String keyword) {
-        this.keyword = keyword;
-    }
-
-    public String getBrandIds() {
-        return brandIds;
-    }
-
-    public void setBrandIds(String brandIds) {
-        this.brandIds = brandIds;
-    }
-
-    public Long getShopPrimaryCategoryId() {
-        return shopPrimaryCategoryId;
-    }
-
-    public void setShopPrimaryCategoryId(Long shopPrimaryCategoryId) {
-        this.shopPrimaryCategoryId = shopPrimaryCategoryId;
-    }
-
-    public Long getShopSecondaryCategoryId() {
-        return shopSecondaryCategoryId;
-    }
-
-    public void setShopSecondaryCategoryId(Long shopSecondaryCategoryId) {
-        this.shopSecondaryCategoryId = shopSecondaryCategoryId;
-    }
-
-    public Long getPrimaryCategoryId() {
-        return primaryCategoryId;
-    }
-
-    public void setPrimaryCategoryId(Long primaryCategoryId) {
-        this.primaryCategoryId = primaryCategoryId;
-    }
-
-    public Long getCategoryId() {
-        return categoryId;
-    }
-
-    public void setCategoryId(Long categoryId) {
-        this.categoryId = categoryId;
-    }
-
-    public Integer getSort() {
-        return sort;
-    }
-
-    public void setSort(Integer sort) {
-        this.sort = sort;
-    }
-
-    public Integer getSelfShop() {
-        return selfShop;
-    }
-
-    public void setSelfShop(Integer selfShop) {
-        this.selfShop = selfShop;
-    }
-
-    public Integer getHasStock() {
-        return hasStock;
-    }
-
-    public void setHasStock(Integer hasStock) {
-        this.hasStock = hasStock;
-    }
-
-    public Long getMinPrice() {
-        return minPrice;
-    }
-
-    public void setMinPrice(Long minPrice) {
-        this.minPrice = minPrice;
-    }
-
-    public Long getMaxPrice() {
-        return maxPrice;
-    }
-
-    public void setMaxPrice(Long maxPrice) {
-        this.maxPrice = maxPrice;
-    }
-
-    public Long getShopId() {
-        return shopId;
-    }
-
-    public void setShopId(Long shopId) {
-        this.shopId = shopId;
-    }
-
-    public Integer getSpuStatus() {
-        return spuStatus;
-    }
-
-    public void setSpuStatus(Integer spuStatus) {
-        this.spuStatus = spuStatus;
-    }
-
-    public String getAttrValueIds() {
-        return attrValueIds;
-    }
-
-    public void setAttrValueIds(String attrValueIds) {
-        this.attrValueIds = attrValueIds;
-    }
-
-    public List<Long> getSpuIds() {
-        return spuIds;
-    }
-
-    public void setSpuIds(List<Long> spuIds) {
-        this.spuIds = spuIds;
-    }
-
-    public Integer getDataType() {
-        return dataType;
-    }
-
-    public void setDataType(Integer dataType) {
-        this.dataType = dataType;
-    }
-
-    public Integer getPageNum() {
-        return pageNum;
-    }
-
-    public void setPageNum(Integer pageNum) {
-        this.pageNum = pageNum;
-    }
-
-    public Integer getPageSize() {
-        return pageSize;
-    }
-
-    public void setPageSize(Integer pageSize) {
-        this.pageSize = pageSize;
-    }
-
-    public Integer getSearchType() {
-        return searchType;
-    }
-
-    public void setSearchType(Integer searchType) {
-        this.searchType = searchType;
-    }
 
     @Override
     public String toString() {

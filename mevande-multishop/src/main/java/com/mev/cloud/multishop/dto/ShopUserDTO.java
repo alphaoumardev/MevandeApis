@@ -3,12 +3,17 @@ package com.mev.cloud.multishop.dto;
 import io.swagger.v3.oas.annotations.media.Schema;
 
 import jakarta.validation.constraints.NotBlank;
+import lombok.Getter;
+import lombok.Setter;
+
 import java.util.List;
 
 /**
  * @author Alphaoumardev
  * @date 2020/9/8
  */
+@Setter
+@Getter
 public class ShopUserDTO {
 
     @Schema(description = "店铺用户id" )
@@ -26,46 +31,6 @@ public class ShopUserDTO {
 
     @Schema(description = "角色id列表" )
     private List<Long> roleIds;
-
-    public String getNickName() {
-        return nickName;
-    }
-
-    public void setNickName(String nickName) {
-        this.nickName = nickName;
-    }
-
-    public String getCode() {
-        return code;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
-    }
-
-    public String getPhoneNum() {
-        return phoneNum;
-    }
-
-    public void setPhoneNum(String phoneNum) {
-        this.phoneNum = phoneNum;
-    }
-
-    public Long getShopUserId() {
-        return shopUserId;
-    }
-
-    public void setShopUserId(Long shopUserId) {
-        this.shopUserId = shopUserId;
-    }
-
-    public List<Long> getRoleIds() {
-        return roleIds;
-    }
-
-    public void setRoleIds(List<Long> roleIds) {
-        this.roleIds = roleIds;
-    }
 
     @Override
     public String toString() {

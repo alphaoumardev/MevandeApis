@@ -1,10 +1,16 @@
 package com.mev.cloud.api.order.bo;
 
+import lombok.Getter;
+import lombok.Setter;
+
 /**
  * @author Alphaoumardev
  * @date 2020/12/30
  */
-public class OrderSimpleAmountInfoBO {
+@Setter
+@Getter
+public class OrderSimpleAmountInfoBO
+{
 
     private Long orderId;
 
@@ -24,46 +30,6 @@ public class OrderSimpleAmountInfoBO {
      * 订单关闭原因
      */
     private Integer closeType;
-
-    public Long getOrderId() {
-        return orderId;
-    }
-
-    public void setOrderId(Long orderId) {
-        this.orderId = orderId;
-    }
-
-    public Long getShopId() {
-        return shopId;
-    }
-
-    public void setShopId(Long shopId) {
-        this.shopId = shopId;
-    }
-
-    public Long getActualTotal() {
-        return actualTotal;
-    }
-
-    public void setActualTotal(Long actualTotal) {
-        this.actualTotal = actualTotal;
-    }
-
-    public Integer getStatus() {
-        return status;
-    }
-
-    public void setStatus(Integer status) {
-        this.status = status;
-    }
-
-    public Integer getCloseType() {
-        return closeType;
-    }
-
-    public void setCloseType(Integer closeType) {
-        this.closeType = closeType;
-    }
 
     @Override
     public String toString() {

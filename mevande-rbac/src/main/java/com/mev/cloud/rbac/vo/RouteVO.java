@@ -1,11 +1,17 @@
 package com.mev.cloud.rbac.vo;
 
 import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 /**
  * @author Alphaoumardev
  * @date 2020/8/6
  */
+@Setter
+@Getter
+@ToString
 public class RouteVO {
 
 	@Schema(description = "id" )
@@ -61,101 +67,4 @@ public class RouteVO {
 	 */
 	@Schema(description = "路由的源信息" )
 	private RouteMetaVO meta;
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public Long getParentId() {
-		return parentId;
-	}
-
-	public void setParentId(Long parentId) {
-		this.parentId = parentId;
-	}
-
-	public String getPath() {
-		return path;
-	}
-
-	public void setPath(String path) {
-		this.path = path;
-	}
-
-	public String getComponent() {
-		return component;
-	}
-
-	public void setComponent(String component) {
-		this.component = component;
-	}
-
-	public String getRedirect() {
-		return redirect;
-	}
-
-	public void setRedirect(String redirect) {
-		this.redirect = redirect;
-	}
-
-	public Boolean getAlwaysShow() {
-		return alwaysShow;
-	}
-
-	public void setAlwaysShow(Boolean alwaysShow) {
-		this.alwaysShow = alwaysShow;
-	}
-
-	public Boolean getHidden() {
-		return hidden;
-	}
-
-	public void setHidden(Boolean hidden) {
-		this.hidden = hidden;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public RouteMetaVO getMeta() {
-		return meta;
-	}
-
-	public void setMeta(RouteMetaVO meta) {
-		this.meta = meta;
-	}
-
-	public Integer getSeq() {
-		return seq;
-	}
-
-	public void setSeq(Integer seq) {
-		this.seq = seq;
-	}
-
-	@Override
-	public String toString() {
-		return "RouteVO{" +
-				"id=" + id +
-				", parentId=" + parentId +
-				", path='" + path + '\'' +
-				", component='" + component + '\'' +
-				", redirect='" + redirect + '\'' +
-				", alwaysShow=" + alwaysShow +
-				", hidden=" + hidden +
-				", name='" + name + '\'' +
-				", seq=" + seq +
-				", meta=" + meta +
-				'}';
-	}
-
 }

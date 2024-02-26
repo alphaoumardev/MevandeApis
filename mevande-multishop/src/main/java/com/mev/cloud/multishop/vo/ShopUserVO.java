@@ -1,6 +1,8 @@
 package com.mev.cloud.multishop.vo;
 
 import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.List;
 
@@ -8,6 +10,8 @@ import java.util.List;
  * @author Alphaoumardev
  * @date 2020/9/2
  */
+@Setter
+@Getter
 public class ShopUserVO {
 
 	/**
@@ -42,62 +46,6 @@ public class ShopUserVO {
 
 	@Schema(description = "角色id列表" )
 	private List<Long> roleIds;
-
-	public String getNickName() {
-		return nickName;
-	}
-
-	public void setNickName(String nickName) {
-		this.nickName = nickName;
-	}
-
-	public String getCode() {
-		return code;
-	}
-
-	public void setCode(String code) {
-		this.code = code;
-	}
-
-	public String getPhoneNum() {
-		return phoneNum;
-	}
-
-	public void setPhoneNum(String phoneNum) {
-		this.phoneNum = phoneNum;
-	}
-
-	public Long getShopUserId() {
-		return shopUserId;
-	}
-
-	public void setShopUserId(Long shopUserId) {
-		this.shopUserId = shopUserId;
-	}
-
-	public Integer getHasAccount() {
-		return hasAccount;
-	}
-
-	public void setHasAccount(Integer hasAccount) {
-		this.hasAccount = hasAccount;
-	}
-
-	public List<Long> getRoleIds() {
-		return roleIds;
-	}
-
-	public void setRoleIds(List<Long> roleIds) {
-		this.roleIds = roleIds;
-	}
-
-	public Long getShopId() {
-		return shopId;
-	}
-
-	public void setShopId(Long shopId) {
-		this.shopId = shopId;
-	}
 
 	@Override
 	public String toString() {

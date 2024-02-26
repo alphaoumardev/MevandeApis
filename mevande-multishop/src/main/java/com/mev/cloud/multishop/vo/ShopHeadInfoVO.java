@@ -13,11 +13,15 @@ package com.mev.cloud.multishop.vo;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.mev.cloud.common.serializer.ImgJsonSerializer;
 import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.Getter;
+import lombok.Setter;
 
 /**
  * 店铺的头信息
  * @author LGH
  */
+@Setter
+@Getter
 public class ShopHeadInfoVO {
 
 
@@ -56,94 +60,6 @@ public class ShopHeadInfoVO {
     @Schema(description = "pc背景图" )
     @JsonSerialize(using = ImgJsonSerializer.class)
     private String pcBackgroundPic;
-
-    public String getMobileBackgroundPic() {
-        return mobileBackgroundPic;
-    }
-
-    public void setMobileBackgroundPic(String mobileBackgroundPic) {
-        this.mobileBackgroundPic = mobileBackgroundPic;
-    }
-
-    public String getPcBackgroundPic() {
-        return pcBackgroundPic;
-    }
-
-    public void setPcBackgroundPic(String pcBackgroundPic) {
-        this.pcBackgroundPic = pcBackgroundPic;
-    }
-
-    public Long getShopId() {
-        return shopId;
-    }
-
-    public void setShopId(Long shopId) {
-        this.shopId = shopId;
-    }
-
-    public Integer getType() {
-        return type;
-    }
-
-    public void setType(Integer type) {
-        this.type = type;
-    }
-
-    public Long getOwnerUserId() {
-        return ownerUserId;
-    }
-
-    public void setOwnerUserId(Long ownerUserId) {
-        this.ownerUserId = ownerUserId;
-    }
-
-    public String getShopName() {
-        return shopName;
-    }
-
-    public void setShopName(String shopName) {
-        this.shopName = shopName;
-    }
-
-    public String getIntro() {
-        return intro;
-    }
-
-    public void setIntro(String intro) {
-        this.intro = intro;
-    }
-
-    public String getNoticeMobile() {
-        return noticeMobile;
-    }
-
-    public void setNoticeMobile(String noticeMobile) {
-        this.noticeMobile = noticeMobile;
-    }
-
-    public String getShopLogo() {
-        return shopLogo;
-    }
-
-    public void setShopLogo(String shopLogo) {
-        this.shopLogo = shopLogo;
-    }
-
-    public Integer getIsPreferred() {
-        return isPreferred;
-    }
-
-    public void setIsPreferred(Integer isPreferred) {
-        this.isPreferred = isPreferred;
-    }
-
-    public Integer getShopStatus() {
-        return shopStatus;
-    }
-
-    public void setShopStatus(Integer shopStatus) {
-        this.shopStatus = shopStatus;
-    }
 
     @Override
     public String toString() {

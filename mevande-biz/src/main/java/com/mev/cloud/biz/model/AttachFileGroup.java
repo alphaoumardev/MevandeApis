@@ -1,16 +1,23 @@
 package com.mev.cloud.biz.model;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 import com.mev.cloud.common.model.BaseModel;
+import lombok.Getter;
+import lombok.Setter;
+
 /**
  *
  *
  * @author YXF
  * @date 2020-12-04 16:15:02
  */
+@Setter
+@Getter
 public class AttachFileGroup extends BaseModel implements Serializable{
-    private static final long serialVersionUID = 1L;
+    @Serial
+	private static final long serialVersionUID = 1L;
 
     /**
      *
@@ -26,30 +33,6 @@ public class AttachFileGroup extends BaseModel implements Serializable{
      * 分组名称
      */
     private String name;
-
-	public Long getAttachFileGroupId() {
-		return attachFileGroupId;
-	}
-
-	public void setAttachFileGroupId(Long attachFileGroupId) {
-		this.attachFileGroupId = attachFileGroupId;
-	}
-
-	public Long getShopId() {
-		return shopId;
-	}
-
-	public void setShopId(Long shopId) {
-		this.shopId = shopId;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
 
 	@Override
 	public String toString() {

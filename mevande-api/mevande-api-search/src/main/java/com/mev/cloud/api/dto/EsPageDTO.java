@@ -4,12 +4,16 @@ package com.mev.cloud.api.dto;
 import com.mev.cloud.common.util.PrincipalUtil;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotNull;
+import lombok.Getter;
+import lombok.Setter;
+
 import java.util.Arrays;
 
 /**
  * @author Alphaoumardev
  * @date 2020/11/16
  */
+@Getter
 public class EsPageDTO{
 
     public static final String ASC = "ASC";
@@ -24,6 +28,7 @@ public class EsPageDTO{
     /**
      * 当前页
      */
+    @Setter
     @NotNull(message = "pageNum 不能为空")
     @Schema(description = "当前页" , requiredMode = Schema.RequiredMode.REQUIRED)
     private Integer pageNum;
@@ -32,23 +37,13 @@ public class EsPageDTO{
     @Schema(description = "每页大小" , requiredMode = Schema.RequiredMode.REQUIRED)
     private Integer pageSize;
 
+    @Setter
     @Schema(description = "排序字段数组，用逗号分割" )
     private String[] columns;
 
+    @Setter
     @Schema(description = "排序字段方式，用逗号分割，ASC正序，DESC倒序" )
     private String[] orders;
-
-    public Integer getPageNum() {
-        return pageNum;
-    }
-
-    public void setPageNum(Integer pageNum) {
-        this.pageNum = pageNum;
-    }
-
-    public Integer getPageSize() {
-        return pageSize;
-    }
 
     public void setPageSize(Integer pageSize) {
         if (pageSize > MAX_PAGE_SIZE) {
@@ -57,25 +52,8 @@ public class EsPageDTO{
         }
         this.pageSize = pageSize;
     }
-
     public String getOrderBy() {
         return order(this.columns, this.orders);
-    }
-
-    public String[] getColumns() {
-        return columns;
-    }
-
-    public void setColumns(String[] columns) {
-        this.columns = columns;
-    }
-
-    public String[] getOrders() {
-        return orders;
-    }
-
-    public void setOrders(String[] orders) {
-        this.orders = orders;
     }
 
     public static String order(String[] columns, String[] orders) {

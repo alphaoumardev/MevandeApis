@@ -3,6 +3,8 @@ package com.mev.cloud.platform.vo;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.mev.cloud.common.serializer.ImgJsonSerializer;
 import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.List;
 
@@ -10,7 +12,10 @@ import java.util.List;
  * @author lhd
  * @date 2020/9/2
  */
-public class SysUserVO {
+@Setter
+@Getter
+public class SysUserVO
+{
 
 	/**
 	 * sysUserId
@@ -51,70 +56,6 @@ public class SysUserVO {
 
 	@Schema(description = "角色id列表" )
 	private List<Long> roleIds;
-
-	public String getNickName() {
-		return nickName;
-	}
-
-	public void setNickName(String nickName) {
-		this.nickName = nickName;
-	}
-
-	public String getAvatar() {
-		return avatar;
-	}
-
-	public void setAvatar(String avatar) {
-		this.avatar = avatar;
-	}
-
-	public String getCode() {
-		return code;
-	}
-
-	public void setCode(String code) {
-		this.code = code;
-	}
-
-	public String getPhoneNum() {
-		return phoneNum;
-	}
-
-	public void setPhoneNum(String phoneNum) {
-		this.phoneNum = phoneNum;
-	}
-
-	public Long getSysUserId() {
-		return sysUserId;
-	}
-
-	public void setSysUserId(Long sysUserId) {
-		this.sysUserId = sysUserId;
-	}
-
-	public Integer getHasAccount() {
-		return hasAccount;
-	}
-
-	public void setHasAccount(Integer hasAccount) {
-		this.hasAccount = hasAccount;
-	}
-
-	public List<Long> getRoleIds() {
-		return roleIds;
-	}
-
-	public void setRoleIds(List<Long> roleIds) {
-		this.roleIds = roleIds;
-	}
-
-	public Long getShopId() {
-		return shopId;
-	}
-
-	public void setShopId(Long shopId) {
-		this.shopId = shopId;
-	}
 
 	@Override
 	public String toString() {

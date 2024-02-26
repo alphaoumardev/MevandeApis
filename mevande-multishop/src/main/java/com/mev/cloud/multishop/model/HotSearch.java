@@ -1,16 +1,23 @@
 package com.mev.cloud.multishop.model;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 import com.mev.cloud.common.model.BaseModel;
+import lombok.Getter;
+import lombok.Setter;
+
 /**
  * 热搜
  *
  * @author YXF
  * @date 2021-01-27 09:10:00
  */
+@Setter
+@Getter
 public class HotSearch extends BaseModel implements Serializable{
-    private static final long serialVersionUID = 1L;
+    @Serial
+	private static final long serialVersionUID = 1L;
 
     /**
      * 主键
@@ -41,54 +48,6 @@ public class HotSearch extends BaseModel implements Serializable{
      * 热搜标题
      */
     private String title;
-
-	public Long getHotSearchId() {
-		return hotSearchId;
-	}
-
-	public void setHotSearchId(Long hotSearchId) {
-		this.hotSearchId = hotSearchId;
-	}
-
-	public Long getShopId() {
-		return shopId;
-	}
-
-	public void setShopId(Long shopId) {
-		this.shopId = shopId;
-	}
-
-	public String getContent() {
-		return content;
-	}
-
-	public void setContent(String content) {
-		this.content = content;
-	}
-
-	public Integer getSeq() {
-		return seq;
-	}
-
-	public void setSeq(Integer seq) {
-		this.seq = seq;
-	}
-
-	public Integer getStatus() {
-		return status;
-	}
-
-	public void setStatus(Integer status) {
-		this.status = status;
-	}
-
-	public String getTitle() {
-		return title;
-	}
-
-	public void setTitle(String title) {
-		this.title = title;
-	}
 
 	@Override
 	public String toString() {

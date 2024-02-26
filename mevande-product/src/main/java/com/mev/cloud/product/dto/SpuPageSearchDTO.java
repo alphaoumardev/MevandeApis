@@ -1,6 +1,10 @@
 package com.mev.cloud.product.dto;
 
 import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
 import java.util.List;
 
 /**
@@ -9,7 +13,11 @@ import java.util.List;
  * @author Alphaoumardev
  * @date 2020-10-28 15:27:24
  */
-public class SpuPageSearchDTO {
+@Setter
+@Getter
+@ToString
+public class SpuPageSearchDTO
+{
 
 	@Schema(description = "spuId" )
 	private Long spuId;
@@ -65,172 +73,4 @@ public class SpuPageSearchDTO {
 	@Schema(description = "创建时间排序 0：倒序 1：顺序" )
 	private Integer createTimeSort;
 
-
-	public Long getSpuId() {
-		return spuId;
-	}
-
-	public void setSpuId(Long spuId) {
-		this.spuId = spuId;
-	}
-
-	public Long getBrandId() {
-		return brandId;
-	}
-
-	public void setBrandId(Long brandId) {
-		this.brandId = brandId;
-	}
-
-	public Long getCategoryId() {
-		return categoryId;
-	}
-
-	public void setCategoryId(Long categoryId) {
-		this.categoryId = categoryId;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public Integer getStatus() {
-		return status;
-	}
-
-	public void setStatus(Integer status) {
-		this.status = status;
-	}
-
-	public List<Long> getSpuIds() {
-		return spuIds;
-	}
-
-	public void setSpuIds(List<Long> spuIds) {
-		this.spuIds = spuIds;
-	}
-
-	public Integer getSpuStatus() {
-		return spuStatus;
-	}
-
-	public void setSpuStatus(Integer spuStatus) {
-		this.spuStatus = spuStatus;
-	}
-
-	public Long getMinPrice() {
-		return minPrice;
-	}
-
-	public void setMinPrice(Long minPrice) {
-		this.minPrice = minPrice;
-	}
-
-	public Long getMaxPrice() {
-		return maxPrice;
-	}
-
-	public void setMaxPrice(Long maxPrice) {
-		this.maxPrice = maxPrice;
-	}
-
-	public Long getMinSaleNum() {
-		return minSaleNum;
-	}
-
-	public void setMinSaleNum(Long minSaleNum) {
-		this.minSaleNum = minSaleNum;
-	}
-
-	public Long getMaxSaleNum() {
-		return maxSaleNum;
-	}
-
-	public void setMaxSaleNum(Long maxSaleNum) {
-		this.maxSaleNum = maxSaleNum;
-	}
-
-	public String getPartyCode() {
-		return partyCode;
-	}
-
-	public void setPartyCode(String partyCode) {
-		this.partyCode = partyCode;
-	}
-
-	public Integer getPriceFeeSort() {
-		return priceFeeSort;
-	}
-
-	public void setPriceFeeSort(Integer priceFeeSort) {
-		this.priceFeeSort = priceFeeSort;
-	}
-
-	public Integer getMarketPriceFeeSort() {
-		return marketPriceFeeSort;
-	}
-
-	public void setMarketPriceFeeSort(Integer marketPriceFeeSort) {
-		this.marketPriceFeeSort = marketPriceFeeSort;
-	}
-
-	public Integer getSaleNumSort() {
-		return saleNumSort;
-	}
-
-	public void setSaleNumSort(Integer saleNumSort) {
-		this.saleNumSort = saleNumSort;
-	}
-
-	public Integer getStockSort() {
-		return stockSort;
-	}
-
-	public void setStockSort(Integer stockSort) {
-		this.stockSort = stockSort;
-	}
-
-	public Integer getSeqSort() {
-		return seqSort;
-	}
-
-	public void setSeqSort(Integer seqSort) {
-		this.seqSort = seqSort;
-	}
-
-	public Integer getCreateTimeSort() {
-		return createTimeSort;
-	}
-
-	public void setCreateTimeSort(Integer createTimeSort) {
-		this.createTimeSort = createTimeSort;
-	}
-
-	@Override
-	public String toString() {
-		return "SpuPageSearchDTO{" +
-				"spuId=" + spuId +
-				", brandId=" + brandId +
-				", categoryId=" + categoryId +
-				", name='" + name + '\'' +
-				", status=" + status +
-				", spuIds=" + spuIds +
-				", spuStatus=" + spuStatus +
-				", minPrice=" + minPrice +
-				", maxPrice=" + maxPrice +
-				", minSaleNum=" + minSaleNum +
-				", maxSaleNum=" + maxSaleNum +
-				", partyCode='" + partyCode + '\'' +
-				", priceFeeSort=" + priceFeeSort +
-				", marketPriceFeeSort=" + marketPriceFeeSort +
-				", saleNumSort=" + saleNumSort +
-				", stockSort=" + stockSort +
-				", seqSort=" + seqSort +
-				", createTimeSort=" + createTimeSort +
-				'}';
-	}
 }

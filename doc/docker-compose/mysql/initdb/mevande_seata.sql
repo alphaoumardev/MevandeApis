@@ -16,8 +16,6 @@ CREATE DATABASE /*!32312 IF NOT EXISTS*/`mevande_seata` /*!40100 DEFAULT CHARACT
 
 USE `mevande_seata`;
 
-/*Table structure for table `branch_table` */
-
 DROP TABLE IF EXISTS `branch_table`;
 
 CREATE TABLE `branch_table` (
@@ -36,7 +34,6 @@ CREATE TABLE `branch_table` (
   KEY `idx_xid` (`xid`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
-/*Table structure for table `global_table` */
 
 DROP TABLE IF EXISTS `global_table`;
 
@@ -57,7 +54,6 @@ CREATE TABLE `global_table` (
   KEY `idx_transaction_id` (`transaction_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
-/*Table structure for table `lock_table` */
 
 DROP TABLE IF EXISTS `lock_table`;
 
@@ -74,8 +70,3 @@ CREATE TABLE `lock_table` (
   PRIMARY KEY (`row_key`) USING BTREE,
   KEY `idx_branch_id` (`branch_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
-
-/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
-/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
-/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
-/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;

@@ -4,6 +4,9 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 /**
  * 菜单资源DTO
@@ -11,6 +14,9 @@ import jakarta.validation.constraints.NotNull;
  * @author Alphaoumardev
  * @date 2020-09-15 16:35:01
  */
+@Setter
+@Getter
+@ToString
 public class MenuPermissionDTO {
     private static final long serialVersionUID = 1L;
 
@@ -36,63 +42,4 @@ public class MenuPermissionDTO {
     @Schema(description = "请求方法 1.GET 2.POST 3.PUT 4.DELETE" )
     private Integer method;
 
-	public Long getMenuPermissionId() {
-		return menuPermissionId;
-	}
-
-	public void setMenuPermissionId(Long menuPermissionId) {
-		this.menuPermissionId = menuPermissionId;
-	}
-
-	public Long getMenuId() {
-		return menuId;
-	}
-
-	public void setMenuId(Long menuId) {
-		this.menuId = menuId;
-	}
-
-	public String getPermission() {
-		return permission;
-	}
-
-	public void setPermission(String permission) {
-		this.permission = permission;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getUri() {
-		return uri;
-	}
-
-	public void setUri(String uri) {
-		this.uri = uri;
-	}
-
-	public Integer getMethod() {
-		return method;
-	}
-
-	public void setMethod(Integer method) {
-		this.method = method;
-	}
-
-	@Override
-	public String toString() {
-		return "MenuPermissionVO{" +
-				"menuPermissionId=" + menuPermissionId +
-				",menuId=" + menuId +
-				",permission=" + permission +
-				",name=" + name +
-				",uri=" + uri +
-				",method=" + method +
-				'}';
-	}
 }

@@ -15,6 +15,7 @@ import com.mev.cloud.common.response.ResponseEnum;
 import com.mev.cloud.common.response.ServerResponseEntity;
 import com.mev.cloud.common.util.BooleanUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import java.util.*;
@@ -28,6 +29,7 @@ import java.util.stream.Collectors;
 @Component
 public class ShopCartAdapter {
 
+    @Qualifier("com.mev.cloud.api.product.feign.SpuFeignClient")
     @Autowired
     private SpuFeignClient spuFeignClient;
 
@@ -108,7 +110,7 @@ public class ShopCartAdapter {
             // 构建每个店铺的购物车信息
             ShopCartVO shopCart = buildShopCart(shopId,shopCartMap.get(shopId));
             shopCart.setShopId(shopId);
-            shopCart.setshopCartItem(shopCartMap.get(shopId));
+            shopCart.setShopCartItem(shopCartMap.get(shopId));
             // 店铺信息
             ServerResponseEntity<String> shopNameResponse = shopDetailFeignClient.getShopNameByShopId(shopId);
             if (!shopNameResponse.isSuccess()) {

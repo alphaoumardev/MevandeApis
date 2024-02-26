@@ -4,7 +4,11 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.mev.cloud.common.serializer.ImgJsonSerializer;
 import com.mev.cloud.common.vo.BaseVO;
 import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.Getter;
+import lombok.Setter;
 
+import java.io.Serial;
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -13,7 +17,10 @@ import java.util.List;
  * @author Alphaoumardev
  * @date 2020-10-28 15:27:24
  */
-public class SpuVO extends BaseVO {
+@Setter
+@Getter
+public class SpuVO extends BaseVO implements Serializable {
+	@Serial
 	private static final long serialVersionUID = 1L;
 
 	@Schema(description = "spu id" )
@@ -89,198 +96,6 @@ public class SpuVO extends BaseVO {
 
 	@Schema(description = "分组商品关联id" )
 	private Long referenceId;
-
-	public Long getReferenceId() {
-		return referenceId;
-	}
-
-	public void setReferenceId(Long referenceId) {
-		this.referenceId = referenceId;
-	}
-
-	public String getMainImgUrl() {
-		return mainImgUrl;
-	}
-
-	public void setMainImgUrl(String mainImgUrl) {
-		this.mainImgUrl = mainImgUrl;
-	}
-
-	public List<SkuVO> getSkus() {
-		return skus;
-	}
-
-	public void setSkus(List<SkuVO> skus) {
-		this.skus = skus;
-	}
-
-	public List<SpuAttrValueVO> getSpuAttrValues() {
-		return spuAttrValues;
-	}
-
-	public void setSpuAttrValues(List<SpuAttrValueVO> spuAttrValues) {
-		this.spuAttrValues = spuAttrValues;
-	}
-
-	public Integer getTotalStock() {
-		return totalStock;
-	}
-
-	public void setTotalStock(Integer totalStock) {
-		this.totalStock = totalStock;
-	}
-
-	public String getDetail() {
-		return detail;
-	}
-
-	public void setDetail(String detail) {
-		this.detail = detail;
-	}
-
-	public Long getSpuId() {
-		return spuId;
-	}
-
-	public void setSpuId(Long spuId) {
-		this.spuId = spuId;
-	}
-
-	public Long getBrandId() {
-		return brandId;
-	}
-
-	public void setBrandId(Long brandId) {
-		this.brandId = brandId;
-	}
-
-	public Long getCategoryId() {
-		return categoryId;
-	}
-
-	public void setCategoryId(Long categoryId) {
-		this.categoryId = categoryId;
-	}
-
-	public Long getShopCategoryId() {
-		return shopCategoryId;
-	}
-
-	public void setShopCategoryId(Long shopCategoryId) {
-		this.shopCategoryId = shopCategoryId;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getImgUrls() {
-		return imgUrls;
-	}
-
-	public void setImgUrls(String imgUrls) {
-		this.imgUrls = imgUrls;
-	}
-
-	public Long getPriceFee() {
-		return priceFee;
-	}
-
-	public void setPriceFee(Long priceFee) {
-		this.priceFee = priceFee;
-	}
-
-	public Long getMarketPriceFee() {
-		return marketPriceFee;
-	}
-
-	public void setMarketPriceFee(Long marketPriceFee) {
-		this.marketPriceFee = marketPriceFee;
-	}
-
-	public Integer getStatus() {
-		return status;
-	}
-
-	public void setStatus(Integer status) {
-		this.status = status;
-	}
-
-	public String getSellingPoint() {
-		return sellingPoint;
-	}
-
-	public void setSellingPoint(String sellingPoint) {
-		this.sellingPoint = sellingPoint;
-	}
-
-	public Integer getHasSkuImg() {
-		return hasSkuImg;
-	}
-
-	public void setHasSkuImg(Integer hasSkuImg) {
-		this.hasSkuImg = hasSkuImg;
-	}
-
-	public Long getShopId() {
-		return shopId;
-	}
-
-	public void setShopId(Long shopId) {
-		this.shopId = shopId;
-	}
-
-	public Integer getSeq() {
-		return seq;
-	}
-
-	public void setSeq(Integer seq) {
-		this.seq = seq;
-	}
-
-	public BrandVO getBrand() {
-		return brand;
-	}
-
-	public void setBrand(BrandVO brand) {
-		this.brand = brand;
-	}
-
-	public Integer getSaleNum() {
-		return saleNum;
-	}
-
-	public void setSaleNum(Integer saleNum) {
-		this.saleNum = saleNum;
-	}
-
-	public String getShopName() {
-		return shopName;
-	}
-
-	public void setShopName(String shopName) {
-		this.shopName = shopName;
-	}
-
-	public CategoryVO getCategory() {
-		return category;
-	}
-
-	public void setCategory(CategoryVO category) {
-		this.category = category;
-	}
-
-	public CategoryVO getShopCategory() {
-		return shopCategory;
-	}
-
-	public void setShopCategory(CategoryVO shopCategory) {
-		this.shopCategory = shopCategory;
-	}
 
 	@Override
 	public String toString() {

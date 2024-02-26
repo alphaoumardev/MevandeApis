@@ -1,16 +1,25 @@
 package com.mev.cloud.product.model;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 import com.mev.cloud.common.model.BaseModel;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
 /**
  * 属性与属性分组关联信息
  *
  * @author YXF
  * @date 2020-11-23 16:20:01
  */
+@Setter
+@Getter
+@ToString
 public class AttrCategory extends BaseModel implements Serializable{
-    private static final long serialVersionUID = 1L;
+    @Serial
+	private static final long serialVersionUID = 1L;
 
     /**
      * 属性与分类关联id
@@ -27,38 +36,4 @@ public class AttrCategory extends BaseModel implements Serializable{
      */
     private Long attrId;
 
-	public Long getAttrCategoryId() {
-		return attrCategoryId;
-	}
-
-	public void setAttrCategoryId(Long attrCategoryId) {
-		this.attrCategoryId = attrCategoryId;
-	}
-
-	public Long getCategoryId() {
-		return categoryId;
-	}
-
-	public void setCategoryId(Long categoryId) {
-		this.categoryId = categoryId;
-	}
-
-	public Long getAttrId() {
-		return attrId;
-	}
-
-	public void setAttrId(Long attrId) {
-		this.attrId = attrId;
-	}
-
-	@Override
-	public String toString() {
-		return "AttrCategory{" +
-				"attrCategoryId=" + attrCategoryId +
-				",createTime=" + createTime +
-				",updateTime=" + updateTime +
-				",categoryId=" + categoryId +
-				",attrId=" + attrId +
-				'}';
-	}
 }

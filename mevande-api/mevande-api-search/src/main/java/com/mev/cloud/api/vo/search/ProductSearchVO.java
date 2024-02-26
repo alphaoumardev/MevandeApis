@@ -1,6 +1,8 @@
 package com.mev.cloud.api.vo.search;
 
 import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.List;
 
@@ -8,6 +10,8 @@ import java.util.List;
  * @author Alphaoumardev
  * @date 2020/11/16
  */
+@Setter
+@Getter
 public class ProductSearchVO {
 
 
@@ -25,46 +29,6 @@ public class ProductSearchVO {
 
     @Schema(description = "分类列表信息" )
     private List<CategorySearchVO> categorys;
-
-    public ShopInfoSearchVO getShopInfo() {
-        return shopInfo;
-    }
-
-    public void setShopInfo(ShopInfoSearchVO shopInfo) {
-        this.shopInfo = shopInfo;
-    }
-
-    public List<AttrSearchVO> getAttrs() {
-        return attrs;
-    }
-
-    public void setAttrs(List<AttrSearchVO> attrs) {
-        this.attrs = attrs;
-    }
-
-    public List<BrandSearchVO> getBrands() {
-        return brands;
-    }
-
-    public void setBrands(List<BrandSearchVO> brands) {
-        this.brands = brands;
-    }
-
-    public List<SpuSearchVO> getSpus() {
-        return spus;
-    }
-
-    public void setSpus(List<SpuSearchVO> spus) {
-        this.spus = spus;
-    }
-
-    public List<CategorySearchVO> getCategorys() {
-        return categorys;
-    }
-
-    public void setCategorys(List<CategorySearchVO> categorys) {
-        this.categorys = categorys;
-    }
 
     @Override
     public String toString() {

@@ -10,8 +10,8 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
  */
 @SpringBootApplication(scanBasePackages = { "com.mev.cloud" })
 @EnableFeignClients(basePackages = {"com.mev.cloud.api.**.feign"})
-public class OrderApplication {
-
+public class OrderApplication
+{
 	public static void main(String[] args) {
 		SpringApplication.run(OrderApplication.class, args);
 	}

@@ -1,6 +1,8 @@
 package com.mev.cloud.order.bo;
 
 import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.Date;
 
@@ -8,9 +10,10 @@ import java.util.Date;
  * @author Alphaoumardev
  * @date 2021/2/4
  */
-public class SubmitOrderPayAmountInfoBO {
-
-
+@Setter
+@Getter
+public class SubmitOrderPayAmountInfoBO
+{
     @Schema(description = "创建时间" )
     private Date createTime;
 
@@ -19,30 +22,6 @@ public class SubmitOrderPayAmountInfoBO {
 
     @Schema(description = "订单地址id" )
     private Long orderAddrId;
-
-    public Long getTotalFee() {
-        return totalFee;
-    }
-
-    public void setTotalFee(Long totalFee) {
-        this.totalFee = totalFee;
-    }
-
-    public Date getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
-    }
-
-    public Long getOrderAddrId() {
-        return orderAddrId;
-    }
-
-    public void setOrderAddrId(Long orderAddrId) {
-        this.orderAddrId = orderAddrId;
-    }
 
     @Override
     public String toString() {

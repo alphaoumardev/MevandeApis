@@ -1,16 +1,25 @@
 package com.mev.cloud.product.model;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 import com.mev.cloud.common.model.BaseModel;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
 /**
  * 品牌分类关联信息
  *
  * @author Alphaoumardev
  * @date 2020-10-28 15:27:24
  */
+@Setter
+@Getter
+@ToString
 public class CategoryBrand extends BaseModel implements Serializable{
-    private static final long serialVersionUID = 1L;
+    @Serial
+	private static final long serialVersionUID = 1L;
 
     /**
      *
@@ -26,39 +35,4 @@ public class CategoryBrand extends BaseModel implements Serializable{
      * 分类id
      */
     private Long categoryId;
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public Long getBrandId() {
-		return brandId;
-	}
-
-	public void setBrandId(Long brandId) {
-		this.brandId = brandId;
-	}
-
-	public Long getCategoryId() {
-		return categoryId;
-	}
-
-	public void setCategoryId(Long categoryId) {
-		this.categoryId = categoryId;
-	}
-
-	@Override
-	public String toString() {
-		return "CategoryBrand{" +
-				"id=" + id +
-				",createTime=" + createTime +
-				",updateTime=" + updateTime +
-				",brandId=" + brandId +
-				",categoryId=" + categoryId +
-				'}';
-	}
 }

@@ -1,6 +1,8 @@
 package com.mev.cloud.order.vo;
 
 import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.Date;
 import java.util.List;
@@ -10,7 +12,10 @@ import java.util.List;
  * @author Alphaoumardev
  * @date 2021/2/4
  */
-public class SubmitOrderPayInfoVO {
+@Setter
+@Getter
+public class SubmitOrderPayInfoVO
+{
 
     @Schema(description = "商品名称" )
     private List<String> spuNameList;
@@ -29,54 +34,6 @@ public class SubmitOrderPayInfoVO {
 
     @Schema(description = "总共需要支付金额" )
     private Long totalFee;
-
-    public String getConsignee() {
-        return consignee;
-    }
-
-    public void setConsignee(String consignee) {
-        this.consignee = consignee;
-    }
-
-    public String getMobile() {
-        return mobile;
-    }
-
-    public void setMobile(String mobile) {
-        this.mobile = mobile;
-    }
-
-    public Date getEndTime() {
-        return endTime;
-    }
-
-    public void setEndTime(Date endTime) {
-        this.endTime = endTime;
-    }
-
-    public Long getTotalFee() {
-        return totalFee;
-    }
-
-    public void setTotalFee(Long totalFee) {
-        this.totalFee = totalFee;
-    }
-
-    public List<String> getSpuNameList() {
-        return spuNameList;
-    }
-
-    public void setSpuNameList(List<String> spuNameList) {
-        this.spuNameList = spuNameList;
-    }
-
-    public String getUserAddr() {
-        return userAddr;
-    }
-
-    public void setUserAddr(String userAddr) {
-        this.userAddr = userAddr;
-    }
 
     @Override
     public String toString() {

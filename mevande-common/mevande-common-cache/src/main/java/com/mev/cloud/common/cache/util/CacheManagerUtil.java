@@ -10,7 +10,8 @@ import org.springframework.stereotype.Component;
  * @date 2020/09/03
  */
 @Component
-public class CacheManagerUtil {
+public class CacheManagerUtil
+{
 
 	private final CacheManager cacheManager;
 

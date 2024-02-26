@@ -2,6 +2,9 @@ package com.mev.cloud.search.bo;
 
 import cn.throwx.canal.gule.annotation.CanalModel;
 import cn.throwx.canal.gule.common.FieldNamingPolicy;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 import java.util.Date;
 
@@ -10,6 +13,9 @@ import java.util.Date;
  *
  * @author Alphaoumardev
  */
+@Setter
+@Getter
+@ToString
 @CanalModel(database = "mevande_product", table = "spu_extension", fieldNamingPolicy = FieldNamingPolicy.LOWER_UNDERSCORE)
 public class SpuExtensionBO {
     /**
@@ -52,81 +58,4 @@ public class SpuExtensionBO {
      */
     private Integer stock;
 
-    public Long getSpuExtendId() {
-        return spuExtendId;
-    }
-
-    public void setSpuExtendId(Long spuExtendId) {
-        this.spuExtendId = spuExtendId;
-    }
-
-    public Long getSpuId() {
-        return spuId;
-    }
-
-    public void setSpuId(Long spuId) {
-        this.spuId = spuId;
-    }
-
-    public Integer getSaleNum() {
-        return saleNum;
-    }
-
-    public void setSaleNum(Integer saleNum) {
-        this.saleNum = saleNum;
-    }
-
-    public Integer getActualStock() {
-        return actualStock;
-    }
-
-    public void setActualStock(Integer actualStock) {
-        this.actualStock = actualStock;
-    }
-
-    public Integer getLockStock() {
-        return lockStock;
-    }
-
-    public void setLockStock(Integer lockStock) {
-        this.lockStock = lockStock;
-    }
-
-    public Integer getStock() {
-        return stock;
-    }
-
-    public void setStock(Integer stock) {
-        this.stock = stock;
-    }
-
-    public Date getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
-    }
-
-    public Date getUpdateTime() {
-        return updateTime;
-    }
-
-    public void setUpdateTime(Date updateTime) {
-        this.updateTime = updateTime;
-    }
-
-    @Override
-    public String toString() {
-        return "SpuExtensionBO{" +
-                "spuExtendId=" + spuExtendId +
-                ",createTime=" + createTime +
-                ",updateTime=" + updateTime +
-                ",spuId=" + spuId +
-                ",saleNum=" + saleNum +
-                ",actualStock=" + actualStock +
-                ",lockStock=" + lockStock +
-                ",stock=" + stock +
-                '}';
-    }
 }

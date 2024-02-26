@@ -2,6 +2,11 @@ package com.mev.cloud.order.dto.multishop;
 
 import com.mev.cloud.common.vo.BaseVO;
 import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.Getter;
+import lombok.Setter;
+
+import java.io.Serial;
+import java.io.Serializable;
 
 /**
  * 订单项VO
@@ -9,30 +14,17 @@ import io.swagger.v3.oas.annotations.media.Schema;
  * @author Alphaoumardev
  * @date 2020-12-04 11:27:35
  */
-public class OrderItemDTO extends BaseVO{
-    private static final long serialVersionUID = 1L;
+@Setter
+@Getter
+public class OrderItemDTO extends BaseVO implements Serializable {
+    @Serial
+	private static final long serialVersionUID = 1L;
 
     @Schema(description = "订单项ID" )
     private Long orderItemId;
 
 	@Schema(description = "变化金额" , requiredMode = Schema.RequiredMode.REQUIRED)
 	private Long changeAmount;
-
-	public Long getOrderItemId() {
-		return orderItemId;
-	}
-
-	public void setOrderItemId(Long orderItemId) {
-		this.orderItemId = orderItemId;
-	}
-
-	public Long getChangeAmount() {
-		return changeAmount;
-	}
-
-	public void setChangeAmount(Long changeAmount) {
-		this.changeAmount = changeAmount;
-	}
 
 	@Override
 	public String toString() {

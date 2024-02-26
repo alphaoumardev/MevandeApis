@@ -1,6 +1,9 @@
 package com.mev.cloud.rbac.model;
 
 import com.mev.cloud.common.model.BaseModel;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 /**
  * 用户与角色对应关系
@@ -8,6 +11,9 @@ import com.mev.cloud.common.model.BaseModel;
  * @author Alphaoumardev
  * @date 2020/6/24
  */
+@Setter
+@Getter
+@ToString
 public class UserRole extends BaseModel {
 
 	/**
@@ -24,34 +30,5 @@ public class UserRole extends BaseModel {
 	 * 角色ID
 	 */
 	private Long roleId;
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public Long getUserId() {
-		return userId;
-	}
-
-	public void setUserId(Long userId) {
-		this.userId = userId;
-	}
-
-	public Long getRoleId() {
-		return roleId;
-	}
-
-	public void setRoleId(Long roleId) {
-		this.roleId = roleId;
-	}
-
-	@Override
-	public String toString() {
-		return "UserRole{" + "id=" + id + ", userId=" + userId + ", roleId=" + roleId + "} " + super.toString();
-	}
 
 }

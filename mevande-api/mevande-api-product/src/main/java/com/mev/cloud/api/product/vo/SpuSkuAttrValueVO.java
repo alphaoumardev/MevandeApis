@@ -2,6 +2,11 @@ package com.mev.cloud.api.product.vo;
 
 import com.mev.cloud.common.vo.BaseVO;
 import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.Getter;
+import lombok.Setter;
+
+import java.io.Serial;
+import java.io.Serializable;
 
 /**
  * 商品sku销售属性关联信息VO
@@ -9,7 +14,10 @@ import io.swagger.v3.oas.annotations.media.Schema;
  * @author Alphaoumardev
  * @date 2020-10-28 15:27:24
  */
-public class SpuSkuAttrValueVO extends BaseVO {
+@Setter
+@Getter
+public class SpuSkuAttrValueVO extends BaseVO implements Serializable {
+	@Serial
 	private static final long serialVersionUID = 1L;
 
 	@Schema(description = "商品sku销售属性关联信息id" )
@@ -35,70 +43,6 @@ public class SpuSkuAttrValueVO extends BaseVO {
 
 	@Schema(description = "状态 1:enable, 0:disable, -1:deleted" )
 	private Integer status;
-
-	public Integer getSpuSkuAttrId() {
-		return spuSkuAttrId;
-	}
-
-	public void setSpuSkuAttrId(Integer spuSkuAttrId) {
-		this.spuSkuAttrId = spuSkuAttrId;
-	}
-
-	public Long getSpuId() {
-		return spuId;
-	}
-
-	public void setSpuId(Long spuId) {
-		this.spuId = spuId;
-	}
-
-	public Long getSkuId() {
-		return skuId;
-	}
-
-	public void setSkuId(Long skuId) {
-		this.skuId = skuId;
-	}
-
-	public Integer getAttrId() {
-		return attrId;
-	}
-
-	public void setAttrId(Integer attrId) {
-		this.attrId = attrId;
-	}
-
-	public String getAttrName() {
-		return attrName;
-	}
-
-	public void setAttrName(String attrName) {
-		this.attrName = attrName;
-	}
-
-	public Integer getAttrValueId() {
-		return attrValueId;
-	}
-
-	public void setAttrValueId(Integer attrValueId) {
-		this.attrValueId = attrValueId;
-	}
-
-	public String getAttrValueName() {
-		return attrValueName;
-	}
-
-	public void setAttrValueName(String attrValueName) {
-		this.attrValueName = attrValueName;
-	}
-
-	public Integer getStatus() {
-		return status;
-	}
-
-	public void setStatus(Integer status) {
-		this.status = status;
-	}
 
 	@Override
 	public String toString() {

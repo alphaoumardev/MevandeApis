@@ -3,6 +3,12 @@ package com.mev.cloud.product.dto;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
+import java.io.Serial;
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -11,7 +17,11 @@ import java.util.List;
  * @author Alphaoumardev
  * @date 2020-10-28 15:27:24
  */
-public class SpuDTO{
+@Setter
+@Getter
+@ToString
+public class SpuDTO implements Serializable {
+	@Serial
 	private static final long serialVersionUID = 1L;
 
 	@Schema(description = "spuId" )
@@ -88,207 +98,4 @@ public class SpuDTO{
 	@Schema(description = "店铺id" )
 	private Long shopId;
 
-	public Long getTagId() {
-		return tagId;
-	}
-
-	public void setTagId(Long tagId) {
-		this.tagId = tagId;
-	}
-
-	public Long getShopId() {
-		return shopId;
-	}
-
-	public void setShopId(Long shopId) {
-		this.shopId = shopId;
-	}
-
-	public String getVideo() {
-		return video;
-	}
-
-	public void setVideo(String video) {
-		this.video = video;
-	}
-
-	public List<SpuAttrValueDTO> getSpuAttrValues() {
-		return spuAttrValues;
-	}
-
-	public void setSpuAttrValues(List<SpuAttrValueDTO> spuAttrValues) {
-		this.spuAttrValues = spuAttrValues;
-	}
-
-	public List<SkuDTO> getSkuList() {
-		return skuList;
-	}
-
-	public void setSkuList(List<SkuDTO> skuList) {
-		this.skuList = skuList;
-	}
-
-	public Integer getTotalStock() {
-		return totalStock;
-	}
-
-	public void setTotalStock(Integer totalStock) {
-		this.totalStock = totalStock;
-	}
-
-	public Integer getChangeStock() {
-		return changeStock;
-	}
-
-	public void setChangeStock(Integer changeStock) {
-		this.changeStock = changeStock;
-	}
-
-	public String getSellingPoint() {
-		return sellingPoint;
-	}
-
-	public void setSellingPoint(String sellingPoint) {
-		this.sellingPoint = sellingPoint;
-	}
-
-	public String getDetail() {
-		return detail;
-	}
-
-	public void setDetail(String detail) {
-		this.detail = detail;
-	}
-
-	public Long getSpuId() {
-		return spuId;
-	}
-
-	public void setSpuId(Long spuId) {
-		this.spuId = spuId;
-	}
-
-	public Long getBrandId() {
-		return brandId;
-	}
-
-	public void setBrandId(Long brandId) {
-		this.brandId = brandId;
-	}
-
-	public Long getCategoryId() {
-		return categoryId;
-	}
-
-	public void setCategoryId(Long categoryId) {
-		this.categoryId = categoryId;
-	}
-
-	public Long getShopCategoryId() {
-		return shopCategoryId;
-	}
-
-	public void setShopCategoryId(Long shopCategoryId) {
-		this.shopCategoryId = shopCategoryId;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getImgUrls() {
-		return imgUrls;
-	}
-
-	public void setImgUrls(String imgUrls) {
-		this.imgUrls = imgUrls;
-	}
-
-	public Integer getStatus() {
-		return status;
-	}
-
-	public void setStatus(Integer status) {
-		this.status = status;
-	}
-
-	public Long getMarketPriceFee() {
-		return marketPriceFee;
-	}
-
-	public void setMarketPriceFee(Long marketPriceFee) {
-		this.marketPriceFee = marketPriceFee;
-	}
-
-	public Long getPriceFee() {
-		return priceFee;
-	}
-
-	public void setPriceFee(Long priceFee) {
-		this.priceFee = priceFee;
-	}
-
-	public String getMainImgUrl() {
-		return mainImgUrl;
-	}
-
-	public void setMainImgUrl(String mainImgUrl) {
-		this.mainImgUrl = mainImgUrl;
-	}
-
-	public Integer getHasSkuImg() {
-		return hasSkuImg;
-	}
-
-	public void setHasSkuImg(Integer hasSkuImg) {
-		this.hasSkuImg = hasSkuImg;
-	}
-
-	public Integer getSeq() {
-		return seq;
-	}
-
-	public void setSeq(Integer seq) {
-		this.seq = seq;
-	}
-
-	public List<Long> getSpuIds() {
-		return spuIds;
-	}
-
-	public void setSpuIds(List<Long> spuIds) {
-		this.spuIds = spuIds;
-	}
-
-	@Override
-	public String toString() {
-		return "SpuDTO{" +
-				"spuId=" + spuId +
-				", brandId=" + brandId +
-				", categoryId=" + categoryId +
-				", shopCategoryId=" + shopCategoryId +
-				", name='" + name + '\'' +
-				", sellingPoint='" + sellingPoint + '\'' +
-				", imgUrls='" + imgUrls + '\'' +
-				", mainImgUrl='" + mainImgUrl + '\'' +
-				", marketPriceFee=" + marketPriceFee +
-				", priceFee=" + priceFee +
-				", status=" + status +
-				", spuAttrValues=" + spuAttrValues +
-				", skuList=" + skuList +
-				", detail='" + detail + '\'' +
-				", totalStock=" + totalStock +
-				", changeStock=" + changeStock +
-				", video='" + video + '\'' +
-				", hasSkuImg=" + hasSkuImg +
-				", tagId=" + tagId +
-				", seq=" + seq +
-				", spuIds=" + spuIds +
-				", shopId=" + shopId +
-				'}';
-	}
 }

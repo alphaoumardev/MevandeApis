@@ -1,6 +1,8 @@
 package com.mev.cloud.api.order.dto;
 
 import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.Getter;
+import lombok.Setter;
 
 /**
  * 物流订单项信息DTO
@@ -8,7 +10,10 @@ import io.swagger.v3.oas.annotations.media.Schema;
  * @author Alphaoumardev
  * @date 2020-12-07 15:10:00
  */
-public class DeliveryOrderItemDTO{
+@Setter
+@Getter
+public class DeliveryOrderItemDTO
+{
 
     @Schema(description = "id" )
     private Long orderItemId;
@@ -21,38 +26,6 @@ public class DeliveryOrderItemDTO{
 
     @Schema(description = "发货改变的数量" )
     private Integer changeNum;
-
-	public Long getOrderItemId() {
-		return orderItemId;
-	}
-
-	public void setOrderItemId(Long orderItemId) {
-		this.orderItemId = orderItemId;
-	}
-
-	public String getPic() {
-		return pic;
-	}
-
-	public void setPic(String pic) {
-		this.pic = pic;
-	}
-
-	public String getSpuName() {
-		return spuName;
-	}
-
-	public void setSpuName(String spuName) {
-		this.spuName = spuName;
-	}
-
-	public Integer getChangeNum() {
-		return changeNum;
-	}
-
-	public void setChangeNum(Integer changeNum) {
-		this.changeNum = changeNum;
-	}
 
 	@Override
 	public String toString() {

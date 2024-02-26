@@ -2,7 +2,7 @@ version: "3.5"
 
 services:
   mevande-mysql:
-    image: mysql:8.0
+    image: mysql:8.3
     container_name: mevande-mysql
     restart: always
     environment:
@@ -37,7 +37,7 @@ services:
       - "6379:6379"
 
   mevande-nacos:
-    image: nacos/nacos-server:v2.2.0-slim
+    image: nacos/nacos-server:latest
     container_name: mevande-nacos
     restart: always
     depends_on:
@@ -172,15 +172,3 @@ networks:
   rocketmq:
     name: rocketmq
     driver: bridge
-
-#  sudo docker stop mevande-mysql
-#  sudo docker rm mevande-mysql
-#
-#  sudo docker run -d -p 9000:9000 -p 9001:9001 --name mevande-minio \
-#  -e "MINIO_ROOT_USER=admin" \
-#  -e "MINIO_ROOT_PASSWORD=admin123456" \
-#  -v /home/minio:/data \
-#  -v /home/minio/config:/root/.minio \
-#  minio/minio server --console-address ":9001" /data
-#
-#  sudo docker logs mevande-minio

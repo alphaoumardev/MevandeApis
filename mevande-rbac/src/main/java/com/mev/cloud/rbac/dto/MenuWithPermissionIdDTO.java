@@ -1,6 +1,10 @@
 package com.mev.cloud.rbac.dto;
 
 import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
 import java.util.List;
 
 /**
@@ -8,6 +12,9 @@ import java.util.List;
  * @author Alphaoumardev
  * @date 2020/9/18
  */
+@Setter
+@Getter
+@ToString
 public class MenuWithPermissionIdDTO {
 
     @Schema(description = "菜单id" )
@@ -15,28 +22,4 @@ public class MenuWithPermissionIdDTO {
 
     @Schema(description = "菜单下的权限id列表" )
     private List<Long> permissionIds;
-
-    public Long getMenuId() {
-        return menuId;
-    }
-
-    public void setMenuId(Long menuId) {
-        this.menuId = menuId;
-    }
-
-    public List<Long> getPermissionIds() {
-        return permissionIds;
-    }
-
-    public void setPermissionIds(List<Long> permissionIds) {
-        this.permissionIds = permissionIds;
-    }
-
-    @Override
-    public String toString() {
-        return "MenuWithPermissionIdDTO{" +
-                "menuId=" + menuId +
-                ", permissionIds=" + permissionIds +
-                '}';
-    }
 }

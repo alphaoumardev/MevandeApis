@@ -4,6 +4,11 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.mev.cloud.common.serializer.ImgJsonSerializer;
 import com.mev.cloud.common.vo.BaseVO;
 import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.Getter;
+import lombok.Setter;
+
+import java.io.Serial;
+import java.io.Serializable;
 
 /**
  * 店铺详情VO
@@ -11,8 +16,11 @@ import io.swagger.v3.oas.annotations.media.Schema;
  * @author Alphaoumardev
  * @date 2020-12-05 15:50:25
  */
-public class ShopDetailVO extends BaseVO{
-    private static final long serialVersionUID = 1L;
+@Setter
+@Getter
+public class ShopDetailVO extends BaseVO implements Serializable {
+    @Serial
+	private static final long serialVersionUID = 1L;
 
     @Schema(description = "店铺id" )
     private Long shopId;
@@ -54,102 +62,6 @@ public class ShopDetailVO extends BaseVO{
 
 	@Schema(description = "密码" ,requiredMode = Schema.RequiredMode.REQUIRED)
 	private String password;
-
-	public String getMobileBackgroundPic() {
-		return mobileBackgroundPic;
-	}
-
-	public void setMobileBackgroundPic(String mobileBackgroundPic) {
-		this.mobileBackgroundPic = mobileBackgroundPic;
-	}
-
-	public Long getShopId() {
-		return shopId;
-	}
-
-	public void setShopId(Long shopId) {
-		this.shopId = shopId;
-	}
-
-	public Integer getType() {
-		return type;
-	}
-
-	public void setType(Integer type) {
-		this.type = type;
-	}
-
-	public String getShopName() {
-		return shopName;
-	}
-
-	public void setShopName(String shopName) {
-		this.shopName = shopName;
-	}
-
-	public String getIntro() {
-		return intro;
-	}
-
-	public void setIntro(String intro) {
-		this.intro = intro;
-	}
-
-	public String getShopLogo() {
-		return shopLogo;
-	}
-
-	public void setShopLogo(String shopLogo) {
-		this.shopLogo = shopLogo;
-	}
-
-	public Integer getShopStatus() {
-		return shopStatus;
-	}
-
-	public void setShopStatus(Integer shopStatus) {
-		this.shopStatus = shopStatus;
-	}
-
-	public String getBusinessLicense() {
-		return businessLicense;
-	}
-
-	public void setBusinessLicense(String businessLicense) {
-		this.businessLicense = businessLicense;
-	}
-
-	public String getIdentityCardFront() {
-		return identityCardFront;
-	}
-
-	public void setIdentityCardFront(String identityCardFront) {
-		this.identityCardFront = identityCardFront;
-	}
-
-	public String getIdentityCardLater() {
-		return identityCardLater;
-	}
-
-	public void setIdentityCardLater(String identityCardLater) {
-		this.identityCardLater = identityCardLater;
-	}
-
-	public String getUsername() {
-		return username;
-	}
-
-	public void setUsername(String username) {
-		this.username = username;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
 
 	@Override
 	public String toString() {

@@ -7,6 +7,8 @@ import com.mev.cloud.leaf.segment.dao.IDAllocDao;
 import com.mev.cloud.leaf.segment.model.LeafAlloc;
 import com.mev.cloud.leaf.segment.model.Segment;
 import com.mev.cloud.leaf.segment.model.SegmentBuffer;
+import lombok.Getter;
+import lombok.Setter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -52,8 +54,11 @@ public class SegmentIDGenImpl implements IDGen {
 
 	private volatile boolean initOk = false;
 
+	@Getter
 	private final Map<String, SegmentBuffer> cache = new ConcurrentHashMap<>();
 
+	@Setter
+	@Getter
 	private IDAllocDao dao;
 
 	private static final SecureRandom RANDOM = new SecureRandom();
@@ -114,10 +119,9 @@ public class SegmentIDGenImpl implements IDGen {
 			Set<String> insertTagsSet = new HashSet<>(dbTags);
 			Set<String> removeTagsSet = new HashSet<>(cacheTags);
 			// db中新加的tags灌进cache
-			for (int i = 0; i < cacheTags.size(); i++) {
-				String tmp = cacheTags.get(i);
-				insertTagsSet.remove(tmp);
-			}
+            for (String tmp : cacheTags) {
+                insertTagsSet.remove(tmp);
+            }
 			for (String tag : insertTagsSet) {
 				SegmentBuffer buffer = new SegmentBuffer();
 				buffer.setKey(tag);
@@ -129,10 +133,9 @@ public class SegmentIDGenImpl implements IDGen {
 				logger.info("Add tag {} from db to IdCache, SegmentBuffer {}", tag, buffer);
 			}
 			// cache中已失效的tags从cache删除
-			for (int i = 0; i < dbTags.size(); i++) {
-				String tmp = dbTags.get(i);
-				removeTagsSet.remove(tmp);
-			}
+            for (String tmp : dbTags) {
+                removeTagsSet.remove(tmp);
+            }
 			for (String tag : removeTagsSet) {
 				cache.remove(tag);
 				logger.info("Remove tag {} from IdCache", tag);
@@ -319,18 +322,6 @@ public class SegmentIDGenImpl implements IDGen {
 
 	public List<LeafAlloc> getAllLeafAllocs() {
 		return dao.getAllLeafAllocs();
-	}
-
-	public Map<String, SegmentBuffer> getCache() {
-		return cache;
-	}
-
-	public IDAllocDao getDao() {
-		return dao;
-	}
-
-	public void setDao(IDAllocDao dao) {
-		this.dao = dao;
 	}
 
 }

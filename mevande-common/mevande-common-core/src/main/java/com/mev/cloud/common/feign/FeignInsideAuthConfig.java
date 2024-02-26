@@ -1,5 +1,7 @@
 package com.mev.cloud.common.feign;
 
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
@@ -11,6 +13,8 @@ import java.util.List;
  * @author Alphaoumardev
  * @date 2020/9/10
  */
+@Setter
+@Getter
 @RefreshScope
 @Configuration
 @ConfigurationProperties("feign.inside")
@@ -29,30 +33,6 @@ public class FeignInsideAuthConfig {
 
     @Value("#{'${feign.inside.ips:}'.split(',')}")
     private List<String> ips;
-
-    public String getKey() {
-        return key;
-    }
-
-    public void setKey(String key) {
-        this.key = key;
-    }
-
-    public String getSecret() {
-        return secret;
-    }
-
-    public void setSecret(String secret) {
-        this.secret = secret;
-    }
-
-    public List<String> getIps() {
-        return ips;
-    }
-
-    public void setIps(List<String> ips) {
-        this.ips = ips;
-    }
 
     @Override
     public String toString() {

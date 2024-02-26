@@ -1,6 +1,12 @@
 package com.mev.cloud.rbac.vo;
 
 import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
+import java.io.Serial;
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -9,8 +15,12 @@ import java.util.List;
  * @author Alphaoumardev
  * @date 2020-09-15 16:35:01
  */
-public class MenuSimpleVO{
-    private static final long serialVersionUID = 1L;
+@Setter
+@Getter
+@ToString
+public class MenuSimpleVO implements Serializable {
+    @Serial
+	private static final long serialVersionUID = 1L;
 
     @Schema(description = "菜单id" )
     private Long menuId;
@@ -24,45 +34,4 @@ public class MenuSimpleVO{
 	@Schema(description = "菜单权限列表" )
 	private List<MenuPermissionSimpleVO> menuPermissions;
 
-	public Long getMenuId() {
-		return menuId;
-	}
-
-	public void setMenuId(Long menuId) {
-		this.menuId = menuId;
-	}
-
-	public Long getParentId() {
-		return parentId;
-	}
-
-	public void setParentId(Long parentId) {
-		this.parentId = parentId;
-	}
-
-	public String getTitle() {
-		return title;
-	}
-
-	public void setTitle(String title) {
-		this.title = title;
-	}
-
-	public List<MenuPermissionSimpleVO> getMenuPermissions() {
-		return menuPermissions;
-	}
-
-	public void setMenuPermissions(List<MenuPermissionSimpleVO> menuPermissions) {
-		this.menuPermissions = menuPermissions;
-	}
-
-	@Override
-	public String toString() {
-		return "MenuSimpleVO{" +
-				"menuId=" + menuId +
-				", parentId=" + parentId +
-				", title='" + title + '\'' +
-				", menuPermissions=" + menuPermissions +
-				'}';
-	}
 }

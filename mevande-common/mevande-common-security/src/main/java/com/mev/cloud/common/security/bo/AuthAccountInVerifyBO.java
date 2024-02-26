@@ -1,6 +1,8 @@
 package com.mev.cloud.common.security.bo;
 
 import com.mev.cloud.api.auth.bo.UserInfoInTokenBO;
+import lombok.Getter;
+import lombok.Setter;
 
 /**
  * 用于校验的用户信息
@@ -8,27 +10,13 @@ import com.mev.cloud.api.auth.bo.UserInfoInTokenBO;
  * @author Alphaoumardev
  * @date 2020/7/3
  */
+@Setter
+@Getter
 public class AuthAccountInVerifyBO extends UserInfoInTokenBO {
 
 	private String password;
 
 	private Integer status;
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
-	public Integer getStatus() {
-		return status;
-	}
-
-	public void setStatus(Integer status) {
-		this.status = status;
-	}
 
 	@Override
 	public String toString() {

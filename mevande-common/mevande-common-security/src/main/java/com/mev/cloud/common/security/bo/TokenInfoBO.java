@@ -1,6 +1,8 @@
 package com.mev.cloud.common.security.bo;
 
 import com.mev.cloud.api.auth.bo.UserInfoInTokenBO;
+import lombok.Getter;
+import lombok.Setter;
 
 /**
  * token信息，该信息存在redis中
@@ -8,6 +10,8 @@ import com.mev.cloud.api.auth.bo.UserInfoInTokenBO;
  * @author Alphaoumardev
  * @date 2020/7/2
  */
+@Setter
+@Getter
 public class TokenInfoBO {
 
 	/**
@@ -23,38 +27,6 @@ public class TokenInfoBO {
 	 * 在多少秒后过期
 	 */
 	private Integer expiresIn;
-
-	public UserInfoInTokenBO getUserInfoInToken() {
-		return userInfoInToken;
-	}
-
-	public void setUserInfoInToken(UserInfoInTokenBO userInfoInToken) {
-		this.userInfoInToken = userInfoInToken;
-	}
-
-	public String getAccessToken() {
-		return accessToken;
-	}
-
-	public void setAccessToken(String accessToken) {
-		this.accessToken = accessToken;
-	}
-
-	public String getRefreshToken() {
-		return refreshToken;
-	}
-
-	public void setRefreshToken(String refreshToken) {
-		this.refreshToken = refreshToken;
-	}
-
-	public Integer getExpiresIn() {
-		return expiresIn;
-	}
-
-	public void setExpiresIn(Integer expiresIn) {
-		this.expiresIn = expiresIn;
-	}
 
 	@Override
 	public String toString() {

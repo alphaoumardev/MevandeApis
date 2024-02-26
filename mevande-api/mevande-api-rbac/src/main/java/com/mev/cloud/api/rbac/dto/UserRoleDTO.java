@@ -2,12 +2,17 @@ package com.mev.cloud.api.rbac.dto;
 
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
+import lombok.Getter;
+import lombok.Setter;
+
 import java.util.List;
 
 /**
  * @author Alphaoumardev
  * @date 2020/11/27
  */
+@Setter
+@Getter
 public class UserRoleDTO {
 
     /**
@@ -22,22 +27,6 @@ public class UserRoleDTO {
      */
     @NotEmpty(message = "userId not null")
     private List<Long> roleIds;
-
-    public Long getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Long userId) {
-        this.userId = userId;
-    }
-
-    public List<Long> getRoleIds() {
-        return roleIds;
-    }
-
-    public void setRoleIds(List<Long> roleIds) {
-        this.roleIds = roleIds;
-    }
 
     @Override
     public String toString() {

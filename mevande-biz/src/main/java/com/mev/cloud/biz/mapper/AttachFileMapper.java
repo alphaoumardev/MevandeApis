@@ -13,7 +13,8 @@ import java.util.List;
  * @author YXF
  * @date 2020-11-21 10:21:40
  */
-public interface AttachFileMapper {
+public interface AttachFileMapper
+{
 
 	/**
 	 * 获取上传文件记录表列表
