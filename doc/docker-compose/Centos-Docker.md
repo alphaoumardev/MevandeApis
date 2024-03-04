@@ -45,7 +45,7 @@ sudo yum makecache
 安装 Docker-ce：
 
 ```shell
-sudo yum -y install docker-ce
+sudo yum -y install docker
 ```
 
 查看已安装docker版本
@@ -112,4 +112,112 @@ sudo chmod +x /usr/local/bin/docker-compose
 docker-compose --version
 #若有docker-compose version 1.29.2, build 5becea4c，则安装成功
 ```
+## For ubuntu distribution
+``` shell
+sudo apt update
+sudo apt install apt-transport-https ca-certificates curl software-properties-common
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+echo "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu focal stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+sudo apt update
+sudo apt install docker-ce docker-ce-cli containerd.io
 
+sudo curl -fsSL https://github.com/docker/compose/releases/latest/download/docker-compose-Linux-x86_64 -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+docker --version
+docker-compose --version
+
+sudo systemctl start docker
+sudo systemctl restart docker
+sudo systemctl reload docker
+
+```
+chmod 440 /etc/sudoers
+```shell
+cd /docker-compose
+```shell
+cd /docker-compose
+sudo chmod -R 777 ./rocketmq/broker/logs
+sudo chmod -R 777 ./rocketmq/broker/store
+sudo chmod -R 666 ./minio/data
+sudo chmod -R 777 ./elasticsearch/data
+docker-compose up -d --build
+docker ps
+```
+
+
+## For debian distribution
+
+```shell
+sudo apt update
+sudo apt install -y apt-transport-https ca-certificates curl software-properties-common
+curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+sudo apt install -y gnupg
+sudo curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+echo "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/debian $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+sudo apt update
+sudo apt install -y docker-ce docker-ce-cli containerd.io
+
+sudo curl -fsSL https://github.com/docker/compose/releases/latest/download/docker-compose-Linux-x86_64 -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+docker --version
+docker-compose --version
+
+sudo systemctl start docker
+sudo systemctl restart docker
+sudo systemctl reload docker
+
+```
+
+``` 
+chown root:root /etc/sudo.conf
+chmod 644 /etc/sudo.conf
+chown root:root /usr/lib/sudo/sudoers.so
+chmod 755 /usr/lib/sudo/sudoers.so
+```
+
+``` 
+chmod 440 /etc/sudoers
+```
+cd /docker-compose
+```
+cd /docker-compose
+sudo chmod -R 777 ./rocketmq/broker/logs
+sudo chmod -R 777 ./rocketmq/broker/store
+sudo chmod -R 666 ./minio/data
+sudo chmod -R 777 ./elasticsearch/data
+docker-compose up -d --build
+docker ps
+```
+
+``` 
+apt update
+apt install -y apt-transport-https ca-certificates curl software-properties-common
+curl -fsSL https://download.docker.com/linux/debian/gpg | gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+apt install -y gnupg
+curl -fsSL https://download.docker.com/linux/debian/gpg | gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+echo "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/debian $(lsb_release -cs) stable" | tee /etc/apt/sources.list.d/docker.list > /dev/null
+apt update
+apt install -y docker-ce docker-ce-cli containerd.io
+
+curl -fsSL https://github.com/docker/compose/releases/latest/download/docker-compose-Linux-x86_64 -o /usr/local/bin/docker-compose
+chmod +x /usr/local/bin/docker-compose
+docker --version
+docker-compose --version
+
+systemctl start docker
+systemctl restart docker
+systemctl reload docker
+
+chown root:root /etc/sudo.conf
+chmod 644 /etc/sudo.conf
+chown root:root /usr/lib/sudo/sudoers.so
+chmod 755 /usr/lib/sudo/sudoers.so
+
+chmod 440 /etc/sudoers
+
+```
+remove containers
+``` 
+docker stop $(docker ps -aq)
+docker rm  $(docker ps -aq)
+```

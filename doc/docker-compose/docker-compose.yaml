@@ -2,7 +2,7 @@ version: "3.5"
 
 services:
   mevande-mysql:
-    image: mysql:8.3
+    image: mysql:8.0
     container_name: mevande-mysql
     restart: always
     environment:
@@ -37,14 +37,15 @@ services:
       - "6379:6379"
 
   mevande-nacos:
-    image: nacos/nacos-server:latest
+    image: nacos/nacos-server:v2.3.0-slim
     container_name: mevande-nacos
     restart: always
     depends_on:
       - mevande-mysql
     ports:
       - "8848:8848"
-      - "8948:8948"
+      - "9848:9848"
+      - "9849:9849"
     environment:
       - JVM_XMS=256m
       - JVM_XMX=256m
@@ -52,7 +53,7 @@ services:
       - MODE=standalone
       - PREFER_HOST_MODE=hostname
       - SPRING_DATASOURCE_PLATFORM=mysql
-      - MYSQL_SERVICE_HOST=54.196.168.190
+      - MYSQL_SERVICE_HOST=45.79.135.62
       - MYSQL_SERVICE_DB_NAME=mevande_nacos
       - MYSQL_SERVICE_USER=root
       - MYSQL_SERVICE_PASSWORD=root
@@ -71,7 +72,7 @@ services:
       - "8091:8091"
       - "7091:7091"
     environment:
-      - SEATA_IP=54.196.168.190
+      - SEATA_IP=45.79.135.62
     volumes:
       - ./seata/application.yml:/seata-server/resources/application.yml
 

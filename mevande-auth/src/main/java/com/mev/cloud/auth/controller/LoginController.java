@@ -23,6 +23,20 @@ import jakarta.validation.Valid;
  * @author Alphaoumardev
  * @date 2020/6/30
  */
+
+/*
+*
+* {
+  "code": "00000",
+  "msg": null,
+  "data": {
+    "accessToken": "OGQ4Y2MzOWNiYmNlNDU4ZGIwZTkxYWY4N2UwZDM3YWExNzA5NTgwNzY3NDczMQ==",
+    "refreshToken": "OTdhNGE0NzhjNzZlNGVhMWI0ZjhlMDQ1MzUwYmE5YmIxNzA5NTgwNzY3NDc2MQ==",
+    "expiresIn": 2592000
+  },
+  "success": true
+}
+*/
 @RestController
 @Tag(name = "登录")
 public class LoginController {
@@ -42,8 +56,8 @@ public class LoginController {
 	@PostMapping("/ua/login")
 	@Operation(summary = "账号密码" , description = "通过账号登录，还要携带用户的类型，也就是用户所在的系统")
 	public ServerResponseEntity<TokenInfoVO> login(
-			@Valid @RequestBody AuthenticationDTO authenticationDTO) {
-
+			@Valid @RequestBody AuthenticationDTO authenticationDTO)
+	{
 		// 这边获取了用户的用户信息，那么根据sessionid对应一个user的原则，我应该要把这个东西存起来，然后校验，那么存到哪里呢？
 		// redis，redis有天然的自动过期的机制，有key value的形式
 		ServerResponseEntity<UserInfoInTokenBO> userInfoInTokenResponse = authAccountService
