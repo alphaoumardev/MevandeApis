@@ -7,7 +7,7 @@ import java.io.Serializable;
 /**
  * 省市区地区信息
  *
- * @author YXF
+ * @author Alphaoumardev
  * @date 2020-11-25 15:16:14
  */
 public class Area extends BaseModel implements Serializable{

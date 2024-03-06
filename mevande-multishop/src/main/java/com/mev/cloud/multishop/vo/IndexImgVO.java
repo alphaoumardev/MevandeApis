@@ -14,7 +14,7 @@ import java.io.Serializable;
 /**
  * 轮播图VO
  *
- * @author YXF
+ * @author Alphaoumardev
  * @date 2020-11-24 16:38:32
  */
 @Setter

@@ -35,10 +35,12 @@ import java.util.Map;
  */
 @EnableCaching
 @Configuration
-public class RedisCacheConfig {
+public class RedisCacheConfig
+{
 
 	@Bean
-	public CacheManager cacheManager(RedisConnectionFactory redisConnectionFactory, CacheTtlAdapter cacheTtlAdapter) {
+	public CacheManager cacheManager(RedisConnectionFactory redisConnectionFactory, CacheTtlAdapter cacheTtlAdapter)
+	{
 
 		RedisCacheManager redisCacheManager = new RedisCacheManager(
 				RedisCacheWriter.nonLockingRedisCacheWriter(redisConnectionFactory),
@@ -51,20 +53,24 @@ public class RedisCacheConfig {
 		return redisCacheManager;
 	}
 
-	private Map<String, RedisCacheConfiguration> getRedisCacheConfigurationMap(CacheTtlAdapter cacheTtlAdapter) {
-		if (cacheTtlAdapter == null) {
+	private Map<String, RedisCacheConfiguration> getRedisCacheConfigurationMap(CacheTtlAdapter cacheTtlAdapter)
+	{
+		if (cacheTtlAdapter == null)
+		{
 			return Collections.emptyMap();
 		}
 		Map<String, RedisCacheConfiguration> redisCacheConfigurationMap = new HashMap<>(16);
 
-		for (CacheNameWithTtlBO cacheNameWithTtlBO : cacheTtlAdapter.listCacheNameWithTtl()) {
+		for (CacheNameWithTtlBO cacheNameWithTtlBO : cacheTtlAdapter.listCacheNameWithTtl())
+		{
 			redisCacheConfigurationMap.put(cacheNameWithTtlBO.getCacheName(),
 					getRedisCacheConfigurationWithTtl(cacheNameWithTtlBO.getTtl()));
 		}
 		return redisCacheConfigurationMap;
 	}
 
-	private RedisCacheConfiguration getRedisCacheConfigurationWithTtl(Integer seconds) {
+	private RedisCacheConfiguration getRedisCacheConfigurationWithTtl(Integer seconds)
+	{
 		RedisCacheConfiguration redisCacheConfiguration = RedisCacheConfiguration.defaultCacheConfig();
 		redisCacheConfiguration = redisCacheConfiguration
 				.serializeValuesWith(RedisSerializationContext.SerializationPair.fromSerializer(redisSerializer()))
@@ -78,7 +84,8 @@ public class RedisCacheConfig {
 	 * https://juejin.im/post/5e869d426fb9a03c6148c97e
 	 */
 	@Bean
-	public RedisSerializer<Object> redisSerializer() {
+	public RedisSerializer<Object> redisSerializer()
+	{
 		ObjectMapper objectMapper = new ObjectMapper();
 		// 反序列化时候遇到不匹配的属性并不抛出异常
 		objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);

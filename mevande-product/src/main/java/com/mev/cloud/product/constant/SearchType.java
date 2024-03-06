@@ -2,7 +2,7 @@ package com.mev.cloud.product.constant;
 
 /**
  * 属性的搜素类型
- * @author yxf
+ * @author Alphaoumardev
  * @date 2020/11/20
  */
 public enum SearchType {

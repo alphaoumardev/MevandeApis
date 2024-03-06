@@ -15,7 +15,7 @@ import java.util.List;
 
 /**
  * 商品搜索feign连接
- * @author YXF
+ * @author Alphaoumardev
  * @date 2020/12/07
  */
 @FeignClient(value = "mevande-search",contextId = "searchSpu")

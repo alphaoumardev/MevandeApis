@@ -3,7 +3,7 @@ package com.mev.cloud.multishop.constant;
 /**
  * 店铺状态
  *
- * @author YXF
+ * @author Alphaoumardev
  */
 public enum ShopType {
 

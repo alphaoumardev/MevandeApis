@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  * 商品搜索feign连接
- * @author YXF
+ * @author Alphaoumardev
  * @date 2020/12/07
  */
 @RestController

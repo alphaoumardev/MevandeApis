@@ -13,12 +13,14 @@ import java.util.List;
 /**
  * @author Alphaoumardev
  */
-public class MevandeCanalGlue implements CanalGlue {
+public class MevandeCanalGlue implements CanalGlue
+{
 
     private final CanalBinlogEventProcessorFactory canalBinlogEventProcessorFactory;
 
     @Override
-    public void process(String content) {
+    public void process(String content)
+    {
         CanalBinLogEvent event = (CanalBinLogEvent) SourceAdapterFacade.X.adapt(CanalBinLogEvent.class, content);
         ModelTable modelTable = ModelTable.of(event.getDatabase(), event.getTable());
         List<BaseCanalBinlogEventProcessor<?>> baseCanalBinlogEventProcessors = this.canalBinlogEventProcessorFactory.get(modelTable);

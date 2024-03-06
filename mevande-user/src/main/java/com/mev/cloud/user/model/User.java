@@ -6,7 +6,7 @@ import com.mev.cloud.common.model.BaseModel;
 /**
  * 用户表
  *
- * @author YXF
+ * @author Alphaoumardev
  * @date 2020-12-08 11:18:04
  */
 public class User extends BaseModel implements Serializable{

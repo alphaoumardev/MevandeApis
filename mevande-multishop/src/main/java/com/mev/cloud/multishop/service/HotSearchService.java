@@ -11,7 +11,7 @@ import java.util.List;
 /**
  * 热搜
  *
- * @author YXF
+ * @author Alphaoumardev
  * @date 2021-01-27 09:10:00
  */
 public interface HotSearchService {

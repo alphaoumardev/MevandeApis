@@ -17,7 +17,7 @@ import jakarta.validation.Valid;
 /**
  * 用户表
  *
- * @author YXF
+ * @author Alphaoumardev
  * @date 2020-12-08 11:18:04
  */
 @RestController("multishopUserController")

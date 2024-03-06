@@ -9,7 +9,7 @@ import lombok.ToString;
 /**
  * 品牌信息
  *
- * @author YXF
+ * @author Alphaoumardev
  * @date 2020-12-23 15:27:24
  */
 @Setter

@@ -2,7 +2,7 @@ package com.mev.cloud.api.product.constant;
 
 /**
  * 等级
- * @author yxf
+ * @author Alphaoumardev
  * @date 2020/11/20
  */
 public enum CategoryLevel {

@@ -7,17 +7,14 @@ import lombok.ToString;
 
 /**
  * 保存在token信息里面的用户信息
- *
- * com.mev.cloud.auth.service.impl.AuthAccountServiceImpl
- * com.mev.cloud.auth.controller.LoginController
  * @author Alphaoumardev
  * @date 2020/7/3
  */
 @Setter
 @Getter
 @ToString
-public class UserInfoInTokenBO {
-
+public class UserInfoInTokenBO
+{
 	/**
 	 * 用户在自己系统的用户id
 	 */

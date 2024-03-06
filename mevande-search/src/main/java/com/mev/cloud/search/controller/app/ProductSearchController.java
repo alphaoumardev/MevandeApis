@@ -31,7 +31,8 @@ import java.util.Objects;
 @RestController("appSearchSpuController")
 @RequestMapping("/ua/search")
 @Tag(name = "app-spu搜索接口")
-public class ProductSearchController {
+public class ProductSearchController
+{
 
     @Autowired
     private ProductSearchManager productSearchManager;
@@ -41,7 +42,8 @@ public class ProductSearchController {
 
     @GetMapping("/page")
     @Operation(summary = "商品信息列表-包含spu、品牌、分类、属性和店铺信息" , description = "spu列表-包含spu、品牌、分类、属性和店铺信息")
-    public ServerResponseEntity<EsPageVO<ProductSearchVO>> page(@Valid EsPageDTO pageDTO, ProductSearchDTO productSearchDTO) {
+    public ServerResponseEntity<EsPageVO<ProductSearchVO>> page(@Valid EsPageDTO pageDTO, ProductSearchDTO productSearchDTO)
+    {
         productSearchDTO.setSpuStatus(StatusEnum.ENABLE.value());
         EsPageVO<ProductSearchVO> searchPage = productSearchManager.page(pageDTO, productSearchDTO);
         loadShopData(searchPage.getList());
@@ -61,12 +63,16 @@ public class ProductSearchController {
      * 获取店铺数据
      * @param list
      */
-    private void loadShopData(List<ProductSearchVO> list) {
-        if (CollUtil.isEmpty(list)) {
+    private void loadShopData(List<ProductSearchVO> list)
+    {
+        if (CollUtil.isEmpty(list))
+        {
             return;
         }
-        for (ProductSearchVO productSearchVO : list) {
-            if (Objects.isNull(productSearchVO.getShopInfo()) || Objects.isNull(productSearchVO.getShopInfo().getShopId())) {
+        for (ProductSearchVO productSearchVO : list)
+        {
+            if (Objects.isNull(productSearchVO.getShopInfo()) || Objects.isNull(productSearchVO.getShopInfo().getShopId()))
+            {
                 continue;
             }
             ServerResponseEntity<EsShopDetailBO> shopDataResponse = shopDetailFeignClient.shopExtensionData(productSearchVO.getShopInfo().getShopId());

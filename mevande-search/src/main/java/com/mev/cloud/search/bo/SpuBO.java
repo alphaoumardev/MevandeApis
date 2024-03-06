@@ -9,7 +9,7 @@ import lombok.ToString;
 /**
  * 商品信息
  *
- * @author YXF
+ * @author Alphaoumardev
  * @date 2020-12-23 15:27:24
  */
 @Setter
@@ -71,7 +71,6 @@ public class SpuBO {
      * 市场价，整数方式保存
      */
     private Long marketPriceFee;
-
     /**
      * 状态 1:enable, 0:disable, -1:deleted
      */

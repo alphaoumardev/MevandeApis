@@ -11,7 +11,7 @@ import java.io.Serializable;
 /**
  * 上传文件记录表VO
  *
- * @author YXF
+ * @author Alphaoumardev
  * @date 2020-11-21 10:21:40
  */
 @Setter

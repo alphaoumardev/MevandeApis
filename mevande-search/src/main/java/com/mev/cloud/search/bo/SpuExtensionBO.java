@@ -17,7 +17,8 @@ import java.util.Date;
 @Getter
 @ToString
 @CanalModel(database = "mevande_product", table = "spu_extension", fieldNamingPolicy = FieldNamingPolicy.LOWER_UNDERSCORE)
-public class SpuExtensionBO {
+public class SpuExtensionBO
+{
     /**
      * 商品扩展信息表id
      */

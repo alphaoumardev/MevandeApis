@@ -12,15 +12,15 @@ import java.util.Date;
 /**
  * 商品信息
  *
- * @author YXF
+ * @author Alphaoumardev
  * @date 2020-12-23 15:27:24
  */
 @Setter
 @Getter
 @ToString
 @CanalModel(database = "mevande_order", table = "order", fieldNamingPolicy = FieldNamingPolicy.LOWER_UNDERSCORE)
-public class OrderBO {
-
+public class OrderBO 
+{
     /**
      * 订单ID
      */

@@ -23,7 +23,8 @@ import jakarta.validation.Valid;
 @RestController("platformSearchSpuController")
 @RequestMapping("/p/search")
 @Tag(name = "platform-spu列表接口")
-public class ProductSearchController {
+public class ProductSearchController
+{
 
     @Autowired
     private ProductSearchManager productSearchManager;

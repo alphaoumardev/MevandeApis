@@ -75,7 +75,8 @@ public class CanalGlueAutoConfiguration implements SmartInitializingSingleton, B
 
     @SuppressWarnings({"rawtypes", "unchecked"})
     @Override
-    public void afterSingletonsInstantiated() {
+    public void afterSingletonsInstantiated()
+    {
         ParseResultInterceptorManager parseResultInterceptorManager
                 = configurableListableBeanFactory.getBean(ParseResultInterceptorManager.class);
         ModelTableMetadataManager modelTableMetadataManager

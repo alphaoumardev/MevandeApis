@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * 用户表VO
  *
- * @author YXF
+ * @author Alphaoumardev
  * @date 2020-12-08 11:18:04
  */
 public class UserVO extends BaseVO{

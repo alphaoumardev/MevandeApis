@@ -11,7 +11,7 @@ import java.io.Serializable;
 /**
  * 属性与属性分组关联信息DTO
  *
- * @author YXF
+ * @author Alphaoumardev
  * @date 2020-11-23 16:20:01
  */
 @Setter

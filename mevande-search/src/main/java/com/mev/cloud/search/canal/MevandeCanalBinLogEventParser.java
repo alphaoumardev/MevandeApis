@@ -17,15 +17,16 @@ import java.util.*;
 /**
  * @author Alphaoumardev
  */
-public class MevandeCanalBinLogEventParser implements CanalBinLogEventParser {
-
+public class MevandeCanalBinLogEventParser implements CanalBinLogEventParser
+{
     private static final Logger log = LoggerFactory.getLogger(DefaultCanalBinLogEventParser.class);
 
     @Override
     public <T> List<CanalBinLogResult<T>> parse(CanalBinLogEvent event, Class<T> klass, BasePrimaryKeyTupleFunction primaryKeyFunction, BaseCommonEntryFunction<T> commonEntryFunction) {
         BinLogEventType eventType = BinLogEventType.fromType(event.getType());
         if (Objects.equals(BinLogEventType.CREATE, eventType) || Objects.equals(BinLogEventType.ALTER, eventType)) {
-            if (log.isDebugEnabled()) {
+            if (log.isDebugEnabled())
+            {
                 log.debug("监听到不需要处理或者未知的binlog事件类型[{}],将忽略解析过程返回空列表,binlog事件:{}", eventType, JSON.toJSONString(event));
             }
             return Collections.emptyList();
@@ -84,7 +85,8 @@ public class MevandeCanalBinLogEventParser implements CanalBinLogEventParser {
         }
     }
 
-    private MevandeCanalBinLogEventParser() {
+    private MevandeCanalBinLogEventParser()
+    {
     }
 
     public static MevandeCanalBinLogEventParser of() {

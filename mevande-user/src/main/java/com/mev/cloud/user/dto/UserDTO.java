@@ -6,7 +6,7 @@ import java.util.Date;
 /**
  * 用户表DTO
  *
- * @author YXF
+ * @author Alphaoumardev
  * @date 2020-12-08 11:18:04
  */
 public class UserDTO{

@@ -9,14 +9,16 @@ import lombok.ToString;
 /**
  * 品牌信息
  *
- * @author YXF
+ * @author Alphaoumardev
  * @date 2020-12-23 15:27:24
  */
+
 @Setter
 @Getter
 @ToString
 @CanalModel(database = "mevande_multishop", table = "shop_detail", fieldNamingPolicy = FieldNamingPolicy.LOWER_UNDERSCORE)
-public class ShopDetailBO {
+public class ShopDetailBO 
+{
     /**
      * 店铺id
      */
@@ -42,54 +44,4 @@ public class ShopDetailBO {
      */
     private Integer shopStatus;
 
-    public Long getShopId() {
-        return shopId;
-    }
-
-    public void setShopId(Long shopId) {
-        this.shopId = shopId;
-    }
-
-    public Integer getType() {
-        return type;
-    }
-
-    public void setType(Integer type) {
-        this.type = type;
-    }
-
-    public String getShopName() {
-        return shopName;
-    }
-
-    public void setShopName(String shopName) {
-        this.shopName = shopName;
-    }
-
-    public String getShopLogo() {
-        return shopLogo;
-    }
-
-    public void setShopLogo(String shopLogo) {
-        this.shopLogo = shopLogo;
-    }
-
-    public Integer getShopStatus() {
-        return shopStatus;
-    }
-
-    public void setShopStatus(Integer shopStatus) {
-        this.shopStatus = shopStatus;
-    }
-
-    @Override
-    public String toString() {
-        return "ShopDetail{" +
-                "shopId=" + shopId +
-                ",type=" + type +
-                ",shopName=" + shopName +
-                ",shopLogo=" + shopLogo +
-                ",shopStatus=" + shopStatus +
-                '}';
-    }
 }

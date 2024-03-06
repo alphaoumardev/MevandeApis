@@ -10,7 +10,7 @@ import java.io.Serializable;
 /**
  * 分类信息VO
  *
- * @author YXF
+ * @author Alphaoumardev
  * @date 2020-1-05 15:37:24
  */
 @Setter
