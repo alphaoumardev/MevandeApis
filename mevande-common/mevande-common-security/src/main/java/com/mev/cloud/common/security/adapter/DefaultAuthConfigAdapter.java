@@ -13,11 +13,12 @@ import java.util.List;
  * @author Alphaoumardev
  * @date 2020/7/16
  */
-public class DefaultAuthConfigAdapter implements AuthConfigAdapter {
-
+public class DefaultAuthConfigAdapter implements AuthConfigAdapter
+{
 	private static final Logger logger = LoggerFactory.getLogger(DefaultAuthConfigAdapter.class);
 
-	public DefaultAuthConfigAdapter() {
+	public DefaultAuthConfigAdapter()
+	{
 		logger.info("not implement other AuthConfigAdapter, use DefaultAuthConfigAdapter... all url need auth...");
 	}
 
@@ -42,7 +43,8 @@ public class DefaultAuthConfigAdapter implements AuthConfigAdapter {
 	}
 
 	@Override
-	public List<String> excludePathPatterns(String... paths) {
+	public List<String> excludePathPatterns(String... paths)
+	{
 		List<String> arrayList = new ArrayList<>();
 		arrayList.add(DOC_URI);
 		arrayList.add(FEIGN_INSIDER_URI);

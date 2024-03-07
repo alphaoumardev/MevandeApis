@@ -8,8 +8,8 @@ import java.util.List;
  * @author Alphaoumardev
  * @date 2020/7/4
  */
-public interface AuthConfigAdapter {
-
+public interface AuthConfigAdapter
+{
 	/**
 	 * 需要授权登陆的路径
 	 * @return 需要授权登陆的路径列表
