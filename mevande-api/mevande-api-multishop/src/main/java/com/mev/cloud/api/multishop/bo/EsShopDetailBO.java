@@ -4,6 +4,7 @@ import com.mev.cloud.common.vo.BaseVO;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import java.io.Serial;
 import java.io.Serializable;
@@ -16,6 +17,7 @@ import java.io.Serializable;
  */
 @Setter
 @Getter
+@ToString
 public class EsShopDetailBO extends BaseVO implements Serializable
 {
     @Serial
@@ -35,15 +37,4 @@ public class EsShopDetailBO extends BaseVO implements Serializable
 
     @Schema(description = "店铺状态(-1:未开通 0: 停业中 1:营业中)" )
     private Integer shopStatus;
-
-	@Override
-	public String toString() {
-		return "EsShopDetailBO{" +
-				"shopId=" + shopId +
-				", type=" + type +
-				", shopName='" + shopName + '\'' +
-				", shopLogo='" + shopLogo + '\'' +
-				", shopStatus=" + shopStatus +
-				'}';
-	}
 }

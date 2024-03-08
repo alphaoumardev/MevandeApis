@@ -6,6 +6,7 @@ import com.mev.cloud.common.vo.BaseVO;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import java.io.Serial;
 import java.io.Serializable;
@@ -18,6 +19,7 @@ import java.io.Serializable;
  */
 @Setter
 @Getter
+@ToString
 public class ShopDetailVO extends BaseVO implements Serializable {
     @Serial
 	private static final long serialVersionUID = 1L;
@@ -62,22 +64,4 @@ public class ShopDetailVO extends BaseVO implements Serializable {
 
 	@Schema(description = "密码" ,requiredMode = Schema.RequiredMode.REQUIRED)
 	private String password;
-
-	@Override
-	public String toString() {
-		return "ShopDetailVO{" +
-				"shopId=" + shopId +
-				", type=" + type +
-				", shopName='" + shopName + '\'' +
-				", intro='" + intro + '\'' +
-				", shopLogo='" + shopLogo + '\'' +
-				", shopStatus=" + shopStatus +
-				", businessLicense='" + businessLicense + '\'' +
-				", identityCardFront='" + identityCardFront + '\'' +
-				", identityCardLater='" + identityCardLater + '\'' +
-				", mobileBackgroundPic='" + mobileBackgroundPic + '\'' +
-				", username='" + username + '\'' +
-				", password='" + password + '\'' +
-				'}';
-	}
 }
