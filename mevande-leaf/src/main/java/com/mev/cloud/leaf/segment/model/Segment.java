@@ -2,6 +2,7 @@ package com.mev.cloud.leaf.segment.model;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import java.util.concurrent.atomic.AtomicLong;
 
@@ -10,6 +11,7 @@ import java.util.concurrent.atomic.AtomicLong;
  */
 @Getter
 @Setter
+@ToString
 public class Segment {
 
 	private AtomicLong value = new AtomicLong(0);
@@ -30,15 +32,5 @@ public class Segment {
 		return this.getMax() - getValue().get();
 	}
 
-	@Override
-	public String toString() {
-		return "Segment(" + "value:" +
-				value +
-				",max:" +
-				max +
-				",step:" +
-				step +
-				")";
-	}
 
 }

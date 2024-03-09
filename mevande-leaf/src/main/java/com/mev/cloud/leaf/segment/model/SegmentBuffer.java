@@ -2,6 +2,7 @@ package com.mev.cloud.leaf.segment.model;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import java.util.Arrays;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -16,9 +17,9 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
  */
 @Getter
 @Setter
-public class SegmentBuffer {
-
-
+@ToString
+public class SegmentBuffer
+{
 	private String key;
 
 	/**
@@ -97,21 +98,4 @@ public class SegmentBuffer {
 	public Lock wLock() {
 		return lock.writeLock();
 	}
-
-	@Override
-	public String toString() {
-		final StringBuilder sb = new StringBuilder("SegmentBuffer{");
-		sb.append("key='").append(key).append('\'');
-		sb.append(", segments=").append(Arrays.toString(segments));
-		sb.append(", currentPos=").append(currentPos);
-		sb.append(", nextReady=").append(nextReady);
-		sb.append(", initOk=").append(initOk);
-		sb.append(", threadRunning=").append(threadRunning);
-		sb.append(", step=").append(step);
-		sb.append(", minStep=").append(minStep);
-		sb.append(", updateTimestamp=").append(updateTimestamp);
-		sb.append('}');
-		return sb.toString();
-	}
-
 }

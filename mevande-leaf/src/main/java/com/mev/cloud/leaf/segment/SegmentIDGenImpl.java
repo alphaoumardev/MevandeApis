@@ -20,8 +20,8 @@ import java.util.concurrent.atomic.AtomicLong;
 /**
  * @author Alphaoumardev
  */
-public class SegmentIDGenImpl implements IDGen {
-
+public class SegmentIDGenImpl implements IDGen
+{
 	private static final Logger logger = LoggerFactory.getLogger(SegmentIDGenImpl.class);
 
 	/**
@@ -303,7 +303,8 @@ public class SegmentIDGenImpl implements IDGen {
 		return RANDOM.nextInt(randomStep - 1) + 1;
 	}
 
-	private void waitAndSleep(SegmentBuffer buffer) {
+	private void waitAndSleep(SegmentBuffer buffer)
+	{
 		int roll = 0;
 		while (buffer.getThreadRunning().get()) {
 			roll += 1;

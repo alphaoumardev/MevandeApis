@@ -12,7 +12,8 @@ import org.springframework.web.bind.annotation.RequestParam;
  * @date 2020/09/08
  */
 @FeignClient(value = "mevande-leaf",contextId ="segment")
-public interface SegmentFeignClient {
+public interface SegmentFeignClient
+{
 
 	/**
 	 * 获取id

@@ -20,7 +20,8 @@ import java.util.Objects;
  * @date 2020/7/15
  */
 @RestController
-public class SegmentFeignController implements SegmentFeignClient {
+public class SegmentFeignController implements SegmentFeignClient
+{
 
 	private static final Logger logger = LoggerFactory.getLogger(SegmentFeignController.class);
 
