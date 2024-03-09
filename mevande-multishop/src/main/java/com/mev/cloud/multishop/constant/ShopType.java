@@ -5,8 +5,8 @@ package com.mev.cloud.multishop.constant;
  *
  * @author Alphaoumardev
  */
-public enum ShopType {
-
+public enum ShopType
+{
     /**
      * 自营店
      */

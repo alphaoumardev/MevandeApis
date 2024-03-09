@@ -25,8 +25,8 @@ import jakarta.validation.Valid;
 @RestController("adminHotSearchController")
 @RequestMapping("/admin/hot_search")
 @Tag(name = "admin-热搜")
-public class HotSearchController {
-
+public class HotSearchController
+{
     @Autowired
     private HotSearchService hotSearchService;
 

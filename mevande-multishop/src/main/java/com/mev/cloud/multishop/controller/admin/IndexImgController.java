@@ -29,8 +29,8 @@ import java.util.Objects;
 @RestController("adminIndexImgController")
 @RequestMapping("/admin/index_img")
 @Tag(name = "admin-轮播图")
-public class IndexImgController {
-
+public class IndexImgController
+{
     @Autowired
     private IndexImgService indexImgService;
 

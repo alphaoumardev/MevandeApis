@@ -5,8 +5,8 @@ package com.mev.cloud.multishop.constant;
  *
  * @author Alphaoumardev
  */
-public enum ShopStatus {
-
+public enum ShopStatus
+{
     /**
      * 未开通
      */
