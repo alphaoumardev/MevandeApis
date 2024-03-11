@@ -20,15 +20,16 @@ import java.util.List;
 @RestController("appHotSearchController")
 @RequestMapping("/ua/app/hot_search")
 @Tag(name = "app-热搜")
-public class HotSearchController {
-
+public class HotSearchController
+{
     @Autowired
     private HotSearchService hotSearchService;
 
 	@GetMapping("/list")
 	@Operation(summary = "获取热搜列表" , description = "获取热搜列表")
 	@Parameter(name = "shopId", description = "店铺id")
-	public ServerResponseEntity<List<HotSearchVO>> listByShopId(@RequestParam("shopId") Long shopId) {
+	public ServerResponseEntity<List<HotSearchVO>> listByShopId(@RequestParam("shopId") Long shopId)
+	{
 		List<HotSearchVO> hotSearches = hotSearchService.listByShopId(shopId);
 		return ServerResponseEntity.success(hotSearches);
 	}
