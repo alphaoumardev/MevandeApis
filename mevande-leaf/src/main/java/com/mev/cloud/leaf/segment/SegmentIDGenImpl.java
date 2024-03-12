@@ -306,7 +306,8 @@ public class SegmentIDGenImpl implements IDGen
 	private void waitAndSleep(SegmentBuffer buffer)
 	{
 		int roll = 0;
-		while (buffer.getThreadRunning().get()) {
+		while (buffer.getThreadRunning().get())
+		{
 			roll += 1;
 			if (roll > 10000) {
 				try {
