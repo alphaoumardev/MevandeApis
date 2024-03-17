@@ -260,35 +260,43 @@ public class SegmentIDGenImpl implements IDGen
 					});
 				}
 				long value;
-				if (segment.getRandomStep() > 1) {
+				if (segment.getRandomStep() > 1)
+				{
 
 					// 随机从1-10里面增加
 					value = segment.getValue().getAndAdd(randomAdd(segment.getRandomStep()));
 				}
-				else {
+				else
+				{
 					value = segment.getValue().getAndIncrement();
 				}
 
-				if (value < segment.getMax()) {
+				if (value < segment.getMax())
+				{
 					return new Result(value, Status.SUCCESS);
 				}
 			}
-			finally {
+			finally
+			{
 				buffer.rLock().unlock();
 			}
 			waitAndSleep(buffer);
 			buffer.wLock().lock();
-			try {
+			try
+			{
 				final Segment segment = buffer.getCurrent();
 				long value = segment.getValue().getAndIncrement();
-				if (value < segment.getMax()) {
+				if (value < segment.getMax())
+				{
 					return new Result(value, Status.SUCCESS);
 				}
-				if (buffer.isNextReady()) {
+				if (buffer.isNextReady())
+				{
 					buffer.switchPos();
 					buffer.setNextReady(false);
 				}
-				else {
+				else
+				{
 					logger.error("Both two segments in {} are not ready!", buffer);
 					return new Result(EXCEPTION_ID_TWO_SEGMENTS_ARE_NULL, Status.EXCEPTION);
 				}

@@ -9,23 +9,25 @@ import lombok.Setter;
 
 @Setter
 @Getter
-public class Result {
-
+public class Result
+{
 	private long id;
-
 	private Status status;
 
-	public Result() {
+	public Result()
+	{
 
 	}
 
-	public Result(long id, Status status) {
+	public Result(long id, Status status)
+	{
 		this.id = id;
 		this.status = status;
 	}
 
 	@Override
-	public String toString() {
+	public String toString()
+	{
 		return "Result{" + "id=" + id +
 				", status=" + status +
 				'}';

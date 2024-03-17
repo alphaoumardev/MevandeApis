@@ -3,7 +3,8 @@ package com.mev.cloud.leaf.common;
 /**
  * @author Alphaoumardev
  */
-public enum Status {
+public enum Status
+{
 
 	/**
 	 * success
