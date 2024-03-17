@@ -22,26 +22,33 @@ import java.util.Objects;
 @RestController
 public class SegmentFeignController implements SegmentFeignClient
 {
-
 	private static final Logger logger = LoggerFactory.getLogger(SegmentFeignController.class);
 
 
-	@Autowired
-	private SegmentService segmentService;
+	private final SegmentService segmentService;
 
-	@Override
-	public ServerResponseEntity<Long> getSegmentId(String key) {
+    public SegmentFeignController(SegmentService segmentService)
+	{
+        this.segmentService = segmentService;
+    }
+
+    @Override
+	public ServerResponseEntity<Long> getSegmentId(String key)
+	{
 		return ServerResponseEntity.success(get(key, segmentService.getId(key)));
 	}
 
 
-	private Long get(String key, Result id) {
+	private Long get(String key, Result id)
+	{
 		Result result;
-		if (key == null || key.isEmpty()) {
+		if (key == null || key.isEmpty())
+		{
 			throw new NoKeyException();
 		}
 		result = id;
-		if (Objects.equals(result.getStatus(), Status.EXCEPTION)) {
+		if (Objects.equals(result.getStatus(), Status.EXCEPTION))
+		{
 			throw new LeafServerException(result.toString());
 		}
 		return result.getId();
