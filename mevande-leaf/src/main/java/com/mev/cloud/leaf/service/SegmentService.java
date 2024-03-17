@@ -16,22 +16,25 @@ import javax.sql.DataSource;
  * @author left
  */
 @Service("SegmentService")
-public class SegmentService {
-
+public class SegmentService
+{
     private final IDGen idGen;
 
-	public SegmentService(DataSource dataSource) throws InitException {
+	public SegmentService(DataSource dataSource) throws InitException
+	{
 		// Config Dao
 		IDAllocDao dao = new IDAllocDaoImpl(dataSource);
 
 		// Config ID Gen
 		idGen = new SegmentIDGenImpl();
 		((SegmentIDGenImpl) idGen).setDao(dao);
-		if (idGen.init()) {
+		if (idGen.init())
+		{
             Logger logger = LoggerFactory.getLogger(SegmentService.class);
             logger.info("Segment Service Init Successfully");
 		}
-		else {
+		else
+		{
 			throw new InitException("Segment Service Init Fail");
 		}
 
@@ -41,8 +44,10 @@ public class SegmentService {
 		return idGen.get(key);
 	}
 
-	public SegmentIDGenImpl getIdGen() {
-		if (idGen instanceof SegmentIDGenImpl) {
+	public SegmentIDGenImpl getIdGen()
+	{
+		if (idGen instanceof SegmentIDGenImpl)
+		{
 			return (SegmentIDGenImpl) idGen;
 		}
 		return null;
