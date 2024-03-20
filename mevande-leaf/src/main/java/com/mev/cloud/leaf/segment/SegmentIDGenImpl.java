@@ -152,16 +152,22 @@ public class SegmentIDGenImpl implements IDGen
 			return new Result(EXCEPTION_ID_IDCACHE_INIT_FALSE, Status.EXCEPTION);
 		}
 		SegmentBuffer buffer = cache.get(key);
-		if (buffer != null) {
-			if (buffer.isInitOk()) {
-				synchronized (buffer) {
-					if (buffer.isInitOk()) {
-						try {
+		if (buffer != null)
+		{
+			if (buffer.isInitOk())
+			{
+				synchronized (buffer)
+				{
+					if (buffer.isInitOk())
+					{
+						try
+						{
 							updateSegmentFromDb(key, buffer.getCurrent());
 							logger.info("Init buffer. Update leafkey {} {} from db", key, buffer.getCurrent());
 							buffer.setInitOk(true);
 						}
-						catch (Exception e) {
+						catch (Exception e)
+						{
 							logger.warn("Init buffer {} exception", buffer.getCurrent(), e);
 						}
 					}
@@ -172,16 +178,19 @@ public class SegmentIDGenImpl implements IDGen
 		return new Result(EXCEPTION_ID_KEY_NOT_EXISTS, Status.EXCEPTION);
 	}
 
-	public void updateSegmentFromDb(String key, Segment segment) {
+	public void updateSegmentFromDb(String key, Segment segment)
+	{
 		SegmentBuffer buffer = segment.getBuffer();
 		LeafAlloc leafAlloc;
-		if (buffer.isInitOk()) {
+		if (buffer.isInitOk())
+		{
 			leafAlloc = dao.updateMaxIdAndGetLeafAlloc(key);
 			buffer.setStep(leafAlloc.getStep());
 			// leafAlloc中的step为DB中的step
 			buffer.setMinStep(leafAlloc.getStep());
 		}
-		else if (buffer.getUpdateTimestamp() == 0) {
+		else if (buffer.getUpdateTimestamp() == 0)
+		{
 			leafAlloc = dao.updateMaxIdAndGetLeafAlloc(key);
 			buffer.setUpdateTimestamp(System.currentTimeMillis());
 			buffer.setStep(leafAlloc.getStep());
@@ -191,15 +200,19 @@ public class SegmentIDGenImpl implements IDGen
 		else {
 			long duration = System.currentTimeMillis() - buffer.getUpdateTimestamp();
 			int nextStep = buffer.getStep();
-			if (duration < SEGMENT_DURATION) {
-				if (nextStep * DEFAULT_LOAD_FACTOR > MAX_STEP) {
+			if (duration < SEGMENT_DURATION)
+			{
+				if (nextStep * DEFAULT_LOAD_FACTOR > MAX_STEP)
+				{
 					// do nothing
 				}
-				else {
+				else
+				{
 					nextStep = nextStep * DEFAULT_LOAD_FACTOR;
 				}
 			}
-			else if (duration < SEGMENT_DURATION * DEFAULT_LOAD_FACTOR) {
+			else if (duration < SEGMENT_DURATION * DEFAULT_LOAD_FACTOR)
+			{
 				// do nothing with nextStep
 			}
 			else {
