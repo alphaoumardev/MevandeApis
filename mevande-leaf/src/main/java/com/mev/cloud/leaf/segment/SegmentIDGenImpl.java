@@ -65,8 +65,8 @@ public class SegmentIDGenImpl implements IDGen
 
 	private static final int DEFAULT_LOAD_FACTOR = 2;
 
-	public static class UpdateThreadFactory implements ThreadFactory {
-
+	public static class UpdateThreadFactory implements ThreadFactory
+	{
 		private static int threadInitNumber = 0;
 
 		private static synchronized int nextThreadNum() {
@@ -81,7 +81,8 @@ public class SegmentIDGenImpl implements IDGen
 	}
 
 	@Override
-	public boolean init() {
+	public boolean init()
+	{
 		logger.info("Init ...");
 		// 确保加载到kv后才初始化成功
 		updateCacheFromDb();
@@ -90,25 +91,20 @@ public class SegmentIDGenImpl implements IDGen
 		return initOk;
 	}
 
-	private void updateCacheFromDbAtEveryMinute() {
-		ScheduledExecutorService service = Executors.newSingleThreadScheduledExecutor(new ThreadFactory() {
-			@Override
-			public Thread newThread(Runnable r) {
-				Thread t = new Thread(r);
-				t.setName("check-idCache-thread");
-				t.setDaemon(true);
-				return t;
-			}
-		});
-		service.scheduleWithFixedDelay(new Runnable() {
-			@Override
-			public void run() {
-				updateCacheFromDb();
-			}
-		}, 60, 60, TimeUnit.SECONDS);
+	private void updateCacheFromDbAtEveryMinute()
+	{
+		ScheduledExecutorService service = Executors.newSingleThreadScheduledExecutor(r ->
+		{
+            Thread t = new Thread(r);
+            t.setName("check-idCache-thread");
+            t.setDaemon(true);
+            return t;
+        });
+		service.scheduleWithFixedDelay(this::updateCacheFromDb, 60, 60, TimeUnit.SECONDS);
 	}
 
-	private void updateCacheFromDb() {
+	private void updateCacheFromDb()
+	{
 		logger.info("update cache from db");
 		try {
 			List<String> dbTags = dao.getAllTags();
