@@ -12,7 +12,8 @@ import java.util.concurrent.atomic.AtomicLong;
 @Getter
 @Setter
 @ToString
-public class Segment {
+public class Segment
+{
 
 	private AtomicLong value = new AtomicLong(0);
 

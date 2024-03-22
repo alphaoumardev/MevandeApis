@@ -74,7 +74,8 @@ public class SegmentIDGenImpl implements IDGen
 		}
 
 		@Override
-		public Thread newThread(Runnable r) {
+		public Thread newThread(Runnable r)
+		{
 			return new Thread(r, "Thread-Segment-Update-" + nextThreadNum());
 		}
 
@@ -108,17 +109,20 @@ public class SegmentIDGenImpl implements IDGen
 		logger.info("update cache from db");
 		try {
 			List<String> dbTags = dao.getAllTags();
-			if (dbTags == null || dbTags.isEmpty()) {
+			if (dbTags == null || dbTags.isEmpty())
+			{
 				return;
 			}
 			List<String> cacheTags = new ArrayList<String>(cache.keySet());
 			Set<String> insertTagsSet = new HashSet<>(dbTags);
 			Set<String> removeTagsSet = new HashSet<>(cacheTags);
 			// db中新加的tags灌进cache
-            for (String tmp : cacheTags) {
+            for (String tmp : cacheTags)
+			{
                 insertTagsSet.remove(tmp);
             }
-			for (String tag : insertTagsSet) {
+			for (String tag : insertTagsSet)
+			{
 				SegmentBuffer buffer = new SegmentBuffer();
 				buffer.setKey(tag);
 				Segment segment = buffer.getCurrent();
@@ -129,22 +133,27 @@ public class SegmentIDGenImpl implements IDGen
 				logger.info("Add tag {} from db to IdCache, SegmentBuffer {}", tag, buffer);
 			}
 			// cache中已失效的tags从cache删除
-            for (String tmp : dbTags) {
+            for (String tmp : dbTags)
+			{
                 removeTagsSet.remove(tmp);
             }
-			for (String tag : removeTagsSet) {
+			for (String tag : removeTagsSet)
+			{
 				cache.remove(tag);
 				logger.info("Remove tag {} from IdCache", tag);
 			}
 		}
-		catch (Exception e) {
+		catch (Exception e)
+		{
 			logger.warn("update cache from db exception", e);
 		}
 	}
 
 	@Override
-	public Result get(final String key) {
-		if (!initOk) {
+	public Result get(final String key)
+	{
+		if (!initOk)
+		{
 			return new Result(EXCEPTION_ID_IDCACHE_INIT_FALSE, Status.EXCEPTION);
 		}
 		SegmentBuffer buffer = cache.get(key);

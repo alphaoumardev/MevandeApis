@@ -10,8 +10,8 @@ import java.util.List;
  * @author Alphaoumardev
  * @date 2020/7/4
  */
-public interface CacheTtlAdapter {
-
+public interface CacheTtlAdapter
+{
 	/**
 	 * 根据缓存的cacheName和ttl将缓存进行过期
 	 * @return 需要独立设置过期时间的缓存列表

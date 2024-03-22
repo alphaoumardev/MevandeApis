@@ -14,10 +14,10 @@ import lombok.Setter;
 public class CacheNameWithTtlBO
 {
 	private String cacheName;
-
 	private Integer ttl;
 
-	public CacheNameWithTtlBO(String cacheName, Integer ttl) {
+	public CacheNameWithTtlBO(String cacheName, Integer ttl)
+	{
 		this.cacheName = cacheName;
 		this.ttl = ttl;
 	}

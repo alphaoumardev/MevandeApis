@@ -10,8 +10,8 @@ import lombok.ToString;
 @Setter
 @Getter
 @ToString
-public class LeafAlloc {
-
+public class LeafAlloc
+{
 	private String key;
 
 	private long maxId;
