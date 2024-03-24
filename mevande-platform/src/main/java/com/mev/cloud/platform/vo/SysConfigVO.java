@@ -16,7 +16,8 @@ import java.io.Serializable;
  */
 @Setter
 @Getter
-public class SysConfigVO extends BaseVO implements Serializable {
+public class SysConfigVO extends BaseVO implements Serializable
+{
     @Serial
 	private static final long serialVersionUID = 1L;
 

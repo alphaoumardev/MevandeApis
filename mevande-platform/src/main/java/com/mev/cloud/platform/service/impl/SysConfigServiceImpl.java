@@ -21,8 +21,8 @@ import java.util.Objects;
  * @date 2020-12-23 16:27:57
  */
 @Service
-public class SysConfigServiceImpl implements SysConfigService {
-
+public class SysConfigServiceImpl implements SysConfigService
+{
     @Resource
     private SysConfigMapper sysConfigMapper;
 
@@ -77,15 +77,20 @@ public class SysConfigServiceImpl implements SysConfigService {
 
     @Override
     @Cacheable(cacheNames = ConfigCacheNames.SYS_CONFIG_OBJECT,key="#key")
-    public <T> T  getSysConfigObject(String key, Class<T> clazz) {
+    public <T> T  getSysConfigObject(String key, Class<T> clazz)
+    {
         String value = getValue(key);
-        if (StrUtil.isBlank(value)) {
+        if (StrUtil.isBlank(value))
+        {
             return null;
         }
 
-        if(Objects.equals(String.class,clazz)){
+        if(Objects.equals(String.class,clazz))
+        {
             return (T)value;
-        }else{
+        }
+        else
+        {
             return Json.parseObject(value, clazz);
         }
     }

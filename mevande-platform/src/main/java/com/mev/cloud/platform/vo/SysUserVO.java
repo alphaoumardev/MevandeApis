@@ -16,7 +16,6 @@ import java.util.List;
 @Getter
 public class SysUserVO
 {
-
 	/**
 	 * sysUserId
 	 */

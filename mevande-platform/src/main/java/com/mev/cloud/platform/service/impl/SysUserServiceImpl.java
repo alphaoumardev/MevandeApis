@@ -28,18 +28,22 @@ import java.util.List;
  * @date 2020/12/22
  */
 @Service
-public class SysUserServiceImpl implements SysUserService {
+public class SysUserServiceImpl implements SysUserService
+{
 
 	@Resource
 	private SysUserMapper sysUserMapper;
-	@Autowired
-	private AccountFeignClient accountFeignClient;
-	@Autowired
-	private UserRoleFeignClient userRoleFeignClient;
+	private final AccountFeignClient accountFeignClient;
+	private final UserRoleFeignClient userRoleFeignClient;
+
+    public SysUserServiceImpl(AccountFeignClient accountFeignClient, UserRoleFeignClient userRoleFeignClient)
+	{
+        this.accountFeignClient = accountFeignClient;
+        this.userRoleFeignClient = userRoleFeignClient;
+    }
 
 
-
-	@Override
+    @Override
 	@Cacheable(cacheNames = CacheNames.PLATFORM_SIMPLE_INFO_KEY, key = "#userId")
 	public SysUserSimpleVO getSimpleByUserId(Long userId) {
 		return sysUserMapper.getSimpleByUserId(userId);

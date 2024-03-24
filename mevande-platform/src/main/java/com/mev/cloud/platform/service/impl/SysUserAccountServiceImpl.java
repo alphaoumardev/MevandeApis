@@ -23,12 +23,16 @@ import jakarta.annotation.Resource;
  * @date 2020/12/22
  */
 @Service
-public class SysUserAccountServiceImpl implements SysUserAccountService {
-
+public class SysUserAccountServiceImpl implements SysUserAccountService
+{
 	@Resource
 	private SysUserMapper sysUserMapper;
-	@Autowired
-	private AccountFeignClient accountFeignClient;
+	private final AccountFeignClient accountFeignClient;
+
+    public SysUserAccountServiceImpl(AccountFeignClient accountFeignClient)
+	{
+        this.accountFeignClient = accountFeignClient;
+    }
 
     @Override
 	@GlobalTransactional(rollbackFor = Exception.class)
